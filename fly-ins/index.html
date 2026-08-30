@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free College Visits — Fly-In &amp; Overnight Programs | SLJ College Office</title>
+<style>
+:root{
+  --navy:#14213d; --navy2:#1d2d50; --gold:#fca311; --gold-dk:#d8890a;
+  --bg:#f4f5f7; --card:#ffffff; --ink:#1b1f2a; --muted:#5b6270;
+  --green:#177245; --green-bg:#e6f4ec; --amber:#b45309; --amber-bg:#fff3e0;
+  --red:#b3261e; --red-bg:#fdecea; --blue:#1a56db; --blue-bg:#e8effc;
+  --line:#e3e6ec; --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+
+/* ---------- hero ---------- */
+header{background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 70%);color:#fff;padding:36px 0 30px}
+.kicker{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+h1{font-size:clamp(26px,5vw,40px);line-height:1.15;font-weight:800;max-width:720px}
+h1 em{font-style:normal;color:var(--gold)}
+.lede{margin-top:12px;font-size:clamp(15px,2.5vw,18px);color:#d8dce6;max-width:680px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:22px}
+.why div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radius);padding:14px 16px}
+.why b{display:block;color:var(--gold);font-size:15px;margin-bottom:4px}
+.why p{font-size:13.5px;color:#cfd4e0}
+.strategy{margin-top:16px;background:rgba(252,163,17,.12);border-left:4px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:#e9ecf3;max-width:820px}
+.strategy b{color:var(--gold)}
+.fineprint{margin-top:10px;font-size:12px;color:#98a0b3;max-width:820px}
+
+/* ---------- summary strip ---------- */
+.strip{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+  box-shadow:0 1px 6px rgba(20,33,61,.06)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px}
+.stat{font-size:13px;color:var(--muted)}
+.stat b{color:var(--ink);font-size:15px}
+.stat.urgent b{color:var(--amber)}
+.strip .spacer{flex:1}
+#search{border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;min-width:180px;
+  background:var(--bg)}
+#search:focus{outline:2px solid var(--gold)}
+
+/* ---------- controls ---------- */
+.controls{padding:18px 0 4px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;font-size:14px;
+  font-weight:600;cursor:pointer;color:var(--muted)}
+.tab .n{font-weight:800;color:var(--ink)}
+.tab.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.tab.active .n{color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:13px;
+  cursor:pointer;color:var(--muted);font-weight:600}
+.chip.active{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.chips label{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.sortrow{display:flex;gap:10px;align-items:center;margin:12px 0 4px;flex-wrap:wrap}
+.sortrow select{border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13.5px;background:#fff}
+#count{font-size:13px;color:var(--muted)}
+
+/* ---------- cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;padding:14px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;
+  display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 3px rgba(20,33,61,.05);position:relative}
+.card.closed{background:#fafafb;border-style:dashed}
+.card.closed .college{color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 9px;border-radius:999px}
+.pill.open{background:var(--green-bg);color:var(--green)}
+.pill.soon{background:var(--amber-bg);color:var(--amber)}
+.pill.closed{background:var(--red-bg);color:var(--red)}
+.pill.tbd{background:var(--blue-bg);color:var(--blue)}
+.pill.plain{background:var(--bg);color:var(--muted);font-weight:700}
+.pill.travel{background:#eef7f1;color:var(--green);font-weight:700}
+.college{font-size:19px;font-weight:800;line-height:1.2}
+.program{font-size:13.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.deadline{font-size:14.5px}
+.deadline b{font-weight:800}
+.deadline .left{color:var(--green);font-weight:700}
+.deadline .left.soon{color:var(--amber)}
+.deadline.closedline{color:var(--red)}
+.dates{font-size:13.5px;color:var(--muted)}
+.note{background:var(--amber-bg);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;
+  padding:8px 12px;font-size:13.5px}
+.card.closed .note{background:var(--bg);border-left-color:#c6cbd6}
+details{border-top:1px solid var(--line);padding-top:8px;font-size:13.5px}
+details summary{cursor:pointer;font-weight:700;color:var(--blue);list-style:none}
+details summary::before{content:"+ "}
+details[open] summary::before{content:"– "}
+details .sec{margin-top:8px}
+details .sec b{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+details .essay{white-space:pre-wrap;background:var(--bg);border-radius:8px;padding:10px;margin-top:4px;
+  font-size:13px;max-height:220px;overflow-y:auto}
+.actions{margin-top:auto;display:flex;gap:8px;align-items:center;padding-top:4px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;font-size:14px;
+  padding:9px 18px;border-radius:10px;text-decoration:none}
+.btn:hover{background:var(--gold-dk)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--muted);font-weight:700}
+.nextcycle{font-size:12.5px;color:var(--muted)}
+
+/* ---------- closed divider ---------- */
+.divider{margin:26px 0 4px;padding:16px 18px;background:var(--red-bg);border:1px solid #f3c9c5;
+  border-radius:var(--radius)}
+.divider b{color:var(--red)}
+.easy{padding:14px 18px;background:var(--green-bg);border:1px solid #bfe0cd;border-radius:var(--radius);
+  font-size:14px;color:#12492e}
+.easy b{color:var(--green)}
+.easy span{white-space:nowrap;font-weight:600}
+.divider p{font-size:14px;color:#7a2f2a;margin-top:2px}
+#empty{display:none;text-align:center;color:var(--muted);padding:40px 0;font-size:15px}
+
+footer{margin-top:34px;background:var(--navy);color:#c7cddb;padding:26px 0 34px;font-size:13.5px}
+footer b{color:#fff}
+footer .gold{color:var(--gold);font-weight:700}
+@media print{.strip,.controls,.actions,footer{display:none}.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">SLJ College Office · Class of 2027</span>
+    <h1>These colleges will <em>fly you out for free</em> to spend a night on campus.</h1>
+    <p class="lede">Fly-in and diversity overnight programs cover your travel, meals, and housing so you can
+    experience a college before you apply. You stay in a dorm, sit in on classes, and meet students
+    like you. The only thing most of them cost is a short application.</p>
+    <div class="why">
+      <div><b>It's a real trip, on them</b><p>Most programs book and pay for your flights or trains, your meals, and your room. You bring a bag; they handle the rest.</p></div>
+      <div><b>Just applying helps you</b><p>In our own SLJ tracking, students who applied to a college's overnight — <u>even the ones who didn't get in</u> — were about <b>twice as likely</b> to later be accepted to that college. That's our internal numbers, not a formal study, but the pattern is real: applying shows the college you're serious, and they notice.</p></div>
+      <div><b>The money follows</b><p>Nearly every college on this page meets <b>100% of demonstrated financial need</b>. These aren't just nice campuses — they're the schools that can actually be affordable.</p></div>
+    </div>
+    <div class="strategy"><b>The strategy:</b> curious about a region — say, the South? Apply to the overnight at <b>every</b> college on this list in that region. Visiting a campus makes it real, and psychologists have a name for what happens next: the more familiar a place feels, the more you like it. Students who visit are far more likely to apply, get in, and go.</div>
+    <p class="fineprint">Being selective is part of these programs — if you don't get picked, that says nothing about your admission chances (see the stat above). Apply anyway. Deadlines and links on this page are verified against each college's official site.</p>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span class="stat"><b id="nOpen">0</b> open now</span>
+    <span class="stat urgent"><b id="nSoon">0</b> close within 2 weeks</span>
+    <span class="stat"><b id="nextUp">—</b></span>
+    <span class="spacer"></span>
+    <input id="search" type="search" placeholder="Search a college…" aria-label="Search colleges">
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="controls">
+    <div class="tabs" id="tabs"></div>
+    <div class="chips" id="regions"><label>Region</label></div>
+    <div class="chips" style="margin-top:8px">
+      <label>Show only</label>
+      <button class="chip" data-flag="travel">✈ Travel covered</button>
+      <button class="chip" data-flag="virtual">💻 Virtual-friendly</button>
+      <button class="chip" data-flag="noessay">⚡ No essay</button>
+    </div>
+    <div class="sortrow">
+      <label for="sort" style="font-size:13px;color:var(--muted);font-weight:700">Sort:</label>
+      <select id="sort">
+        <option value="deadline">Deadline (soonest first)</option>
+        <option value="college">College A–Z</option>
+      </select>
+      <span id="count"></span>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p id="empty">Nothing matches those filters — try clearing one.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Want in?</b> Come see <span class="gold">Ms. Moldovan</span> — she'll help you pick programs, polish the short essays,
+    and she can <b>nominate</b> you for the programs that require it (Olin, Whitman, Swarthmore).</p>
+    <p style="margin-top:8px">Some programs on this page already closed for 2026. That's how fast these fill —
+    the open ones will do the same. <span class="gold">Apply this week, not "soon."</span></p>
+    <p style="margin-top:14px;font-size:12px;color:#8b93a7">Maintained by the SLJ College Office · Last verified August 29, 2026 ·
+    Always confirm details on the college's official page before you travel.</p>
+  </div>
+</footer>
+
+<script>
+const DATA = [{"college": "Elon University", "program_name": "ElonYOU: An Overnight Experience", "state": "NC", "region": "South", "need_met": "100%", "status": "open", "deadline_iso": "2026-08-31", "deadline_display": "Aug 31", "program_dates": "Oct 23-24 (Fri-Sat)", "format": "In-person overnight (residence hall, student host)", "travel": "Overnight housing provided; travel not covered", "eligibility": "Brief application; limited capacity; Elon tracks demonstrated interest", "essay_prompt": "Why Elon?; How do you plan to make the most of your time at this program to enhance your college application journey?; Please record a short 1-3 minute video responding to the following prompt: Who are you beyond your transcript and essays? Share something—an experience, passion, value, or quirk—that helps us see the real you.", "link": "https://www.elon.edu/u/admissions/undergraduate/admissions-events/elonyou/", "next_cycle": "", "note_student": "Rolls into Fall Open House; decisions by end of September", "sort_key": "2026-08-31"}, {"college": "Vassar College", "program_name": "Rooted: Community at Vassar", "state": "NY", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "", "deadline_display": "Open registration (register now)", "program_dates": "Sat Sept 19, 1-5 PM (one-day)", "format": "In-person one-day event (panels, resource fair, tours)", "travel": "Not covered - but it's a $30 Metro-North ride to Poughkeepsie", "eligibility": "Open registration - no application, no essay. Just sign up.", "essay_prompt": "", "link": "https://apply.vassar.edu/register/rooted2026", "next_cycle": "", "note_student": "Easiest yes on this page: no essay, no application, 2 hours from NYC", "sort_key": "2026-09-15"}, {"college": "Middlebury College", "program_name": "Discover Middlebury", "state": "VT", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-04", "deadline_display": "Sept 4", "program_dates": "Oct 11-13 (2 nights in a dorm)", "format": "In-person overnight", "travel": "All-expenses-paid: travel, housing, meals", "eligibility": "US-based students; unofficial transcript (grades 9-11) + one-page statement", "essay_prompt": "A one-page statement addressing an important educational moment in your life and its impact on you", "link": "https://www.middlebury.edu/college/admissions/campus-and-virtual-visits", "next_cycle": "", "note_student": "", "sort_key": "2026-09-04"}, {"college": "Oberlin College", "program_name": "Oberlin Overnight: Diversity & Access", "state": "OH", "region": "Midwest", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-07", "deadline_display": "Sept 7", "program_dates": "Oct 11-13", "format": "In-person overnight", "travel": "Round-trip airfare (or gas reimbursement) + meals + housing covered", "eligibility": "Transcript, waiver form, 2 short essays; decisions in September; US citizens/PR/undocumented welcome", "essay_prompt": "Be prepared to respond to the following prompts in 300 words or fewer: \n\n\"Since 1835 Oberlin has been a leader in diversity, becoming the first school in the nation to admit African Americans and adopting a policy to admit students regardless of race or gender. Because of this, some students first hear about Oberlin in their history books. How did you first hear about Oberlin and why are you interested in participating in MVP?", "link": "https://www.oberlin.edu/admissions-and-aid/visit-and-connect/visit-programs/oberlin-overnight-program", "next_cycle": "", "note_student": "", "sort_key": "2026-09-07"}, {"college": "Haverford College", "program_name": "Have-A-Look (HAL)", "state": "PA", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-20", "deadline_display": "Sept 20 (priority Sept 7) - confirm with Haverford", "program_dates": "Oct 25-27 (2 nights)", "format": "In-person overnight", "travel": "Need-based travel scholarships", "eligibility": "US citizens/PR/DACA-undocumented; includes an admission interview", "essay_prompt": "Please explain why you are considering Haverford College. What specific aspects of Haverford interest you? (Word count: 150)\nDescribe how your lived experiences will influence the kind of college community member you expect to be. (Word count: 250)\nPlease briefly let us know how you became aware of Haverford College and the Have-A-Look program.\nIs there anything else you'd like us to know as we evaluate your application?", "link": "https://www.haverford.edu/have-look", "next_cycle": "", "note_student": "Deadline being confirmed - apply ASAP to be safe", "sort_key": "2026-09-20"}, {"college": "Smith College", "program_name": "Women of Distinction", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-11", "deadline_display": "Sept 11", "program_dates": "Oct 16-17 or Nov 6-7 (two sessions)", "format": "In-person overnight", "travel": "Fully funded: housing, meals, transportation to/from campus", "eligibility": "Women's college. For students identifying as African American, Asian American, Latin American, Native American, and/or first-gen - all welcome. Transcript + senior courses + 3 activities", "essay_prompt": "1. 3 extracurricular activities with descriptions 300 character limit each\n2. Dr. Kimberlé Crenshaw, Smith College 2018 honorary degree recipient, coined the term \"intersectionality\" to describe \"a lens through which you can see where power comes and collides, where it interlocks and intersects.\" Intersectionality highlights the complex ways in which the effects of multiple forms of discrimination (racism, sexism, classism, etc.) combine or overlap. How has your own intersectional lens impacted your worldview? Approximately 250 words", "link": "https://www.smith.edu/women-distinction-program", "next_cycle": "", "note_student": "", "sort_key": "2026-09-11"}, {"college": "Olin College of Engineering", "program_name": "MIX & Mingle Fly-In", "state": "MA", "region": "Northeast", "need_met": "99%", "status": "open", "deadline_iso": "2026-09-14", "deadline_display": "Sept 14 (Ms. Moldovan nominates you)", "program_dates": "Nov 8-9", "format": "In-person overnight", "travel": "All costs covered for students who couldn't otherwise visit", "eligibility": "Counselor-nominated only - tell Ms. Moldovan you want in. For future engineers; US citizens/PR in the contiguous US", "essay_prompt": "", "link": "https://www.olin.edu/admission/visit", "next_cycle": "", "note_student": "Want engineering? Ask Ms. Moldovan to nominate you THIS WEEK", "sort_key": "2026-09-14"}, {"college": "University of Rochester", "program_name": "Meliora Visit Program (MVP)", "state": "NY", "region": "Northeast", "need_met": "100% if HEOP", "status": "open", "deadline_iso": "2026-09-15", "deadline_display": "Sept 15, 11:59 PM", "program_dates": "Oct 22-24 (2 nights with a student host)", "format": "In-person overnight", "travel": "Free travel: air/train/bus tickets purchased for you + pickup + meals", "eligibility": "Unofficial transcript, permission slip, two short responses. App can't be saved midway - draft answers first", "essay_prompt": "", "link": "https://admissions.rochester.edu/visit/mvp/", "next_cycle": "", "note_student": "Application can't be saved halfway - write your answers before you start", "sort_key": "2026-09-15"}, {"college": "Connecticut College", "program_name": "Explore", "state": "CT", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-15", "deadline_display": "Sept 15", "program_dates": "November (2 days, overnight at a hotel; exact dates TBC)", "format": "In-person overnight", "travel": "Fully covered for anyone who needs it - they book your plane/train and ground transport", "eligibility": "For BIPOC, first-gen, and social-justice-minded seniors", "essay_prompt": "Why are you interested in Connecticut College and what do you hope to gain from participating in Explore? Please limit your response to 200 words.\n\nPersonal Statement: Please share with us your thoughts on diversity, how your experiences and background have impacted your views on this topic, and how you see your perspective on diversity shaping your future (500 words or less).", "link": "https://www.conncoll.edu/admission/visits-virtuals-and-events/fly-in-programs/", "next_cycle": "", "note_student": "", "sort_key": "2026-09-15"}, {"college": "College of the Holy Cross", "program_name": "Perspectives (November session)", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-16", "deadline_display": "Sept 16 (round 2)", "program_dates": "Nov 7-9 (Sat-Mon)", "format": "In-person overnight (hotel, with a parent/guardian)", "travel": "Travel grants on request (air/bus/train + transfers); hotel + meals covered for everyone", "eligibility": "A parent/guardian age 25+ must come with you (hotel policy). Transcript + short essays", "essay_prompt": "How is Holy Cross a good personal and academic fit for you?\nWhy do you wish to attend Perspectives?\nWhat do you hope to learn about Holy Cross during your time at Perspectives?", "link": "https://www.holycross.edu/admissions-aid/connect-with-us/admission-programming", "next_cycle": "", "note_student": "Second-chance deadline - their September round already passed", "sort_key": "2026-09-16"}, {"college": "Union College", "program_name": "Getting to Know Union (GTKU)", "state": "NY", "region": "Northeast", "need_met": "100% for HEOP", "status": "open", "deadline_iso": "2026-09-21", "deadline_display": "Sept 21", "program_dates": "Oct 11-12 (overnight into Fall Open House)", "format": "In-person overnight (hosted in a student's room)", "travel": "Round-trip bus/train tickets bought for you + station pickup + meals", "eligibility": "NYC-metro students ONLY - this program exists for you. B+ or better in core courses; transcript + 50-100 word short answer", "essay_prompt": "Why are you interested in Union College? 50 Words", "link": "https://www.union.edu/admissions/getting-to-know-union", "next_cycle": "", "note_student": "Built for NYC students - one of the best fits on this page", "sort_key": "2026-09-21"}, {"college": "Miami University (Ohio)", "program_name": "Bridges Program", "state": "OH", "region": "Midwest", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-21", "deadline_display": "Sept 21", "program_dates": "Oct 18-19, Oct 25-26, or Nov 8-9 (pick a session)", "format": "In-person overnight (hotel with student ambassadors)", "travel": "Buses run from Ohio cities only; out-of-state historically reimbursed up to $300 airfare", "eligibility": "Requires a counselor recommendation. Completers who enroll get a $2,500-5,000/yr scholarship", "essay_prompt": "In 250-300 words each, please respond to both prompts below:\n\nTell us how you define diversity, equity, and inclusion; what those words mean to you; and how you will contribute to a diverse, equitable, and inclusive college community.\n\nRecently, college campuses have been central to events and causes such as Black Lives Matter, gender identity and expression, and women's rights that have put diversity in the spotlight. How do you foresee these types of movements impacting the climate on college campuses?", "link": "https://miamioh.edu/visit-miami/bridges-program/index.html", "next_cycle": "", "note_student": "Travel money is partial for NYC students - talk to Ms. Moldovan first", "sort_key": "2026-09-21"}, {"college": "Trinity College", "program_name": "Bantam Bound", "state": "CT", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-25", "deadline_display": "Sept 25", "program_dates": "Nov 8-9", "format": "In-person overnight", "travel": "Fully covered: transportation to/from Hartford, lodging, all meals", "eligibility": "Focus: students of color, first-gen, low-income, LGBTQIA+. Priority if you haven't visited campus. Everyone who applies gets a Trinity fee waiver", "essay_prompt": "The Trinity College community is one that is characterized by engagement, inclusion, and collaborative partnerships. Reflecting on the different communities that you are a member of, how do you hope to engage with and leave an impact on the Trinity College community?", "link": "https://www.trincoll.edu/admissions/bantam-bound/", "next_cycle": "", "note_student": "Apply and you get a fee waiver even if not selected", "sort_key": "2026-09-25"}, {"college": "Mount Holyoke College", "program_name": "Mosaic", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-25", "deadline_display": "Sept 25, 11:59 PM (reviewed as submitted - apply early)", "program_dates": "Nov 7-9 (Sat-Mon)", "format": "In-person overnight", "travel": "Travel awarded to admitted participants", "eligibility": "Women's college. Short answers + 1-3 paragraph essay + unofficial transcript with junior grades + senior courses. Form can't be saved midway", "essay_prompt": "In 1-3 sentences, tell the Mosaic committee about your favorite teacher/mentor and why did this person have an impact on you?*", "link": "https://admission.mtholyoke.edu/register/mosaic", "next_cycle": "", "note_student": "Space is limited and apps are reviewed as they come in - earlier is better", "sort_key": "2026-09-25"}, {"college": "Pomona College", "program_name": "Perspectives on Pomona - VIRTUAL", "state": "CA", "region": "West", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-28", "deadline_display": "Sept 28 (virtual track)", "program_dates": "Oct 22 evening or Oct 24 morning (half-day, online)", "format": "Virtual", "travel": "n/a (online) - and you still get a Pomona application fee waiver", "eligibility": "No essay for the virtual track - just the form + transcript + senior course list. Open to undocumented/DACA students", "essay_prompt": "", "link": "https://www.pomona.edu/admissions/diversity/fall-fly-program-pop", "next_cycle": "Fly-in reopens ~May; deadline early Aug", "note_student": "The in-person trip closed in August, but the virtual door is still open - no essay required", "sort_key": "2026-09-28"}, {"college": "University of Vermont", "program_name": "Discovering UVM", "state": "VT", "region": "Northeast", "need_met": "69% avg / 100% for attendees who enroll", "status": "open", "deadline_iso": "2026-10-02", "deadline_display": "Oct 2", "program_dates": "Nov 1-3 (Sun-Tue, hotel, chaperoned)", "format": "In-person overnight", "travel": "Programming, lodging, meals covered; travel is on you BUT hardship travel grants up to $500 via the application", "eligibility": "US citizens/PR/DACA-undocumented. Competitive - hundreds apply. Fee waiver included", "essay_prompt": "Please respond to the following essay prompt in no more than 350 words. What are you hoping to learn or gain from attending this program?", "link": "https://www.uvm.edu/admissions/undergraduate/discovering-uvm", "next_cycle": "", "note_student": "Attend + enroll at UVM = they commit to meeting your full financial need all 4 years", "sort_key": "2026-10-02"}, {"college": "Whitman College", "program_name": "Visit Scholarship Program (VSP)", "state": "WA", "region": "West", "need_met": "~90%", "status": "open", "deadline_iso": "", "deadline_display": "No deadline posted - nominate ASAP (program is Oct 16-18)", "program_dates": "Oct 16-18 (Fri-Sun)", "format": "In-person overnight", "travel": "All expenses covered", "eligibility": "Nomination-based, but students and counselors can both submit the form. Open to any student in the US regardless of immigration status", "essay_prompt": "", "link": "https://www.whitman.edu/admission-and-aid/visit-whitman/visit-scholarship-program", "next_cycle": "", "note_student": "Tell Ms. Moldovan if you want this - nominations are open now", "sort_key": "2026-09-10"}, {"college": "Davidson College", "program_name": "Access Davidson", "state": "NC", "region": "South", "need_met": "100%", "status": "open", "deadline_iso": "2026-10-15", "deadline_display": "Oct 15", "program_dates": "Nov 8 (virtual, per our records - confirming format)", "format": "Virtual (confirming)", "travel": "n/a if virtual", "eligibility": "First-gen / rural / low-income focus", "essay_prompt": "Please respond to the following in no more than 300 words: \"Being as specific as possible, what interests you most about Davidson College?", "link": "https://www.davidson.edu/admission-and-financial-aid/visit/access-davidson", "next_cycle": "", "note_student": "Latest deadline on this page - no excuse to miss it", "sort_key": "2026-10-15"}, {"college": "Grinnell College", "program_name": "Virtual Discover Grinnell", "state": "IA", "region": "Midwest", "need_met": "100%", "status": "open", "deadline_iso": "", "deadline_display": "Open registration", "program_dates": "Sun Oct 11, 2-4 PM Central (Zoom)", "format": "Virtual open house", "travel": "n/a (online)", "eligibility": "No application - just register. Panels, aid Q&A, live student-led tour", "essay_prompt": "", "link": "https://admission.grinnell.edu/register/?id=928dccc6-c03f-4202-abba-2e21eccc6b44", "next_cycle": "", "note_student": "Zero-effort way to put Grinnell on your radar", "sort_key": "2026-10-05"}, {"college": "Johns Hopkins University", "program_name": "Senior Fly-In", "state": "MD", "region": "Northeast", "need_met": "100%", "status": "open", "deadline_iso": "2026-09-04", "deadline_display": "Fri Sept 4", "program_dates": "Oct 11-12 (overnight, with a parent/guardian)", "format": "In-person overnight (hotel, shared room with your parent/guardian)", "travel": "Travel (train/plane, booked by JHU), hotel, and campus meals covered for you AND one parent/guardian; no gas/mileage reimbursement", "eligibility": "First-gen and/or limited-income seniors. A parent/guardian MUST come with you. Testing REQUIRED: SAT or ACT scores + a screenshot of the report, plus transcript (grades 9-11) and senior courses", "essay_prompt": "How have you made an impact outside of the classroom? This can be within your high school, family, or larger community (up to 150 words).", "link": "https://admissions.jhu.edu/register/?id=dc4b7f59-a6f6-4135-9e9e-9d7534cd7053", "next_cycle": "Decisions mid-September; questions: admissionsevents@jhu.edu", "note_student": "Bring a parent - JHU flies BOTH of you out and covers the hotel. Only 150 words of writing.", "sort_key": "2026-09-04"}, {"college": "St. Lawrence University", "program_name": "Mosaic Visit Program", "state": "NY", "region": "Northeast", "need_met": "100% if HEOP", "status": "tbd", "deadline_iso": "", "deadline_display": "2026 dates not posted yet - check back September", "program_dates": "Expected November (last year: overnight + Visit Day)", "format": "In-person overnight", "travel": "Covers meals + transportation to/from NYC - designed with NYC students in mind", "eligibility": "Last cycle: GPA 85+ and unofficial transcript", "essay_prompt": "", "link": "https://apply.stlawu.edu/portal/mosaic_visit", "next_cycle": "Fall dates usually post early fall", "note_student": "They bus students up from NYC - watch this one", "sort_key": ""}, {"college": "Skidmore College", "program_name": "SeeMore Skidmore", "state": "NY", "region": "Northeast", "need_met": "100%", "status": "tbd", "deadline_iso": "", "deadline_display": "2026 date not announced yet", "program_dates": "Last year: one day in November, coach bus from Manhattan", "format": "In-person day program", "travel": "2025 ran a free coach bus from W 34th St - great NYC fit", "eligibility": "", "essay_prompt": "", "link": "https://www.skidmore.edu/admissions/visit.php", "next_cycle": "Watch skidmore.edu/admissions/visit in September", "note_student": "Free bus from Manhattan last year - stay tuned", "sort_key": ""}, {"college": "Dickinson College", "program_name": "You Belong: Creating Community at Dickinson", "state": "PA", "region": "Northeast", "need_met": "99%", "status": "tbd", "deadline_iso": "", "deadline_display": "'Fall date and registration coming soon'", "program_dates": "TBA", "format": "In-person DAY program (no longer an overnight)", "travel": "Not stated", "eligibility": "For high-achieving seniors of varying identities", "essay_prompt": "Why would you attend this event? What is it about Dickinson that you'd like to explore?", "link": "https://www.dickinson.edu/info/20255/visit/1058/you_belong_at_dickinson", "next_cycle": "Re-check page in September", "note_student": "", "sort_key": ""}, {"college": "Tulane University", "program_name": "PreviewTU (Multicultural & Access Programs)", "state": "LA", "region": "South", "need_met": "100%", "status": "tbd", "deadline_iso": "", "deadline_display": "2026 dates not published (their page shows old info)", "program_dates": "TBA (usually a fall Saturday + a virtual session in late Oct)", "format": "In-person day program + virtual option", "travel": "Travel grants: full (flight + hotel) or partial up to $500; 250-word essay with grant request", "eligibility": "First-gen, LGBTQIA+, limited-income, students of color", "essay_prompt": "", "link": "https://admission.tulane.edu/student-life/diversity/multicultural-access-programs", "next_cycle": "Confirm this cycle's dates with Tulane before applying", "note_student": "Dates being confirmed - interested in the South? Flag it with Ms. Moldovan", "sort_key": ""}, {"college": "Brandeis University", "program_name": "SEED + campus visit travel grants", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "tbd", "deadline_iso": "", "deadline_display": "2026 dates not confirmed", "program_dates": "Last cycle: virtual program late Oct", "format": "Virtual program + travel grant to visit on a Fall for Brandeis Day", "travel": "Travel grant: travel + 1 night hotel + 3 meals for you AND a parent/guardian", "eligibility": "Includes an evaluative admissions interview", "essay_prompt": "", "link": "https://www.brandeis.edu/admissions/visit/seed/index.html", "next_cycle": "Page shows undated leftover text - being confirmed", "note_student": "", "sort_key": ""}, {"college": "Amherst College", "program_name": "Access to Amherst (A2A)", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-10", "deadline_display": "Closed Aug 10", "program_dates": "Sept 26-28", "format": "In-person overnight", "travel": "100% of round-trip costs covered", "eligibility": "Open to all rising seniors in the US incl. undocumented; A2A essay can be reused as the Amherst supplement", "essay_prompt": "Please respond to the following essay prompt in no more than 350 words. Write your response in another document and upload it below.\n\n“We seek an Amherst made stronger because it includes those whose experiences can enhance our understanding of our nation and our world. We do so in the faith that our humanity is an identity forged from diversity, and that our different perspectives enrich our inquiry, deepen our knowledge, strengthen our community, and prepare students to engage with an ever-changing world.”\n-Trustee Statement on Diversity and Community\n\nQ: In what ways could your experiences enhance our understanding of our nation and our world?", "link": "https://www.amherst.edu/admission/diversity/a2a", "next_cycle": "Opens ~spring; apply April-May of junior year", "note_student": "", "sort_key": "2026-08-10"}, {"college": "Babson College", "program_name": "Access Babson", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-31", "deadline_display": "Closed late July", "program_dates": "Sept 27-28", "format": "In-person overnight", "travel": "Fully funded", "eligibility": "For future business students with limited college-search resources; US residents regardless of citizenship", "essay_prompt": "Short statement: “Why are you interested in studying business? Briefly tell us about your passions and goals.” (250 words max)\nShort statement: “How would you benefit from attending Access Babson? What are you hoping to get out of your time in this program?” (250 words max)", "link": "https://www.babson.edu/undergraduate/visit-and-engage/access-babson/", "next_cycle": "Late-July deadline - apply the summer after junior year", "note_student": "", "sort_key": "2026-07-31"}, {"college": "Barnard College", "program_name": "Barnard Bound", "state": "NY", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-08", "deadline_display": "Closed Aug 8 (priority July 10)", "program_dates": "Virtual Sept 13-Oct 19 + select on-campus cohort in Oct", "format": "Hybrid", "travel": "On-campus experience fully funded for the selected cohort", "eligibility": "First-gen and/or low-income young women at US high schools. It's in NYC - the 'visit' costs you a MetroCard", "essay_prompt": "", "link": "https://barnard.edu/admissions/commitment-to-access", "next_cycle": "Two rounds: early July (priority) + early Aug. Juniors can file an interest form now", "note_student": "Juniors: you can sign up for their interest list TODAY", "sort_key": "2026-08-08"}, {"college": "Bates College", "program_name": "Prologue to Bates", "state": "ME", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-07", "deadline_display": "Closed Aug 7", "program_dates": "Oct 11-13", "format": "In-person overnight", "travel": "All-expenses-paid: travel, meals, housing with a student host", "eligibility": "First-gen (no parent with a bachelor's) and low-income; US citizens/PR/DACA-undocumented", "essay_prompt": "Prologue to Bates is a highly selective program and will provide you with wonderful insight into the Bates community. How has your lived experience shaped you, and what can our Bates community learn from you? (Essay should be a minimum of 300 words)", "link": "https://www.bates.edu/admission/connect-with-bates/prologue/", "next_cycle": "Reopens ~spring for 2027", "note_student": "", "sort_key": "2026-08-07"}, {"college": "Bowdoin College", "program_name": "Explore Bowdoin", "state": "ME", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-11", "deadline_display": "Closed Aug 11", "program_dates": "Sept 17-19 or Oct 22-24", "format": "In-person overnight", "travel": "All-expenses-paid trip", "eligibility": "High-achieving low-income and/or first-gen; transcript + 2 short answers", "essay_prompt": "- If you wish, you may share anything about the unique experiences and perspectives that you would bring with you to the Bowdoin campus and community or an experience you have had that required you to navigate across or through difference. (250 words)\n- Why are you interested in participating in Explore Bowdoin? (100 words)", "link": "https://www.bowdoin.edu/admissions/visit/explore-bowdoin/", "next_cycle": "Opens ~spring, closes early August", "note_student": "", "sort_key": "2026-08-11"}, {"college": "Bucknell University", "program_name": "Journey to Bucknell", "state": "PA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-06-08", "deadline_display": "Closed June 8", "program_dates": "Oct 1-3 (incl. Fall Open House)", "format": "In-person overnight (with a required parent/guardian)", "travel": "Free hotel + meals + free charter bus from NYC", "eligibility": "NY students eligible; 3.5 unweighted GPA minimum; parent/guardian chaperone required. Fee waiver for attending", "essay_prompt": "- Some students believe their story would be incomplete without sharing how their diverse experiences, identity, and background have deeply shaped their perspective. Reflect upon how these attributes fuel your passions, motivation, and/or goals.\n- Please explain your interest in your first-choice major/undecided status, and your second-choice major (should you choose to list one) and why you would choose Bucknell University to pursue your interest(s).", "link": "https://www.bucknell.edu/admissions-aid/plan-visit/camps-conferences-visit-programs/journey-bucknell", "next_cycle": "2027 details post Winter 2026 - one of the earliest deadlines (June)", "note_student": "", "sort_key": "2026-06-08"}, {"college": "Caltech", "program_name": "Caltech Up Close", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-09", "deadline_display": "Closed Aug 9", "program_dates": "Oct 10-12", "format": "In-person (students only)", "travel": "All-expense-paid visit", "eligibility": "For students with limited access to STEM/college-prep resources; transcript + 2 essays", "essay_prompt": "", "link": "https://www.admissions.caltech.edu/visit/visit-campus/fall-fly-in-program-caltech-up-close", "next_cycle": "Opens ~June, closes early Aug", "note_student": "", "sort_key": "2026-08-09"}, {"college": "Carleton College", "program_name": "Taste of Carleton (TOC)", "state": "MN", "region": "Midwest", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-10", "deadline_display": "Closed Aug 10", "program_dates": "Oct 11-12", "format": "In-person", "travel": "Fully funded: transportation, housing, everything", "eligibility": "First-gen, low-income, under-resourced schools, ESL households, work/family responsibilities", "essay_prompt": "What's something you want to understand better about the world, about people, or about yourself? Why does it matter to you? (250 words)\nWhat kind of learner are you and what draws you to Carleton as a place to keep growing? (250 words) \nOptional: What do you make or create, and how has it brought you into community with other people? (150 words)", "link": "https://www.carleton.edu/admissions/visit/toc/", "next_cycle": "Opens mid-May, closes early Aug; decisions late Aug", "note_student": "If you applied: decisions come out Aug 28", "sort_key": "2026-08-10"}, {"college": "Claremont McKenna College", "program_name": "Fall Preview Program", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-09", "deadline_display": "Closed Aug 9", "program_dates": "Oct 11-13 + virtual kick-off Sept 8", "format": "In-person + virtual components", "travel": "Free: airfare, lodging, meals", "eligibility": "First-gen, rural, low-income priority; US/PR incl. undocumented; fee waiver for participants", "essay_prompt": "", "link": "https://www.cmc.edu/admission/visit/diversityflyin", "next_cycle": "Opens ~June, closes early Aug", "note_student": "", "sort_key": "2026-08-09"}, {"college": "Colorado College", "program_name": "Discover Colorado College", "state": "CO", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-13", "deadline_display": "Closed July 13", "program_dates": "Oct 3-5", "format": "In-person", "travel": "Travel grant: flights + accommodations for the student", "eligibility": "Underrepresented, Pell/free-lunch-eligible, first-gen, rural, Title I; gap-year students also eligible", "essay_prompt": "Please describe how you will use your background and experiences to further support and promote access and inclusion during your time in college? *\nPlease select ONE of the following:\nWho has had the biggest influence in your life, and what has been the most important lesson you learned from them?\nWhat initially drew you to Colorado College and what aspects of the college do you envision having the strongest impact on your experience here?", "link": "https://www.coloradocollege.edu/admission/visit/discover-colorado-college.html", "next_cycle": "Opens May 1, closes mid-July", "note_student": "", "sort_key": "2026-07-13"}, {"college": "Columbia University", "program_name": "Engineering Preview at Columbia (EPC)", "state": "NY", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-20", "deadline_display": "Closed July 20", "program_dates": "Oct 11-13", "format": "In-person (it's in NYC - travel + hotel funded for you AND a parent)", "travel": "Fully funded travel + hotel for student and one parent/guardian", "eligibility": "Engineering-focused: calculus/physics/chem expected. Low-income, first-gen, Title I focus. ALL applicants get a Columbia fee waiver", "essay_prompt": "200 words max each:\nWhat is one engineering concept that you find fascinating? Tell us why it excites you.*\n\nOur identities are multifaceted and unique to each individual. What is one central element of your identity?*\n\nAmong the books, articles or publications you read in the past year, identify the one you found most meaningful and describe its impact on you.*\n\nWhat interests you about Columbia and why?*", "link": "https://undergrad.admissions.columbia.edu/columbia-engineering-experience-ce2", "next_cycle": "Opens ~spring, closes mid-July. Can only apply to ONE Columbia fly-in (EPC or STARS)", "note_student": "Apply next cycle even if unsure - the fee waiver alone is worth it", "sort_key": "2026-07-20"}, {"college": "Dartmouth College", "program_name": "Dartmouth Bound", "state": "NH", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-05-19", "deadline_display": "Closed mid-May (summer program)", "program_dates": "July sessions (already held)", "format": "In-person summer overnight", "travel": "Travel, housing, meals covered", "eligibility": "First-gen, low-income, rural, under-resourced; any citizenship if at a US school", "essay_prompt": "", "link": "https://admissions.dartmouth.edu/visit/visitation-programs/dartmouth-bound-summer-program", "next_cycle": "SUMMER program - apply in April-May of junior year", "note_student": "", "sort_key": "2026-05-19"}, {"college": "Denison University", "program_name": "Destination: Denison", "state": "OH", "region": "Midwest", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-17", "deadline_display": "Closed Aug 17", "program_dates": "Oct 4-6", "format": "In-person overnight (hotel)", "travel": "Fully covered: flights, hotel, meals", "eligibility": "Open to all backgrounds", "essay_prompt": "Given the current state of our nation, what’s next in making permanent change?", "link": "https://denison.edu/campus/admission/destination-denison", "next_cycle": "Opens ~summer, closes mid-Aug", "note_student": "", "sort_key": "2026-08-17"}, {"college": "Emory University", "program_name": "Emory LEADs Experience", "state": "GA", "region": "South", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-31", "deadline_display": "Closed July 31", "program_dates": "Oct 1-3 retreat + virtual programming Aug-Dec for ALL applicants", "format": "In-person retreat + virtual track", "travel": "Retreat costs covered", "eligibility": "First-gen and/or rural or lower-income. Even non-selected applicants get the virtual track", "essay_prompt": "", "link": "https://apply.emory.edu/leads/", "next_cycle": "Opens late May, closes late July", "note_student": "Emory is tuition-FREE for families earning under $200K starting this fall", "sort_key": "2026-07-31"}, {"college": "Hamilton College", "program_name": "Home at Hamilton", "state": "NY", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-07", "deadline_display": "Closed July 7", "program_dates": "Sept 27-28", "format": "In-person", "travel": "Housing for all; travel covered for those who need it", "eligibility": "First-gen, limited-income preference; priority if you haven't visited", "essay_prompt": "WHY ARE YOU INTERESTED IN VISITING HAMILTON COLLEGE? PLEASE LIMIT YOUR RESPONSE TO 300 WORDS", "link": "https://www.hamilton.edu/admission/home/home", "next_cycle": "Opens ~spring, closes early July", "note_student": "", "sort_key": "2026-07-07"}, {"college": "Harvey Mudd College", "program_name": "FAST (Future Achievers in Science & Technology)", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-09", "deadline_display": "Closed Aug 9", "program_dates": "Sept 13-15 or Oct 25-27", "format": "In-person overnight (dorm stay)", "travel": "Fully free - flights arranged and paid", "eligibility": "STEM focus; US citizens/PR; includes an admission interview + fee waiver", "essay_prompt": "", "link": "https://www.hmc.edu/admission/fast/", "next_cycle": "Opens early June, closes early Aug. Sometimes a 2nd round for the Oct session - watch the page", "note_student": "", "sort_key": "2026-08-09"}, {"college": "MIT", "program_name": "WISE (Weekend Immersion in Science & Engineering)", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-01", "deadline_display": "Closed Aug 1", "program_dates": "Oct 4-6", "format": "In-person (stay with an MIT student)", "travel": "Completely free incl. all transportation", "eligibility": "US schools; testing required (PSAT/SAT/ACT); transcript + 5 short essays", "essay_prompt": "SHORT ANSWER QUESTIONS\nWe want to learn a bit more about you, and why you are interested in WISE. Be yourself, there is no right or wrong answer!\n\nWhy are you interested in attending WISE? (250 words or fewer)\nWhich MIT major or department is most interesting to you right now? (250 words or fewer)\nBased on your previous answer, why does it interest you most? How does it contribute to your interest in STEM (science, technology, engineering, and math)? (250 words or fewer)\nOptional: If you could have one superpower, what would it be and why? (100 words or fewer)\nOptional: What is your favorite song that is out right now and why? (100 words or fewer)", "link": "https://mitadmissions.org/pages/wise/", "next_cycle": "Opens ~June, closes Aug 1 - put it on your June checklist", "note_student": "", "sort_key": "2026-08-01"}, {"college": "Pitzer College", "program_name": "Preview Pitzer", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-21", "deadline_display": "Closed Aug 21", "program_dates": "Oct 12-14", "format": "In-person (students only)", "travel": "All expenses paid", "eligibility": "First-gen and/or lower-income at US high schools; form + transcript + 650-word essay", "essay_prompt": "Please answer only ONE of the following prompts in 650 words or less.\nDescribe what you are looking for from your college experience and why Pitzer would be a good fit for you.\nPitzer is known for our students’ intellectual and creative activism. If you could work on a cause that is meaningful to you through a project, artistic, academic, or otherwise, what would you do?\nReflecting on your involvement throughout high school or within the community, how have you engaged with one or more of Pitzer’s core values?\nAdditionally, all applicants are REQUIRED to answer the following prompt in 250 words or less:\nAs a mission driven institution, we value and celebrate the synergy created by our differences and similarities. We welcome you to write about distinctive aspects of your background, identity, or personal interests that you would bring to Pitzer, and how you plan to engage in our diverse community here. (250 words)", "link": "https://www.pitzer.edu/admission-aid/visit/preview-pitzer-program", "next_cycle": "Closes ~late Aug", "note_student": "", "sort_key": "2026-08-21"}, {"college": "Pomona College", "program_name": "Perspectives on Pomona - fly-in", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-10", "deadline_display": "Closed Aug 10 (but see the virtual option above!)", "program_dates": "Oct 4-6", "format": "In-person (student-host lodging)", "travel": "Transportation, meals, lodging fully covered", "eligibility": "First-gen / low- and middle-income focus; open to undocumented/DACA", "essay_prompt": "", "link": "https://www.pomona.edu/admissions/diversity/fall-fly-program-pop", "next_cycle": "Opens ~spring, closes early Aug", "note_student": "", "sort_key": "2026-08-10"}, {"college": "Rice University", "program_name": "SOAR (travel grant to Owl About Rice)", "state": "TX", "region": "South", "need_met": "100%", "status": "closed", "deadline_iso": "", "deadline_display": "2026 cycle unconfirmed (was mid-June in 2025)", "program_dates": "Owl About Rice open house: Aug 29 or Sept 19", "format": "Travel grant to attend an open house", "travel": "Travel, lodging, meals covered for selected students", "eligibility": "", "essay_prompt": "", "link": "https://admission.rice.edu/life-rice/access", "next_cycle": "Verify 2027 cycle with admission@rice.edu ~May", "note_student": "", "sort_key": ""}, {"college": "Scripps College", "program_name": "Discover Scripps", "state": "CA", "region": "West", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-11", "deadline_display": "Closed Aug 11 (2026 cycle unconfirmed)", "program_dates": "October (two 2-day sessions, dates unconfirmed)", "format": "In-person overnight", "travel": "Free: meals, housing, round-trip airfare for students 150+ miles away", "eligibility": "Women's college; first-gen and underrepresented students", "essay_prompt": "In what ways have your background, experiences, and values shaped your identity?\nWhat do you like to do for fun?", "link": "https://www.scrippscollege.edu/admission/discover-scripps-program", "next_cycle": "Verify next cycle directly - their page is poorly maintained", "note_student": "", "sort_key": "2026-08-11"}, {"college": "Swarthmore College", "program_name": "Discover Swarthmore", "state": "PA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-07", "deadline_display": "Closed July 7", "program_dates": "Sept 24-26 or Oct 22-24", "format": "In-person overnight", "travel": "All transportation, meals, housing paid", "eligibility": "Underrepresented, first-gen, low-income preference; US citizens/PR/DACA-undocumented", "essay_prompt": "1. What aspects of your self-identity or personal background are most significant to you? Reflecting on the elements of your home, school, or other communities that have shaped your life, explain how you have grown in your ability to navigate differences when engaging with others, or demonstrated your ability to collaborate in communities other than your own.\n2. Tell us about a topic that has fascinated you recently – either inside or outside of the classroom. What made you curious about this? Has this topic connected across other areas of your interests? How has this experience shaped you and what encourages you to keep exploring?", "link": "https://www.swarthmore.edu/admissions-aid/discover-swarthmore-fly-program", "next_cycle": "Opens May, closes early July. Counselors can NOMINATE juniors in spring", "note_student": "", "sort_key": "2026-07-07"}, {"college": "Tufts University", "program_name": "Voices of Tufts", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-21", "deadline_display": "Closed (~July 21)", "program_dates": "Virtual: Sept 27 | On-campus day: Oct 18", "format": "One-day virtual OR one-day campus visit (no overnight)", "travel": "Travel reimbursement possible for the campus day; fee waiver for all participants", "eligibility": "Draws first-gen, LGBTQIA+, low-income, disabled, rural students", "essay_prompt": "In 200 words or less, why are you interested in Tufts University?\nIn 200 words or less, please tell us: how have the environments or experiences of your upbringing—your family, home, neighborhood, or community—shaped the person you are today?", "link": "https://admissions.tufts.edu/voices/voices-home/", "next_cycle": "Closes ~mid-July", "note_student": "", "sort_key": "2026-07-21"}, {"college": "University of Michigan (Ross)", "program_name": "All-Access Weekend", "state": "MI", "region": "Midwest", "need_met": "~90% (100% in-state)", "status": "closed", "deadline_iso": "2026-05-31", "deadline_display": "Closed late May (window: March-May)", "program_dates": "Oct 1-3", "format": "In-person overnight", "travel": "Fully funded for you AND two parents/guardians - airfare, hotel, meals", "eligibility": "Out-of-state 11th/12th graders; 3.5+ GPA priority; business focus", "essay_prompt": "", "link": "https://michiganross.umich.edu/about/events/all-access-weekend", "next_cycle": "Window opens early March - JUNIORS can apply; spring reminder", "note_student": "Juniors: you can apply next spring", "sort_key": "2026-05-31"}, {"college": "University of Pennsylvania", "program_name": "PEEP (Penn Early Exploration Program)", "state": "PA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-06-02", "deadline_display": "Closed early June", "program_dates": "Virtual: 3 Wednesday-evening sessions in July or Aug", "format": "Virtual workshop series (not a campus visit)", "travel": "n/a (virtual, free)", "eligibility": "First-gen, limited-income (<$75K/free-lunch), and/or rural; US/Canada/Mexico citizens & PRs", "essay_prompt": "", "link": "https://admissions.upenn.edu/how-to-apply/resources-programs/peep", "next_cycle": "Opens ~spring, closes early June", "note_student": "", "sort_key": "2026-06-02"}, {"college": "Williams College", "program_name": "Windows on Williams (WOW)", "state": "MA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-01", "deadline_display": "Closed Aug 1", "program_dates": "Oct 4-6", "format": "In-person overnight (dorm stay)", "travel": "Fully funded - they book and pay for your travel", "eligibility": "US + PR; preference to high achievers who couldn't otherwise afford to visit. QuestBridge College Prep Scholars app can be reused", "essay_prompt": "Submit Writing Sample", "link": "https://www.williams.edu/admission-aid/visit-and-connect/wow/", "next_cycle": "Opens ~June, closes Aug 1", "note_student": "", "sort_key": "2026-08-01"}, {"college": "Yale University", "program_name": "Yale in Motion (Community Day fly-in)", "state": "CT", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-05-15", "deadline_display": "Closed (spring deadline)", "program_dates": "Two nights on campus around Community Day, Sat Oct 3", "format": "In-person overnight (75 students)", "travel": "Fully funded travel", "eligibility": "Transcript + two short answers", "essay_prompt": "", "link": "https://admissions.yale.edu/CDAY", "next_cycle": "Spring deadline - apply junior spring", "note_student": "Anyone can register for Community Day itself (Oct 3, free) when signups open in September - it's a 2-hr train ride", "sort_key": "2026-05-15"}, {"college": "Washington University in St. Louis", "program_name": "WashU FLI-In", "state": "MO", "region": "Midwest", "need_met": "100%", "status": "closed", "deadline_iso": "2026-05-23", "deadline_display": "Closed May 23 (summer program)", "program_dates": "Five 3-day summer sessions by major (all held in July)", "format": "In-person summer overnight", "travel": "Fully funded: airfare, transfers, housing, meals", "eligibility": "First-gen or limited-income; US/territories", "essay_prompt": "Students must fill out \"Getting to Know You\" Form for consideration", "link": "https://admissions.washu.edu/washu-fli-in/", "next_cycle": "SUMMER program - apply spring of junior year; pick a session by academic interest", "note_student": "", "sort_key": "2026-05-23"}, {"college": "Wesleyan University", "program_name": "WesExplore", "state": "CT", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-08-03", "deadline_display": "Closed Aug 3", "program_dates": "Oct 4-6 (2 nights, dorm stay)", "format": "In-person overnight", "travel": "Fully funded - travel booked for you, car service, lodging, meals", "eligibility": "Title I school, never visited a college campus, or fee-waiver-eligible income; must live + study in the US", "essay_prompt": "", "link": "https://www.wesleyan.edu/information-for/prospective-students.html", "next_cycle": "Opens May 1, closes early Aug", "note_student": "", "sort_key": "2026-08-03"}, {"college": "Bryn Mawr College", "program_name": "Lantern Scholars Fly-In", "state": "PA", "region": "Northeast", "need_met": "100%", "status": "closed", "deadline_iso": "2026-07-17", "deadline_display": "Closed July 17", "program_dates": "Fall, 3 days/2 nights (likely late Sept)", "format": "In-person overnight", "travel": "Fully funded: travel, lodging, meals", "eligibility": "Women's college; first-gen and limited-income; short essay + transcript + senior courses", "essay_prompt": "", "link": "https://www.brynmawr.edu/admissions-aid/visits-events/lantern-scholars-fly-program", "next_cycle": "Opens spring, closes mid-July", "note_student": "", "sort_key": "2026-07-17"}, {"college": "Hampden-Sydney College", "program_name": "ELITE Summer Bridge", "state": "VA", "region": "South", "need_met": "", "status": "closed", "deadline_iso": "", "deadline_display": "2026 session held July 14-17", "program_dates": "Summer residential (4 days)", "format": "In-person summer program", "travel": "No cost to attend", "eligibility": "All-male college. Open to young men in grades 9-12 - not seniors-only. First-gen, Pell-eligible focus; no GPA/test requirement", "essay_prompt": "", "link": "https://www.hsc.edu/news-index/inaugural-summer-bridge", "next_cycle": "First year was 2026; contact H-SC Office of Culture and Community for 2027", "note_student": "Guys in ANY grade can aim for next summer", "sort_key": ""}];
+const MS = 86400000, today = new Date(); today.setHours(0,0,0,0);
+
+function live(p){                       // live status from deadline
+  if(p.status === 'tbd') return 'tbd';
+  if(p.status === 'closed') return 'closed';
+  if(p.deadline_iso){
+    const d = new Date(p.deadline_iso + 'T23:59:59');
+    const days = Math.floor((d - today)/MS);
+    if(days < 0) return 'closed';
+    if(days <= 14) return 'soon';
+    return 'open';
+  }
+  return 'open';
+}
+function daysLeft(p){
+  if(!p.deadline_iso) return null;
+  return Math.floor((new Date(p.deadline_iso+'T23:59:59') - today)/MS);
+}
+DATA.forEach(p => { p._live = live(p); p._days = daysLeft(p); });
+
+// ---- state ----
+let tab = 'act';           // act = open+soon+tbd, open, closed, all
+let region = null, flags = {travel:false, virtual:false, noessay:false}, q = '', sortBy = 'deadline';
+
+const TABS = [
+  ['act','Apply now'], ['tbd','Dates coming'], ['closed','Closed for 2026'], ['all','Everything']
+];
+function inTab(p){
+  if(tab==='act')   return p._live==='open'||p._live==='soon';
+  if(tab==='tbd')   return p._live==='tbd';
+  if(tab==='closed')return p._live==='closed';
+  return true;
+}
+function matches(p){
+  if(q){                              // searching overrides the tab — find it wherever it is
+    return (p.college+' '+p.program_name+' '+p.state+' '+p.region).toLowerCase().includes(q);
+  }
+  if(!inTab(p)) return false;
+  if(region && p.region!==region) return false;
+  if(flags.travel && !/cover|free|funded|paid|purchas|bought|grant|reimburs|awarded|book/i.test(p.travel)) return false;
+  if(flags.virtual && !/virtual/i.test(p.format)) return false;
+  if(flags.noessay && p.essay_prompt) return false;
+  if(q && !(p.college+' '+p.program_name+' '+p.state+' '+p.region).toLowerCase().includes(q)) return false;
+  return true;
+}
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function pillFor(p){
+  if(p._live==='soon')  return `<span class="pill soon">Closing soon${p._days!==null?' · '+p._days+(p._days===1?' day':' days')+' left':''}</span>`;
+  if(p._live==='open' && !p.deadline_iso) return `<span class="pill open">Open · no deadline — act now</span>`;
+  if(p._live==='open')  return `<span class="pill open">Open now</span>`;
+  if(p._live==='tbd')   return `<span class="pill tbd">Dates coming</span>`;
+  return `<span class="pill closed">Closed for 2026</span>`;
+}
+function deadlineLine(p){
+  if(p._live==='closed') return `<div class="deadline closedline">✗ ${esc(p.deadline_display||'2026 cycle over')} — you missed this one</div>`;
+  if(p._live==='tbd')    return `<div class="deadline">📅 ${esc(p.deadline_display)}</div>`;
+  let left = '';
+  if(p._days!==null) left = ` <span class="left ${p._live==='soon'?'soon':''}">· ${p._days===0?'due TODAY':p._days+(p._days===1?' day':' days')+' left'}</span>`;
+  return `<div class="deadline">Apply by <b>${esc(p.deadline_display)}</b>${left}</div>`;
+}
+function card(p){
+  const travelBadge = /cover|free|funded|paid|purchas|bought|grant|reimburs|awarded|book/i.test(p.travel)
+      ? '<span class="pill travel">✈ Travel covered</span>' : '';
+  const fmt = /virtual/i.test(p.format) ? '💻 Virtual' : (/day/i.test(p.format) ? '☀️ Day visit' : '🌙 Overnight');
+  const det = [];
+  if(p.need_met)    det.push(`<div class="sec"><b>Financial aid</b>${esc(p.need_met)} of demonstrated need met</div>`);
+  if(p.travel)      det.push(`<div class="sec"><b>What's covered</b>${esc(p.travel)}</div>`);
+  if(p.eligibility) det.push(`<div class="sec"><b>Who it's for / what you need</b>${esc(p.eligibility)}</div>`);
+  if(p.essay_prompt)det.push(`<div class="sec"><b>Essay prompt</b><div class="essay">${esc(p.essay_prompt)}</div></div>`);
+  if(p.next_cycle)  det.push(`<div class="sec"><b>Next cycle</b>${esc(p.next_cycle)}</div>`);
+  const closed = p._live==='closed';
+  return `<div class="card ${closed?'closed':''}">
+    <div class="pills">${pillFor(p)}<span class="pill plain">${esc(p.region)} · ${esc(p.state)}</span><span class="pill plain">${fmt}</span>${travelBadge}</div>
+    <div><div class="college">${esc(p.college)}</div><div class="program">${esc(p.program_name)}</div></div>
+    ${deadlineLine(p)}
+    ${p.program_dates?`<div class="dates">Program: ${esc(p.program_dates)}</div>`:''}
+    ${p.note_student?`<div class="note">${esc(p.note_student)}</div>`:''}
+    ${det.length?`<details><summary>Details${p.essay_prompt?' &amp; essay prompt':''}</summary>${det.join('')}</details>`:''}
+    <div class="actions">
+      ${p.link?`<a class="btn ${closed?'ghost':''}" href="${esc(p.link)}" target="_blank" rel="noopener">${closed?'Program page':'Apply / Learn more'}</a>`:''}
+      ${closed&&p.next_cycle?`<span class="nextcycle">${esc(p.next_cycle)}</span>`:''}
+    </div>
+  </div>`;
+}
+
+function render(){
+  const list = DATA.filter(matches);
+  list.sort((a,b)=>{
+    if(sortBy==='college') return a.college.localeCompare(b.college);
+    const rank = s => s==='soon'?0 : s==='open'?1 : s==='tbd'?2 : 3;
+    if(rank(a._live)!==rank(b._live)) return rank(a._live)-rank(b._live);
+    return (a.sort_key||'9999').localeCompare(b.sort_key||'9999') || a.college.localeCompare(b.college);
+  });
+  const grid = document.getElementById('grid');
+  let html = '', closedShown = false;
+  if(tab==='act' && !region && !flags.travel && !flags.virtual && !flags.noessay && !q){
+    const easy = DATA.filter(p=>p._live==='open' && !p.deadline_iso);
+    if(easy.length){
+      html += `<div class="easy" style="grid-column:1/-1"><b>⚡ No deadline, no excuse:</b>
+        ${easy.map(p=>`<span>${esc(p.college)} — ${/regist/i.test(p.deadline_display+p.eligibility)?'just register':'ask Ms. Moldovan to nominate you'}${p.program_dates?' ('+esc(p.program_dates.split('(')[0].trim())+')':''}</span>`).join(' · ')}.
+        These take minutes, not essays — do one today.</div>`;
+    }
+  }
+  for(const p of list){
+    if(tab==='all' && p._live==='closed' && !closedShown){
+      html += `<div class="divider" style="grid-column:1/-1"><b>Already closed for 2026.</b>
+        <p>Every one of these filled up this year — that's how fast it happens. If one of these schools is on your list, note when it reopens and be first in line.</p></div>`;
+      closedShown = true;
+    }
+    html += card(p);
+  }
+  grid.innerHTML = html;
+  document.getElementById('empty').style.display = list.length ? 'none':'block';
+  document.getElementById('count').textContent = list.length + ' program' + (list.length===1?'':'s') + ' shown' + (q ? ' — searching everything, including closed programs' : '');
+
+  // tab counts
+  document.querySelectorAll('.tab').forEach(t=>{
+    const k = t.dataset.tab;
+    const n = DATA.filter(p=>{ const keep=tab; tab=k; const ok=inTab(p); tab=keep; return ok; }).length;
+    t.querySelector('.n').textContent = n;
+    t.classList.toggle('active', k===tab);
+  });
+}
+
+// ---- build controls ----
+const tabsEl = document.getElementById('tabs');
+tabsEl.innerHTML = TABS.map(([k,l])=>`<button class="tab" data-tab="${k}">${l} <span class="n"></span></button>`).join('');
+tabsEl.addEventListener('click', e=>{ const b=e.target.closest('.tab'); if(b){tab=b.dataset.tab; render();} });
+
+const regs = [...new Set(DATA.map(p=>p.region))];
+const regEl = document.getElementById('regions');
+regs.forEach(r=>{
+  const b = document.createElement('button'); b.className='chip'; b.textContent=r;
+  b.onclick = ()=>{ region = (region===r?null:r);
+    regEl.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active', c.textContent===region)); render(); };
+  regEl.appendChild(b);
+});
+document.querySelectorAll('[data-flag]').forEach(b=>{
+  b.onclick = ()=>{ flags[b.dataset.flag]=!flags[b.dataset.flag]; b.classList.toggle('active'); render(); };
+});
+document.getElementById('search').addEventListener('input', e=>{
+  const was = q; q = e.target.value.trim().toLowerCase(); render();
+  if(q && !was) document.querySelector('.controls').scrollIntoView({behavior:'smooth'});  // jump to results on first keystroke
+});
+document.getElementById('sort').addEventListener('change', e=>{ sortBy=e.target.value; render(); });
+
+// summary strip
+const openish = DATA.filter(p=>p._live==='open'||p._live==='soon');
+document.getElementById('nOpen').textContent = openish.length;
+document.getElementById('nSoon').textContent = DATA.filter(p=>p._live==='soon').length;
+const next = openish.filter(p=>p._days!==null).sort((a,b)=>a._days-b._days)[0];
+document.getElementById('nextUp').textContent = next ? `Next deadline: ${next.college} (${next.deadline_display})` : '';
+
+render();
+</script>
+</body>
+</html>

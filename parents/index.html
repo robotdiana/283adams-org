@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLJ Family Guide to the College Process · Class of 2027</title>
+<style>
+  :root{
+    --navy:#1b2a4a; --navy-dark:#12203a; --gold:#c9971c; --gold-soft:#f7ecd2;
+    --ink:#232733; --muted:#5b6272; --paper:#fbfaf7; --card:#ffffff; --line:#e5e1d8;
+    --green:#2e6e4e; --green-soft:#e7f2ec; --red:#a63d2f; --red-soft:#f9e9e5;
+    --blue-soft:#e8eef8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:Georgia,'Times New Roman',serif; color:var(--ink); background:var(--paper); line-height:1.55; font-size:17px;}
+  .sans{font-family:'Helvetica Neue',Arial,sans-serif;}
+  a{color:var(--navy); text-decoration-color:var(--gold);}
+
+  header{background:var(--navy); color:#fff; padding:44px 20px 36px; text-align:center;}
+  header .kicker{font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--gold); margin-bottom:14px;}
+  header h1{font-size:34px; font-weight:normal; max-width:640px; margin:0 auto 12px; line-height:1.25;}
+  header .sub{color:#c8d0e0; font-size:16px; max-width:560px; margin:0 auto;}
+
+  .statbar{background:var(--navy-dark); color:#fff; display:flex; flex-wrap:wrap; justify-content:center; gap:0; padding:0 12px;}
+  .stat{padding:18px 28px; text-align:center;}
+  .stat b{display:block; font-size:26px; color:var(--gold); font-family:'Helvetica Neue',Arial,sans-serif;}
+  .stat span{font-size:12.5px; color:#b9c2d4; font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:.04em;}
+
+  main{max-width:820px; margin:0 auto; padding:12px 20px 60px;}
+  section{margin-top:46px;}
+  h2{font-size:25px; color:var(--navy); font-weight:normal; border-bottom:3px solid var(--gold); padding-bottom:8px; margin-bottom:8px;}
+  h2 .no{color:var(--gold); font-style:italic; margin-right:8px;}
+  .lede{color:var(--muted); font-size:16px; margin-bottom:18px;}
+  h3{font-family:'Helvetica Neue',Arial,sans-serif; font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--navy); margin:24px 0 8px;}
+  p{margin-bottom:12px;}
+  ul{margin:0 0 12px 22px;}
+  li{margin-bottom:7px;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px 22px; margin-bottom:14px;}
+  .callout{background:var(--gold-soft); border-left:5px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:16px 0;}
+  .callout.green{background:var(--green-soft); border-left-color:var(--green);}
+  .callout b{font-family:'Helvetica Neue',Arial,sans-serif;}
+
+  /* timeline */
+  .month{display:flex; gap:18px; margin-bottom:6px;}
+  .mlabel{flex:0 0 92px; text-align:right; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); padding-top:22px; font-weight:bold;}
+  .mbody{flex:1; border-left:3px solid var(--line); padding:14px 0 18px 20px; position:relative;}
+  .mbody::before{content:''; position:absolute; left:-8px; top:24px; width:13px; height:13px; border-radius:50%; background:var(--gold); border:3px solid var(--paper);}
+  .due{font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; font-weight:bold; color:#fff; background:var(--navy); border-radius:20px; padding:2px 11px; display:inline-block; margin:2px 6px 6px 0;}
+  .due.hot{background:var(--red);}
+  .mbody p{font-size:15.5px; color:var(--ink);}
+  .parent-do{font-size:14.5px; background:var(--blue-soft); border-radius:8px; padding:10px 14px; margin-top:8px;}
+  .parent-do b{font-family:'Helvetica Neue',Arial,sans-serif; color:var(--navy);}
+
+  table{width:100%; border-collapse:collapse; font-size:15px; margin:10px 0 16px;}
+  th{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; text-align:left; color:var(--muted); border-bottom:2px solid var(--navy); padding:8px 10px;}
+  td{border-bottom:1px solid var(--line); padding:9px 10px; vertical-align:top;}
+  .tablewrap{overflow-x:auto;}
+
+  .check{list-style:none; margin-left:0;}
+  .check li{padding-left:32px; position:relative; margin-bottom:10px;}
+  .check li::before{content:'☐'; position:absolute; left:2px; top:-1px; font-size:20px; color:var(--gold);}
+
+  .prog{border:1px solid var(--line); border-radius:10px; background:var(--card); padding:18px 20px; margin-bottom:12px;}
+  .prog h4{font-family:'Helvetica Neue',Arial,sans-serif; font-size:16px; color:var(--navy); margin-bottom:4px;}
+  .prog .tag{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; background:var(--gold-soft); color:#7a5b10; border-radius:12px; padding:2px 10px; margin-left:8px; white-space:nowrap;}
+  .prog p{font-size:15px; margin-bottom:6px;}
+
+  .contact{background:var(--navy); color:#fff; border-radius:12px; padding:26px 28px; margin-top:14px;}
+  .contact h3{color:var(--gold); margin-top:0;}
+  .contact p{color:#dfe4ee; font-size:15.5px;}
+  .contact a{color:#fff;}
+
+  footer{text-align:center; color:var(--muted); font-size:13px; padding:26px 20px 46px; font-family:'Helvetica Neue',Arial,sans-serif;}
+
+  /* glossary */
+  a.gl{color:inherit; text-decoration:underline dotted var(--gold) 2px; text-underline-offset:3px; cursor:help;}
+  .glossary dl{display:grid; grid-template-columns:1fr 1fr; gap:0 28px; font-size:15px;}
+  .glossary .entry{scroll-margin-top:64px; break-inside:avoid; border-bottom:1px solid var(--line); padding:9px 0;}
+  .glossary dt{font-family:'Helvetica Neue',Arial,sans-serif; font-weight:bold; color:var(--navy);}
+  .glossary dd{margin:2px 0 0; color:var(--ink);}
+  .glossary .entry:target{background:var(--gold-soft); border-radius:6px; padding:9px 10px;}
+  @media (max-width:640px){ .glossary dl{grid-template-columns:1fr;} }
+
+  /* section nav */
+  html{scroll-behavior:smooth;}
+  section{scroll-margin-top:58px;}
+  nav.toc{position:sticky; top:0; z-index:50; background:var(--navy-dark); border-bottom:2px solid var(--gold); overflow-x:auto; white-space:nowrap;}
+  nav.toc .inner{max-width:860px; margin:0 auto; padding:0 10px; display:flex;}
+  nav.toc a{color:#c8d0e0; text-decoration:none; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; letter-spacing:.02em; padding:12px 13px; display:inline-block;}
+  nav.toc a:hover{color:#fff; background:rgba(255,255,255,.08);}
+
+  @media (max-width:560px){
+    .month{flex-direction:column; gap:0;}
+    .mlabel{text-align:left; padding:10px 0 0;}
+    header h1{font-size:27px;}
+  }
+  @media print{
+    body{background:#fff; font-size:12.5px;}
+    header{padding:24px;}
+    .statbar{display:none;}
+    nav.toc{display:none;}
+    section{margin-top:22px; break-inside:avoid-page;}
+    .card,.prog{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">The Urban Assembly School for Law and Justice · College &amp; Career Office</div>
+  <h1>The Family Guide to the College Process</h1>
+  <div class="sub">Class of 2027 · Senior Year 2026–27<br>Everything your family needs to know, do, and expect this year.</div>
+</header>
+
+<div class="statbar sans">
+  <div class="stat"><b>100%</b><span>of SLJ seniors apply to college</span></div>
+  <div class="stat"><b>75%</b><span>are the first in their family to attend</span></div>
+  <div class="stat"><b>87%</b><span>are still enrolled 18 months after starting</span></div>
+</div>
+
+<nav class="toc" aria-label="Sections">
+  <div class="inner">
+    <a href="#glance">Timeline</a>
+    <a href="#need">Documents</a>
+    <a href="#applying">Applying</a>
+    <a href="#paying">Paying</a>
+    <a href="#programs">Scholarships</a>
+    <a href="#career">Careers</a>
+    <a href="#enrichment">Enrichment</a>
+    <a href="#how-to-help">At home</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="welcome">
+  <h2>Welcome to senior year</h2>
+  <p>Your student is about to apply to college, and they will not do it alone. Every SLJ senior has a college advisor, a weekly Senior Seminar class devoted to the application process, and a College &amp; Career team that stays with them from the first application to the day they start college, and beyond.</p>
+  <p>This guide covers the whole year: what happens when, what we will need from your family, how to pay for college, and the special programs and enrichment opportunities available to your student. Keep it somewhere you can find it. The dates in here are the dates your student is being held to at school.</p>
+  <div class="callout"><b>The single most useful thing a family can do</b> happens in September: if you would like SLJ's support with your financial aid applications (including <a class="gl" href="#g-fafsa" title="Free Application for Federal Student Aid: the form behind nearly all grants, loans, and work-study">FAFSA</a>, <a class="gl" href="#g-tap" title="Tuition Assistance Program: New York State aid">TAP</a>, <a class="gl" href="#g-css" title="A second aid form used by many private colleges">CSS Profile</a>, and <a class="gl" href="#g-heop" title="Opportunity programs at NY private colleges (HEOP) and SUNY (EOP): aid plus on-campus support">H/EOP</a> applications), gather your 2025 financial documents and share them with us by <b>September 25</b>. This includes tax returns, but also benefit statements for those who do not file taxes. Sharing them is always your choice; it is how we help. See <a href="#need">"What we'll ask from you."</a></div>
+</section>
+
+<section id="glance">
+  <h2>The year at a glance</h2>
+  <p class="lede">Senior year runs in four movements: <b>prepare</b> (September), <b>apply</b> (October–December), <b>decide</b> (March–May), and <b>launch</b> (June). Here is the full timeline.</p>
+
+  <div class="month">
+    <div class="mlabel">Sept</div>
+    <div class="mbody">
+      <span class="due">Sept 10 · Senior Seminar orientation</span>
+      <span class="due">Sept 15 · CUNY application opens</span>
+      <span class="due hot">Sept 25 · Financial documents (for aid support)</span>
+      <p>Seminar begins and students choose their timeline (see the accelerated timeline below). A College &amp; Career contract comes home for a parent signature. Students starting the CUNY application will need their Social Security number, if they have one.</p>
+      <div class="parent-do"><b>Parents:</b> sign and return the C&amp;C contract. If you would like our help with financial aid applications, share your 2025 financial documents by Sept 25 (list below). If your student is considering an SAT sitting this fall, registration for the October test also closes Sept 15.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">Oct</div>
+    <div class="mbody">
+      <span class="due hot">Oct 1 · QuestBridge application due</span>
+      <span class="due">Oct 30 · CUNY application submitted</span>
+      <p>Application season begins in earnest. Every senior submits their CUNY application (six college choices plus intended majors) by October 30. Students applying to the <a href="https://www.questbridge.org" title="questbridge.org">QuestBridge</a> program (see <a href="#programs">Programs</a>) have their big deadline October 1. In seminar, students create their FSA ID, the login used for federal financial aid; one parent or guardian needs one too.</p>
+      <div class="parent-do"><b>Parents:</b> when your student asks you to create an FSA ID, please do it that week. The name you register must exactly match the name on your Social Security card. And a rule that holds all year: <b>students submit applications WITH a college advisor</b>. Please encourage your student never to hit submit before an advisor has fully reviewed the application.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">Nov</div>
+    <div class="mbody">
+      <span class="due">Nov 13 · Final college list</span>
+      <span class="due hot">Nov 26 · FAFSA submitted</span>
+      <p>Each student finalizes the list of colleges they will apply to, built with their advisor around academic, social, and financial fit. We encourage students to apply to <b>colleges that meet 100% of demonstrated financial need</b>, the ones that give the strongest aid packages; our list is <a href="https://docs.google.com/spreadsheets/d/1G8JVT5DSrRCUTOYw7_SRUcmhHKF9XE1T3TdisklNQhQ/edit" title="SLJ's 100% need met college list">here</a>. The <a href="https://studentaid.gov" title="studentaid.gov">FAFSA</a> (the federal financial aid application) opens October 1 and every family should plan to have it submitted by November 26 if possible. It takes about an hour when the tax documents are on hand.</p>
+      <div class="callout" style="margin:10px 0"><b>Our key suggestion for families: run a <a class="gl" href="#g-npc" title="A tool that estimates what a college would actually cost your family per year, after aid">Net Price Calculator</a> for every college on your student's final list.</b> It is a free tool that estimates what each college could actually cost your family per year, after aid, and the answers vary enormously. Start at <a href="https://bigfuture.collegeboard.org/pay-for-college/get-started/net-price-calculator" title="bigfuture.collegeboard.org">bigfuture.collegeboard.org</a>. Families on the accelerated timeline should do this in mid-October, when their list is finalized.</div>
+      <div class="parent-do"><b>Parents:</b> the FAFSA is completed entirely online at studentaid.gov, and it needs a parent's information and digital signature. Your student will invite you into the form as a contributor; please complete your section promptly. Families are welcome to make appointments to complete this with a college advisor, in person or virtually.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">Dec</div>
+    <div class="mbody">
+      <span class="due">Dec 2 · College Crunch essay night</span>
+      <span class="due">Dec 4 · Final essay</span>
+      <span class="due hot">Dec 7–11 · All applications submitted</span>
+      <span class="due">Dec 14–18 · CSS Profile</span>
+      <p>The home stretch. College Crunch is an after-school essay review event with volunteers, alumni, and staff. All SUNY, private, and out-of-state applications are submitted the week of December 7, every one of them <b>with a college advisor</b>: students should not hit submit before an advisor has fully reviewed the application. Families applying to private colleges complete the <a href="https://cssprofile.collegeboard.org" title="cssprofile.collegeboard.org">CSS Profile</a>, an additional aid form some private schools use, the following week.</p>
+      <div class="parent-do"><b>Parents:</b> December is stressful. The best help is protected time and space at home to write, and a few evenings free of other obligations.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">Jan–Feb</div>
+    <div class="mbody">
+      <p>Applications are in; paperwork continues. Colleges may ask for mid-year grades (we send them) or for verification of financial aid information (we will help, but some requests come straight to you). New York State aid applications (TAP, and the NYS Dream Act for undocumented students) are completed in this window.</p>
+      <div class="parent-do"><b>Parents:</b> if a college or a government aid office mails or emails you a request for documents, do not set it aside. Bring it to us if anything is confusing, and be cautious: verify any unexpected request through the college's official phone number, not a link in the message.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">Mar–Apr</div>
+    <div class="mbody">
+      <p>Decisions arrive, mostly mid-to-late March. Then the real work: comparing financial aid offers side by side to find the true cost of each option. Advisors sit with every student (families welcome) to compare packages.</p>
+      <div class="parent-do"><b>Parents:</b> please don't let your student commit anywhere before the aid offers have been compared. The sticker price is almost never the real price, and offers can differ by thousands of dollars.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">May</div>
+    <div class="mbody">
+      <span class="due hot">May 1 · National Decision Day</span>
+      <p>Your student commits to a college and pays the enrollment deposit. Our May 1 checklist also asks every student to record their yearly cost, complete two short school surveys, and, if the chosen college costs more than $5,000 a year out of pocket, hold a CUNY spot as a backup while summer finances settle.</p>
+      <div class="parent-do"><b>Parents:</b> the deposit (typically $0–$500; CUNY's is $0) is due at commitment. Talk to us early if the deposit itself is a hardship; there are often options.</div>
+    </div>
+  </div>
+
+  <div class="month">
+    <div class="mlabel">June</div>
+    <div class="mbody">
+      <span class="due">Late June · Final transcripts &amp; records</span>
+      <p>Graduation! We send final transcripts to each student's college, students submit immunization records for college health forms, and we collect a personal email and cell number so we can keep supporting your graduate. Many opportunity programs run a mandatory summer session before freshman year, so watch for those dates.</p>
+    </div>
+  </div>
+
+  <h3>The accelerated timeline</h3>
+  <p>Students aiming for early deadlines at selective colleges (Early Decision and Early Action, typically due November 1) can opt into an accelerated timeline on <b>September 10</b>. Their internal dates move up: final list October 16, final essay October 30, all applications in by November 15. Students with a GPA of 85+ are encouraged to consider it. Talk it over as a family before orientation.</p>
+</section>
+
+<section id="need">
+  <h2>What we'll ask from you</h2>
+  <p class="lede">A handful of documents and accounts make the year run smoothly: financial aid, opportunity programs, and the applications themselves. Here is the complete list.</p>
+
+  <div class="card">
+    <h3 style="margin-top:0">By September 25: financial documents, if you would like our help with aid</h3>
+    <p style="font-size:15px">You are never required to share financial documents with SLJ (colleges themselves may require them for aid). But if you would like help with your financial aid applications, including <a class="gl" href="#g-fafsa" title="Free Application for Federal Student Aid: the form behind nearly all grants, loans, and work-study">FAFSA</a>, <a class="gl" href="#g-tap" title="Tuition Assistance Program: New York State aid">TAP</a>, <a class="gl" href="#g-css" title="A second aid form used by many private colleges">CSS Profile</a>, and <a class="gl" href="#g-heop" title="Opportunity programs at NY private colleges (HEOP) and SUNY (EOP): aid plus on-campus support">H/EOP</a> applications, please share your 2025 financial documents with us by September 25:</p>
+    <ul class="check sans" style="font-size:15.5px">
+      <li><b>Family financial form</b> (the survey we send home; online or paper)</li>
+      <li><b>2025 federal tax return</b> (Form 1040, full packet incl. NY State IT-201) <i>or</i> a benefit statement if you do not file taxes</li>
+      <li><b>W-2s and/or 1099s from 2025</b></li>
+    </ul>
+    <p style="font-size:15px; color:var(--muted)">Why we ask: these documents let us screen your student for opportunity programs like HEOP that can be worth tens of thousands of dollars, prepare an accurate FAFSA, and complete the CSS Profile. They are stored securely, seen only by the college office, and used for nothing else.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Also this fall</h3>
+    <ul class="check sans" style="font-size:15.5px">
+      <li><b>Social Security card</b> (a copy, for students who have one): the number is needed to start the CUNY application, and the exact name on the card is needed for financial aid logins</li>
+      <li><b>Signed College &amp; Career contract</b>: comes home at September orientation</li>
+      <li><b>Parent FSA ID</b>: a login you create at studentaid.gov when your student asks (around October); name must match your Social Security card exactly</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Through the year</h3>
+    <ul class="check sans" style="font-size:15.5px">
+      <li><b>Your section of the FAFSA</b>: by November 26</li>
+      <li><b>Signatures when asked</b>: some programs (for example QuestBridge) require a parent signature on program forms</li>
+      <li><b>Verification documents if requested</b>: colleges sometimes ask families to confirm aid information (January–February)</li>
+      <li><b>The enrollment deposit</b>: at commitment, by May 1</li>
+    </ul>
+  </div>
+
+  <div class="callout green"><b>A note on privacy.</b> Sharing financial documents is always your choice. What you do share is handled only by the College &amp; Career office, used only for aid and program eligibility, and never shared with other students or families.</div>
+</section>
+
+<section id="applying">
+  <h2>Where students apply</h2>
+  <p class="lede">Every senior applies to a mix of these. The list is built one-on-one with an advisor; most students apply to 8–12 colleges across the categories.</p>
+  <div class="tablewrap">
+  <table class="sans">
+    <tr><th>System</th><th>What it is</th><th>Our deadline</th><th>Cost to apply</th></tr>
+    <tr><td><b>CUNY</b></td><td>The City University of New York: 25 colleges incl. Baruch, Hunter, City College, Brooklyn College. One application covers six choices. Every SLJ senior applies.</td><td>Oct 30</td><td>Fee waived for current NYC public school students</td></tr>
+    <tr><td><b>SUNY</b></td><td>The State University of New York: 64 campuses statewide, incl. Binghamton, Stony Brook, Buffalo.</td><td>Dec 7–11</td><td>Fee waiver for up to 7 SUNYs</td></tr>
+    <tr><td><b><a href="https://www.commonapp.org" title="commonapp.org">Common App</a> privates</b></td><td>One application to most private colleges. Needs the essay, teacher recommendations, and our school report (we handle the school side).</td><td>Dec 7–11 (Nov for early applicants)</td><td>Fee waiver for all colleges on the Common App</td></tr>
+    <tr><td><b>Out-of-state publics</b></td><td>Public universities in other states, applied to individually.</td><td>Dec 7–11</td><td>Varies; waivers often available</td></tr>
+  </table>
+  </div>
+  <p>Application fees should never stop a student from applying. Most SLJ students qualify for fee waivers across all of these systems, and for SAT fee waivers too. Ask us.</p>
+  <div class="callout"><b>One rule for every application, in every system: students submit WITH a college advisor.</b> Please do not hit submit before the application has been fully reviewed by a college advisor. A second set of eyes at the moment of submission catches missing pieces, fee-waiver errors, and typos that are hard to fix afterward.</div>
+</section>
+
+<section id="paying">
+  <h2>Paying for college</h2>
+  <p class="lede">This is the part of the process families worry about most, and the part where SLJ students have the most going for them. The rule of thumb: <b>never rule out a college by its sticker price.</b> Aid can change the picture completely, and some of the most generous colleges in the country are also the most selective.</p>
+
+  <h3>The aid applications</h3>
+  <div class="tablewrap">
+  <table class="sans">
+    <tr><th>Form</th><th>What it unlocks</th><th>When</th></tr>
+    <tr><td><b><a href="https://studentaid.gov" title="studentaid.gov">FAFSA</a></b></td><td>Federal grants (<a class="gl" href="#g-pell" title="The main federal grant: money that is never paid back">Pell</a>), loans, work-study, and most college aid. The foundation of everything. Completed entirely online; parents are invited into the form as contributors.</td><td>Opens Oct 1 · submit by Nov 26</td></tr>
+    <tr><td><b><a href="https://www.hesc.ny.gov" title="hesc.ny.gov">TAP</a></b></td><td>New York State tuition assistance at CUNY, SUNY, and NY private colleges. Invitation arrives after the FAFSA.</td><td>After FAFSA, winter</td></tr>
+    <tr><td><b><a href="https://cssprofile.collegeboard.org" title="cssprofile.collegeboard.org">CSS Profile</a></b></td><td>Extra institutional aid at many private colleges.</td><td>Dec 14–18 (with fee waivers)</td></tr>
+    <tr><td><b><a href="https://www.hesc.ny.gov/dream" title="hesc.ny.gov/dream">NYS Dream Act</a></b></td><td>State aid for undocumented students, in place of the FAFSA. Handled individually and confidentially with the advisor.</td><td>Same season as FAFSA</td></tr>
+  </table>
+  </div>
+
+  <h3>Opportunity programs: money plus support</h3>
+  <p>New York runs remarkable programs that combine financial aid with tutoring, counseling, and a supportive community on campus. Eligibility is based on family income and academic profile; if you share your financial documents by September 25, we can screen your student for all of these:</p>
+  <ul>
+    <li><b>HEOP</b>: at New York private colleges (NYU, Fordham, Syracuse, and many more)</li>
+    <li><b>EOP</b>: at SUNY campuses</li>
+    <li><b>SEEK / College Discovery</b>: at CUNY colleges</li>
+  </ul>
+  <p>These programs can turn a private college that looks unaffordable into the cheapest option on the list. Most include a mandatory summer program before freshman year; treat that as part of the deal, and a good one.</p>
+
+  <h3>Worth knowing</h3>
+  <ul>
+    <li>When the final college list comes together in the fall, <b>run a <a href="https://bigfuture.collegeboard.org/pay-for-college/get-started/net-price-calculator" title="bigfuture.collegeboard.org">Net Price Calculator</a> for every college on it</b> to estimate what each would cost your family per year. See the highlighted note in the <a href="#glance">timeline</a>.</li>
+    <li>A number of colleges, including several our students apply to, pledge to meet <b>100% of a family's demonstrated financial need</b>. We keep a list and build it into college lists for strong candidates.</li>
+    <li>The <b>Excelsior Scholarship</b> can make CUNY/SUNY tuition free for many NY families; the application for your student's freshman year happens after commitment, and we flag it to graduates.</li>
+    <li>In spring we compare every offer's <b>real yearly cost</b> with the student. Families are warmly invited to those meetings.</li>
+  </ul>
+</section>
+
+<section id="programs">
+  <h2>Special programs &amp; scholarships</h2>
+  <p class="lede">Beyond the regular application, a few competitive programs offer extraordinary outcomes. Students opt into these application processes, and every family should know they exist.</p>
+
+  <div class="prog">
+    <h4><a href="https://www.questbridge.org" title="questbridge.org">QuestBridge</a> National College Match <span class="tag">Application due Oct 1</span></h4>
+    <p>A national program matching high-achieving students from lower-income families to <b>full four-year scholarships</b> at 55 of the most selective colleges (Stanford, MIT, Columbia, Amherst, and more). SLJ students have been selected before. The application needs essays, two teacher recommendations, and your <b>2025 tax return</b>, another reason gathering financial documents by September 25 pays off. Parents of participating students will also sign a Match Agreement form in mid-October.</p>
+  </div>
+
+  <div class="prog">
+    <h4>Posse Foundation <span class="tag">Nomination-based, fall rounds</span></h4>
+    <p>Full-tuition leadership scholarships that send teams ("posses") of NYC students to partner colleges together. Nominated students attend selection rounds through the fall; finalists hear in December.</p>
+  </div>
+
+  <div class="prog">
+    <h4>Macaulay Honors College <span class="tag">With the CUNY application</span></h4>
+    <p>CUNY's honors college: free tuition, a laptop, and an opportunities fund, at eight CUNY campuses. Strong students apply through the CUNY application with an earlier deadline; advisors flag candidates.</p>
+  </div>
+
+  <div class="prog">
+    <h4>College fly-in &amp; diversity visit programs <span class="tag">Applications July–early Sept</span></h4>
+    <p>Dozens of selective colleges fly students in for free overnight campus visits each fall. A great trial run and a real signal of interest. Applications are short (usually one essay); the window is early fall, so seniors should see their advisor in September.</p>
+  </div>
+
+  <p style="font-size:15px; color:var(--muted)">New scholarships cross our desk every week during the year. When one fits your student, their advisor will bring it to them directly.</p>
+</section>
+
+<section id="career">
+  <h2>Career pathways: the "Career" in College &amp; Career</h2>
+  <p class="lede">College is the most common next step for SLJ graduates, but it is not the only one, and it is not the only thing we advise on. Every senior leaves with a concrete plan for the year after graduation, built with an advisor, whatever shape that plan takes.</p>
+
+  <h3>Career preparation every student gets</h3>
+  <p>Career exploration is woven into all four years at SLJ: students research careers and majors on <b>Overgrad</b>, the college and career platform they use in seminar; hear from professionals through <b>Career Day</b> (10th grade) and the Lunch With Lawyers series; and get real practice through mock trial, moot court, and attorney mentors. <b>Financial literacy is built into Senior Seminar for every senior</b>: budgeting, credit and debt, understanding loans, and reading a paycheck, useful no matter where your student is headed.</p>
+
+  <h3>FutureReadyNYC at SLJ</h3>
+  <p>SLJ is part of <b>FutureReadyNYC</b>, NYC Public Schools' career-pathways initiative, with a pathway focused on careers in education. Students in the FutureReadyNYC cohort earn <b>early college credit</b> through dual enrollment, work toward an <b>industry credential</b>, and complete <b>paid, career-aligned work experience</b>, including internships. Families of cohort students hear the details from us directly; if your student is interested in joining, ask their advisor.</p>
+
+  <h3>Paid work experience</h3>
+  <p>We encourage every student to get paid work experience before graduation. The <b>Summer Youth Employment Program (SYEP)</b>, New York City's paid summer jobs program, is the most common route; applications open in the winter and we help students apply. Paid internships also run through the school's enrichment programs.</p>
+  <div class="parent-do"><b>Parents:</b> paid placements require <a class="gl" href="#g-workingpapers" title="The NYC employment certificate students under 18 need for a paid job; issued through school"><b>working papers</b></a> (for students under 18) and proof of work eligibility (the <a class="gl" href="#g-i9" title="The federal work-eligibility form for any paid job">I-9</a>: for example a Social Security card plus school or government ID). Having these documents ready is the single best way to help your student say yes quickly when a paid opportunity appears.</div>
+
+  <h3>If college is not the plan, or not the plan yet</h3>
+  <p>Some students are weighing full-time work, a trade or apprenticeship program, city workforce programs, military service, or a year to work and save before enrolling. That is a real plan, and it deserves the same advising as any college list. What we do together: map the options, connect the student to programs, and keep doors open. Every senior still completes the CUNY application, because it costs nothing extra, keeps an affordable college option live, and can be deferred or used later. Our May 1 checklist covers every graduate, not just the college-bound: everyone leaves with a committed next step, and we stay in touch after graduation to help when plans evolve.</p>
+</section>
+
+<section id="enrichment">
+  <h2>Enrichment beyond the classroom</h2>
+  <p class="lede">College readiness is not only paperwork. Through the Adams Street Foundation, SLJ funds enrichment that most schools cannot, and it is <b>open to every student regardless of GPA</b>.</p>
+  <ul>
+    <li><b>Study abroad</b> and travel programs</li>
+    <li><b>Paid internships</b> during the school year and summer</li>
+    <li><b>Residential pre-college programs</b> on university campuses</li>
+    <li><b>Law &amp; justice experiences</b>: mock trial and moot court, courthouse trips, attorney mentors who coach students on arguments and college essays, and the monthly Lunch With Lawyers series</li>
+    <li><b>Campus visits</b> for every grade, plus an overnight multi-college trip</li>
+    <li><b>After-school clubs, snowboarding trips, and the Young Men's and Young Women's Initiatives</b></li>
+  </ul>
+  <p>Opportunities are announced through advisories, email, and the Enrichment office all year. Encourage your student to say yes to things. As we like to say at SLJ: school is not a rehearsal for life, it is life.</p>
+</section>
+
+<section id="how-to-help">
+  <h2>What to do at home, month by month</h2>
+  <div class="card">
+    <ul class="sans" style="font-size:15.5px">
+      <li><b>September:</b> the signed contract, a conversation about the accelerated timeline, and your financial documents if you would like our help with aid applications.</li>
+      <li><b>October:</b> create your FSA ID the week your student asks. Ask them what their six CUNY choices are.</li>
+      <li><b>November:</b> sit down together for the FAFSA. Ask to see the final college list, and run a <a class="gl" href="#g-npc" title="Estimates what a college would actually cost your family per year, after aid">Net Price Calculator</a> for every college on it.</li>
+      <li><b>December:</b> quiet writing time at home. Celebrate when the applications go in; it is a big deal.</li>
+      <li><b>January–February:</b> open every letter and email from colleges and aid offices; forward anything confusing to us.</li>
+      <li><b>March–April:</b> come to the aid-comparison meeting. Keep an open mind; the best offer is often a surprise.</li>
+      <li><b>May:</b> commit by May 1, pay the deposit, and let us know how it feels. We want to celebrate with you.</li>
+      <li><b>June:</b> watch for summer program dates from the college, and make sure we have a personal email and cell for your graduate.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="glossary" class="glossary">
+  <h2>Glossary: every acronym in one place</h2>
+  <p class="lede">The college process has a language of its own. Dotted-underlined terms throughout this guide jump here; hover over them on a computer for a quick definition.</p>
+  <dl>
+    <div class="entry" id="g-cc"><dt>C&amp;C</dt><dd>College &amp; Career: SLJ's college and career office, the team behind this guide and your student's advising.</dd></div>
+    <div class="entry" id="g-commonapp"><dt>Common App</dt><dd>One online application accepted by most private colleges (commonapp.org).</dd></div>
+    <div class="entry" id="g-css"><dt>CSS Profile</dt><dd>A second financial aid form used by many private colleges to award their own institutional aid. Fee waivers available.</dd></div>
+    <div class="entry" id="g-cuny"><dt>CUNY</dt><dd>The City University of New York: NYC's 25 public colleges. One application covers six choices.</dd></div>
+    <div class="entry" id="g-dreamact"><dt>NYS Dream Act</dt><dd>New York State financial aid for undocumented students, filed in place of the FAFSA.</dd></div>
+    <div class="entry" id="g-edea"><dt>ED / EA / RD</dt><dd>Early Decision (binding, ~Nov 1), Early Action (early but not binding), Regular Decision (January). The application rounds at private colleges.</dd></div>
+    <div class="entry" id="g-eop"><dt>EOP</dt><dd>Educational Opportunity Program: aid plus on-campus support at SUNY campuses, based on family income and academics.</dd></div>
+    <div class="entry" id="g-excelsior"><dt>Excelsior Scholarship</dt><dd>NY State program that can make CUNY/SUNY tuition free for many families. Applied for after commitment.</dd></div>
+    <div class="entry" id="g-fafsa"><dt>FAFSA</dt><dd>Free Application for Federal Student Aid: the online form (studentaid.gov) behind nearly all grants, loans, and work-study.</dd></div>
+    <div class="entry" id="g-frnyc"><dt>FutureReadyNYC</dt><dd>NYC Public Schools' career-pathways program: college credit, an industry credential, and paid work experience for cohort students.</dd></div>
+    <div class="entry" id="g-fsaid"><dt>FSA ID</dt><dd>The username and password for federal aid at studentaid.gov. The student and one parent each need their own; names must match Social Security cards exactly.</dd></div>
+    <div class="entry" id="g-heop"><dt>HEOP</dt><dd>Higher Education Opportunity Program: aid plus support at New York private colleges, based on family income and academics.</dd></div>
+    <div class="entry" id="g-i9"><dt>I-9</dt><dd>The federal work-eligibility form for any paid job; needs documents like a Social Security card plus an ID.</dd></div>
+    <div class="entry" id="g-macaulay"><dt>Macaulay</dt><dd>Macaulay Honors College: CUNY's honors program with free tuition, applied to through the CUNY application.</dd></div>
+    <div class="entry" id="g-npc"><dt>Net Price Calculator</dt><dd>A tool on every college's website (and collected at bigfuture.collegeboard.org) that estimates what that college would actually cost your family per year, after aid.</dd></div>
+    <div class="entry" id="g-overgrad"><dt>Overgrad</dt><dd>The online college and career platform students use in seminar to research colleges and careers, build their list, and complete school surveys.</dd></div>
+    <div class="entry" id="g-pell"><dt>Pell Grant</dt><dd>The main federal grant (money that is never paid back), awarded through the FAFSA.</dd></div>
+    <div class="entry" id="g-posse"><dt>Posse</dt><dd>The Posse Foundation: full-tuition leadership scholarships sending teams of NYC students to partner colleges together.</dd></div>
+    <div class="entry" id="g-qb"><dt>QuestBridge</dt><dd>National College Match: full four-year scholarships at 55 of the most selective colleges, for high-achieving students from lower-income families.</dd></div>
+    <div class="entry" id="g-seek"><dt>SEEK / College Discovery</dt><dd>CUNY's opportunity programs: aid plus support at four-year (SEEK) and community (College Discovery) colleges.</dd></div>
+    <div class="entry" id="g-suny"><dt>SUNY</dt><dd>The State University of New York: 64 public campuses across the state.</dd></div>
+    <div class="entry" id="g-syep"><dt>SYEP</dt><dd>Summer Youth Employment Program: NYC's paid summer jobs program for young people. Applications open in winter.</dd></div>
+    <div class="entry" id="g-tap"><dt>TAP</dt><dd>Tuition Assistance Program: New York State aid for study at CUNY, SUNY, and NY private colleges. Invitation arrives after the FAFSA.</dd></div>
+    <div class="entry" id="g-workingpapers"><dt>Working papers</dt><dd>The NYC employment certificate students under 18 need for a paid job; issued through school.</dd></div>
+  </dl>
+</section>
+
+<section id="contact">
+  <h2>Questions? Talk to us.</h2>
+  <p>No question is too small, and no situation is too complicated. We have seen it all, and our job is your student's future.</p>
+  <div class="contact">
+    <h3>College &amp; Career Office</h3>
+    <p><b>Diana Moldovan</b>, Director of Programs · DMoldovan@schools.nyc.gov</p>
+    <p><b>Jeaniese Torres</b>, Assistant Director of College &amp; Career · JTorres354@schools.nyc.gov</p>
+    <p style="margin-top:10px">The Urban Assembly School for Law and Justice<br>283 Adams Street, Brooklyn, NY 11201 · 718-858-1160 · sljhs.org</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  The Urban Assembly School for Law and Justice · Family Guide to the College Process · Class of 2027 · 2026–27 school year<br>
+  Dates reflect SLJ's internal calendar and may be updated during the year; your student's advisor always has the current dates.
+</footer>
+
+</body>
+</html>
