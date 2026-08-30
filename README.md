@@ -14,6 +14,8 @@ Static site for the Adams Street Foundation, served by GitHub Pages.
 ## Publishing
 Push to `main`; GitHub Pages deploys automatically (Settings → Pages → Deploy from branch `main` / root).
 
+**Refreshing `/parents` and `/fly-ins`: run `python3 scripts/publish_site.py` from the Helper root — never copy the outreach builds in by hand.** The script re-applies the site-only injections the outreach sources deliberately lack: the noindex meta (preview phase; flip `NOINDEX = False` in the script at launch) and the cross-nav bar back to the homepage and sibling resources. A bare copy silently drops both.
+
 ## Rules
 - Everything in this repo is PUBLIC. No student names, no internal notes, no unpublished stats.
 - Impact figures come from the published SLJ School Profile 2026 only.
