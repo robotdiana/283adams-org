@@ -13,6 +13,7 @@
   --line:#e3e6ec; --radius:14px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
 a{color:var(--blue)}
@@ -34,6 +35,9 @@ h1 em{font-style:normal;color:var(--gold)}
   border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:#e9ecf3;max-width:820px}
 .strategy b{color:var(--gold)}
 .fineprint{margin-top:10px;font-size:12px;color:#98a0b3;max-width:820px}
+.cta{display:inline-block;margin-top:14px;background:var(--gold);color:var(--navy);font-weight:800;
+  font-size:15px;padding:10px 20px;border-radius:10px;text-decoration:none}
+.cta:hover{background:#ffb733}
 
 /* ---------- summary strip ---------- */
 .strip{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
@@ -129,6 +133,7 @@ footer .gold{color:var(--gold);font-weight:700}
   <span style="display:flex;flex-wrap:wrap;gap:4px 18px">
     <a href="../" style="color:#c8d3e8;text-decoration:none">Home</a>
     <a href="../parents/" style="color:#c8d3e8;text-decoration:none">Family Guide</a>
+    <a href="../colleges/" style="color:#c8d3e8;text-decoration:none">College Guide</a>
     <a href="../common-app/" style="color:#c8d3e8;text-decoration:none">Common App Deck</a>
   </span>
 </div>
@@ -139,8 +144,9 @@ footer .gold{color:var(--gold);font-weight:700}
     <span class="kicker">SLJ College Office · Class of 2027</span>
     <h1>These colleges will <em>fly you out for free</em> to spend a night on campus.</h1>
     <p class="lede">Fly-in and diversity overnight programs cover your travel, meals, and housing so you can
-    experience a college before you apply. You stay in a dorm, sit in on classes, and meet students
-    like you. The only thing most of them cost is a short application.</p>
+    experience a college before you apply. You stay in a dorm, sit in on classes, and meet current
+    students. The only thing most of them cost is a short application.</p>
+    <a class="cta" href="#list">Browse all 56 programs ↓</a>
     <div class="why">
       <div><b>It's a real trip, on them</b><p>Most programs book and pay for your flights or trains, your meals, and your room. You bring a bag; they handle the rest.</p></div>
       <div><b>Just applying helps you</b><p>In our own SLJ tracking, students who applied to a college's overnight — <u>even the ones who didn't get in</u> — were about <b>twice as likely</b> to later be accepted to that college. That's our internal numbers, not a formal study, but the pattern is real: applying shows the college you're serious, and they notice.</p></div>
@@ -161,7 +167,7 @@ footer .gold{color:var(--gold);font-weight:700}
   </div>
 </div>
 
-<main class="wrap">
+<main class="wrap" id="list">
   <div class="controls">
     <div class="tabs" id="tabs"></div>
     <div class="chips" id="regions"><label>Region</label></div>
@@ -190,7 +196,10 @@ footer .gold{color:var(--gold);font-weight:700}
     and she can <b>nominate</b> you for the programs that require it (Olin, Whitman, Swarthmore).</p>
     <p style="margin-top:8px">Some programs on this page already closed for 2026. That's how fast these fill —
     the open ones will do the same. <span class="gold">Apply this week, not "soon."</span></p>
-    <p style="margin-top:14px;font-size:12px;color:#8b93a7">Maintained by the SLJ College Office · Last verified August 29, 2026 ·
+    <p style="margin-top:8px">Researching the colleges themselves? Start with the
+    <a href="../colleges/" style="color:var(--gold)">College Research Guide</a> — real costs,
+    opportunity programs, and what each campus is known for.</p>
+    <p style="margin-top:14px;font-size:12px;color:#8b93a7">Maintained by the SLJ College Office · Last verified August 30, 2026 ·
     Always confirm details on the college's official page before you travel.</p>
   </div>
 </footer>
