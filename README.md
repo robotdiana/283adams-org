@@ -9,6 +9,7 @@ Static site for the Adams Street Foundation, served by GitHub Pages.
 - `fly-ins/` — Fly-in programs directory (GENERATED: edit `reference/fly-in-programs.csv` in Helper, run `scripts/build_flyins.py`, copy the output here)
 - `colleges/` — College Research Guide (GENERATED: profiles live in Helper `reference/colleges/`, joined to the fly-in CSV and need-met CSV by `scripts/build_colleges.py` → `outreach/college-guide.html`; copied here by `publish_site.py`)
 - `common-app/` — Common App Camp deck page + PDF (source pptx in Helper `curriculum/common-app-camp-2026/`)
+- `drafts/` — TEMPORARY (8/31): homepage design concepts B and C for internal review (Diana → principal). noindex, banner-labeled, linked from nothing. DELETE this folder once the homepage decision is settled; source variants live on in Helper `ops/site-redesign/`.
 - `assets/` — images (downloaded from the old Squarespace CDN) + `site.css` (shared stylesheet for homepage/benefit/common-app; parents & fly-ins pages are self-contained)
 - `CNAME` — custom-domain binding for GitHub Pages. Do not delete.
 
