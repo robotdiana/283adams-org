@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept B — Two Doors (design preview) — Adams Street Foundation</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../assets/favicon.webp" type="image/webp">
+<link rel="stylesheet" href="../../assets/site.css">
+<style>
+.conceptbar{background:#12203a;color:#fff;font-size:.85rem;padding:9px 20px;text-align:center}
+.conceptbar b{color:#f5b52e;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
+.conceptbar a{color:#8fd4f3}
+/* two doors */
+.doors{max-width:1080px;margin:-46px auto 0;padding:0 20px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.door{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;box-shadow:0 10px 30px rgba(30,63,102,.14);text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s;display:block}
+.door:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(30,63,102,.2)}
+.door .tag{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:700;color:var(--blue);margin-bottom:8px}
+.door h3{color:var(--navy-deep);font-size:1.25rem;margin-bottom:6px}
+.door p{font-size:.95rem;color:#4a5a68}
+.door .go{margin-top:12px;font-weight:700;color:var(--blue);font-size:.9rem}
+.door.gold .tag{color:#b07f0e}
+.door.gold .go{color:#b07f0e}
+/* journey guides */
+.journey{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px;margin-top:30px}
+.jcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .15s;position:relative}
+.jcard:hover{box-shadow:0 8px 24px rgba(30,63,102,.14);transform:translateY(-2px)}
+.jcard .thumb{aspect-ratio:16/9;background-size:cover;background-position:center}
+.jcard .step{position:absolute;top:12px;left:12px;background:var(--navy-deep);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.jcard .body{padding:16px 18px 8px}
+.jcard h3{color:var(--navy-deep);font-size:1.05rem;margin-bottom:4px}
+.jcard p{font-size:.9rem;color:#4a5a68}
+.jcard ul{margin:10px 0 0 1.1em;font-size:.85rem;color:#4a5a68}
+.jcard ul li{margin-bottom:3px}
+.jcard .go{margin-top:auto;padding:12px 18px 16px;font-size:.85rem;font-weight:700;color:var(--blue)}
+/* supporter band */
+.minivs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
+.mv{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:16px 18px}
+.mv b{display:block;font-size:1.7rem;color:#8fd4f3;line-height:1.15}
+.mv span{font-size:.85rem;color:#dcebf7}
+.mv .vsline{display:block;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.25);font-size:.78rem;color:#a9c6de}
+.supporter{background:linear-gradient(120deg,var(--navy-deep),var(--navy));color:#fff}
+.supporter h2{color:#fff}
+.supporter .lead{color:#dcebf7}
+.supporter .eyebrow{color:#8fd4f3}
+/* explore compact */
+.explore-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 28px;margin-top:20px;max-width:56em}
+.explore-list a{font-weight:600;text-decoration:none;font-size:.95rem;padding:7px 0;border-bottom:1px solid var(--line)}
+.explore-list a:hover{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="conceptbar"><b>Design concept for review</b> &middot; This is a proposed homepage design, not the live site. The current homepage is at <a href="../../">283adams.org</a>.</div>
+
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="../../"><img src="../../assets/adams-street-foundation-logo.gif" alt="Adams Street Foundation logo"><span>Adams Street<br>Foundation</span></a>
+    <nav>
+      <a href="#families">For Families</a>
+      <a href="#supporters">For Supporters</a>
+      <a href="https://www.sljhs.org/2026benefit">2026 Benefit</a>
+      <a href="#about">About</a>
+      <a class="donate" href="http://www.sljhs.org/donate/">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" style="padding-bottom:30px">
+  <div class="bg" style="background-image:url('../../assets/graduation-1.webp')"></div>
+  <div class="inner" style="padding-bottom:120px">
+    <div class="kicker">Serving the students of the Urban Assembly School for Law &amp; Justice</div>
+    <h1>Supporting Students. Expanding Possibilities.</h1>
+    <p>Founded in 2008, the Adams Street Foundation funds individualized college advising and enrichment for every student at SLJ, a Brooklyn public school where more than 75% of students will be the first in their family to go to college.</p>
+  </div>
+</div>
+
+<div class="doors">
+  <a class="door" href="#families">
+    <div class="tag">Students &amp; Families</div>
+    <h3>Navigating the college process?</h3>
+    <p>Free, plain-language guides from our College &amp; Career Office: senior year step by step, college research, all-expenses-paid campus visits, and the Common App.</p>
+    <div class="go">Find your guide &darr;</div>
+  </a>
+  <a class="door gold" href="#supporters">
+    <div class="tag">Supporters &amp; Funders</div>
+    <h3>Want to fund work that works?</h3>
+    <p>Every SLJ senior applies to college and is accepted, and 87% of graduates are still enrolled 18 months later. See exactly what your gift does.</p>
+    <div class="go">See the impact &darr;</div>
+  </a>
+</div>
+
+<section id="families">
+  <div class="wrap">
+    <div class="eyebrow">Free &amp; public</div>
+    <h2>Guides for students &amp; families</h2>
+    <p class="lead">Built by SLJ&rsquo;s College &amp; Career Office for our own students and families, and shared openly. Follow them in order or jump to what you need this week.</p>
+    <div class="journey">
+      <a class="jcard" href="../../parents/">
+        <div class="thumb" style="background-image:url('../../assets/graduation-ceremony-2026.webp')"></div>
+        <div class="step">Start here</div>
+        <div class="body"><h3>Family Guide to the College Process</h3><p>The whole of senior year in plain language.</p>
+        <ul><li>Month-by-month timeline</li><li>Financial aid, step by step</li><li>Glossary of every term you&rsquo;ll hear</li></ul></div>
+        <div class="go">Read the guide &rarr;</div>
+      </a>
+      <a class="jcard" href="../../colleges/">
+        <div class="thumb" style="background-image:url('../../assets/college-visit.webp')"></div>
+        <div class="step">Research</div>
+        <div class="body"><h3>College Research Guide</h3><p>Profiles of the colleges our students consider most.</p>
+        <ul><li>What families really pay, by income</li><li>SEEK, EOP, HEOP explained</li><li>Deadlines &amp; how to apply</li></ul></div>
+        <div class="go">Start researching &rarr;</div>
+      </a>
+      <a class="jcard" href="../../fly-ins/">
+        <div class="thumb" style="background-image:url('../../assets/college-visit-syracuse.webp')"></div>
+        <div class="step">Visit for free</div>
+        <div class="body"><h3>Fly-In &amp; Diversity Programs</h3><p>All-expenses-paid campus visits, updated live.</p>
+        <ul><li>Deadlines &amp; live status</li><li>Eligibility at a glance</li><li>Essay prompts included</li></ul></div>
+        <div class="go">Browse programs &rarr;</div>
+      </a>
+      <a class="jcard" href="../../common-app/">
+        <div class="thumb" style="background-image:url('../../assets/un-visit-2026.webp')"></div>
+        <div class="step">Apply</div>
+        <div class="body"><h3>Common App Camp Deck</h3><p>Our summer bootcamp, section by section.</p>
+        <ul><li>Building your application</li><li>The 7 essay prompts</li><li>Fee waivers &amp; H/EOP questions</li></ul></div>
+        <div class="go">Open the deck &rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="supporter" id="supporters">
+  <div class="wrap">
+    <div class="eyebrow">For supporters</div>
+    <h2>What your gift does</h2>
+    <p class="lead">What ends a student&rsquo;s path to college is almost never a rejection letter; it is paperwork, deadlines, and a system with no one to call. Our advisors follow through on every single student, one on one, from junior year through four years past graduation. Your gift funds that capacity for less than $2,000 per student per year.</p>
+    <div class="minivs">
+      <div class="mv"><b>100%</b><span>of seniors apply to college and are accepted</span><span class="vsline">vs 52% of graduates from low-income high schools nationally who enroll at all</span></div>
+      <div class="mv"><b>87%</b><span>of graduates still enrolled 18 months later</span><span class="vsline">vs about 38 of every 100 graduates at comparable high schools nationally</span></div>
+      <div class="mv"><b>&#8776;65:1</b><span>students per college advisor</span><span class="vsline">vs the 372:1 national counselor ratio</span></div>
+      <div class="mv"><b>&lt;$2,000</b><span>per student per year funds all of it</span><span class="vsline">a small supplement to NYC&rsquo;s ~$36,000 per-student investment</span></div>
+    </div>
+    <div class="cta" style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn primary" href="../../our-work/">Read What Your Gift Does</a>
+      <a class="btn ghost" href="http://www.sljhs.org/donate/">Donate</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap" style="display:flex;gap:30px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+    <div style="max-width:36em">
+      <div class="eyebrow">Events</div>
+      <h2>The 2026 Benefit</h2>
+      <p>Honoring Dan Gallagher of Robinhood Markets, hosted by George Carroll Whipple, III. Tuesday, October 20, 2026 at 230 Fifth in Manhattan. Every ticket and sponsorship directly funds college counseling, enrichment, and opportunity for SLJ students.</p>
+    </div>
+    <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn primary" href="https://givebutter.com/asf-2026-benefit">Tickets &amp; Sponsorship</a>
+      <a class="btn navy" href="https://www.sljhs.org/2026benefit">Event details</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">Who we are</div>
+    <h2>SLJ&rsquo;s nonprofit affiliate</h2>
+    <p class="lead">As the non-profit affiliate of the Urban Assembly School for Law &amp; Justice, ASF serves its students by integrating <a href="http://www.sljhs.org/enrichment/">pre-college enrichment</a> and <a href="http://www.sljhs.org/college-and-career/">college and career preparation</a> into the school&rsquo;s curriculum: one-on-one advising, financial aid and scholarship guidance, study abroad, paid internships, residential pre-college programs, courthouse trips, and after-school clubs open to every student, regardless of GPA.</p>
+    <div class="explore-list">
+      <a href="http://www.sljhs.org/asf-mission-and-history/">Mission &amp; History &rarr;</a>
+      <a href="http://www.sljhs.org/">The School: SLJ &rarr;</a>
+      <a href="http://www.sljhs.org/board-of-directors/">Board of Directors &rarr;</a>
+      <a href="http://www.sljhs.org/staff-directory#ASF-Staff">Staff Directory &rarr;</a>
+      <a href="http://www.sljhs.org/partners-and-supporters/">Partners &amp; Supporters &rarr;</a>
+      <a href="http://www.sljhs.org/get-involved">Get Involved &rarr;</a>
+      <a href="https://www.sljhs.org/2026benefit">Events &rarr;</a>
+      <a href="http://www.sljhs.org/donate/">Donate &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <b style="color:#fff">Adams Street Foundation</b><br>
+        283 Adams St, Brooklyn, NY 11201<br>
+        (718) 834-6716<br>
+        <a href="mailto:info@283adams.org">info@283adams.org</a>
+      </div>
+      <div class="social">
+        <a href="http://www.facebook.com/uaslj">Facebook</a>
+        <a href="https://www.instagram.com/uaslj_">Instagram</a>
+        <a href="https://www.youtube.com/channel/UCfLR5T7pcIHQj7acx9ZBDrg">YouTube</a>
+        <a href="http://vimeo.com/user31652935">Vimeo</a>
+      </div>
+    </div>
+    <div class="fine">The Adams Street Foundation is a 501(c)(3) nonprofit organization founded by and in support of the Urban Assembly School for Law and Justice. &middot; <a href="#top">Back to top</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
