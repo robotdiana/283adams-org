@@ -4,7 +4,7 @@ Static site for the Adams Street Foundation, served by GitHub Pages.
 
 ## Structure
 - `index.html` — homepage (rebuilt + upgraded from the Squarespace original, Aug 2026)
-- `2026benefit/` — 2026 Benefit page. URL preserved from the old site (likely printed on invitations). Do not rename.
+- `2026benefit/` — PERMANENT REDIRECT to the canonical benefit page at https://www.sljhs.org/2026benefit (decision 8/30). The URL is printed on the benefit invitations — never rename or delete the redirect. The retired page's copy (mission text, 100% stat, college list, support bullets) is archived at `ops/benefit-2026/benefit-page-archive-2026-08.html` in Helper.
 - `parents/` — Parent Guide to the College Process (source: Helper `outreach/parent-guide-class-of-2027.html`)
 - `fly-ins/` — Fly-in programs directory (GENERATED: edit `reference/fly-in-programs.csv` in Helper, run `scripts/build_flyins.py`, copy the output here)
 - `colleges/` — College Research Guide (GENERATED: profiles live in Helper `reference/colleges/`, joined to the fly-in CSV and need-met CSV by `scripts/build_colleges.py` → `outreach/college-guide.html`; copied here by `publish_site.py`)
