@@ -8,6 +8,50 @@
 <meta name="robots" content="noindex"><!-- REMOVE at DNS flip / launch -->
 <link rel="icon" href="assets/favicon.webp" type="image/webp">
 <link rel="stylesheet" href="assets/site.css">
+<style>
+/* comparison rows */
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:16px;margin-top:30px}
+.vsrow{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.vsrow .label{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:#6b7a87;margin-bottom:10px}
+.vsrow .us{font-size:1.9rem;font-weight:800;color:var(--blue);line-height:1.1}
+.vsrow .us small{display:block;font-size:.85rem;font-weight:600;color:var(--navy-deep);margin-top:2px}
+.vsrow .them{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.9rem;color:#4a5a68}
+.srcnote{font-size:.78rem;color:#6b7a87;margin-top:16px;max-width:52em}
+/* family router strip */
+.familybar{background:var(--mist);border-bottom:1px solid var(--line)}
+.familybar .inner{max-width:1080px;margin:0 auto;padding:14px 20px;font-size:.98rem;color:var(--navy-deep)}
+.familybar a{font-weight:700}
+/* story teaser */
+.teaser{max-width:46em;font-size:1.05rem}
+.teaser p{margin-bottom:16px}
+/* recognition strip */
+.recog{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.recog .inner{max-width:1080px;margin:0 auto;padding:26px 20px;display:flex;gap:14px 40px;flex-wrap:wrap;align-items:baseline;justify-content:center}
+.recog .item{font-size:.92rem;color:#4a5a68;max-width:26em}
+.recog .item b{color:var(--navy-deep)}
+/* journey guides */
+.journey{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px;margin-top:30px}
+.jcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:box-shadow .15s,transform .15s;position:relative}
+.jcard:hover{box-shadow:0 8px 24px rgba(30,63,102,.14);transform:translateY(-2px)}
+.jcard .thumb{aspect-ratio:16/9;background-size:cover;background-position:center}
+.jcard .step{position:absolute;top:12px;left:12px;background:var(--navy-deep);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.jcard .body{padding:16px 18px 8px}
+.jcard h3{color:var(--navy-deep);font-size:1.05rem;margin-bottom:4px}
+.jcard p{font-size:.9rem;color:#4a5a68}
+.jcard ul{margin:10px 0 0 1.1em;font-size:.85rem;color:#4a5a68}
+.jcard ul li{margin-bottom:3px}
+.jcard .go{margin-top:auto;padding:12px 18px 16px;font-size:.85rem;font-weight:700;color:var(--blue)}
+.resnote{font-size:.9rem;color:#4a5a68;margin-top:14px;max-width:46em}
+/* quote band */
+.quoteband{background:linear-gradient(120deg,var(--navy-deep),var(--navy));color:#fff}
+.quoteband .inner{max-width:1080px;margin:0 auto;padding:56px 20px;text-align:center}
+.quoteband blockquote{font-size:clamp(1.15rem,2.4vw,1.5rem);font-style:italic;line-height:1.5;max-width:30em;margin:0 auto 10px}
+.quoteband .attr{color:#bfe6f8;font-size:.9rem}
+/* explore compact */
+.explore-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 28px;margin-top:20px;max-width:56em}
+.explore-list a{font-weight:600;text-decoration:none;font-size:.95rem;padding:7px 0;border-bottom:1px solid var(--line)}
+.explore-list a:hover{color:var(--blue)}
+</style>
 </head>
 <body>
 
@@ -15,114 +59,141 @@
   <div class="nav">
     <a class="brand" href="./"><img src="assets/adams-street-foundation-logo.gif" alt="Adams Street Foundation logo"><span>Adams Street<br>Foundation</span></a>
     <nav>
-      <a href="#mission">Mission</a>
-      <a href="#impact">Impact</a>
       <a href="our-work/">Our Work</a>
       <a href="https://www.sljhs.org/2026benefit">2026 Benefit</a>
       <a href="colleges/">College Guide</a>
       <a href="#resources">Resources</a>
-      <a href="#explore">Explore</a>
+      <a href="#about">About</a>
       <a class="donate" href="http://www.sljhs.org/donate/">Donate</a>
     </nav>
   </div>
 </header>
 
 <div class="hero">
-  <div class="bg" style="background-image:url('assets/graduation-1.webp')"></div>
+  <div class="bg" style="background-image:url('assets/graduation-ceremony-2026.webp')"></div>
   <div class="inner">
     <div class="kicker">Serving the students of the Urban Assembly School for Law &amp; Justice</div>
-    <h1>Supporting Students. Expanding Possibilities.</h1>
-    <p>Founded in 2008, the Adams Street Foundation funds and implements high-quality, individualized programming and counseling for low-income, underserved high school students, to prepare them for success in college and career.</p>
+    <h1>Every senior here gets into college.</h1>
+    <p>At a Brooklyn public school that admits students across the whole academic spectrum, that is not luck. It is what happens when one small foundation funds enough adults to follow through on every single student.</p>
     <div class="cta">
-      <a class="btn primary" href="http://www.sljhs.org/donate/">Donate</a>
-      <a class="btn ghost" href="https://www.sljhs.org/2026benefit">2026 Benefit</a>
+      <a class="btn primary" href="our-work/">See What Your Gift Does</a>
+      <a class="btn ghost" href="http://www.sljhs.org/donate/">Donate</a>
     </div>
   </div>
 </div>
 
-<section id="mission">
-  <div class="wrap">
-    <div class="eyebrow">Who we are</div>
-    <h2>SLJ&rsquo;s nonprofit affiliate</h2>
-    <p class="lead">As the non-profit affiliate of the Urban Assembly School for Law &amp; Justice, ASF serves its students &mdash; the majority of whom live near or below the poverty line and will be the first in their family to go to college &mdash; by integrating <a href="http://www.sljhs.org/enrichment/">pre-college enrichment</a>, and <a href="http://www.sljhs.org/college-and-career/">college and career preparation</a> into the school&rsquo;s curriculum.</p>
-    <p class="lead" style="margin-top:14px">Every SLJ student receives personalized support throughout the college process: one-on-one college advising, essay and application support, financial aid and scholarship guidance, and opportunities to explore professional and career pathways. ASF-funded enrichment &mdash; study abroad, paid internships, residential pre-college programs, courthouse trips, and after-school clubs &mdash; is open to every student, regardless of GPA.</p>
-    <p style="margin-top:14px"><a href="http://www.sljhs.org/asf-mission-and-history/"><b>Read our full mission &amp; history &rarr;</b></a></p>
-  </div>
-</section>
+<div class="familybar">
+  <div class="inner"><b>Navigating the college process yourself?</b> Our free family guides are just below: senior year step by step, college research, campus visits, and the Common App. <a href="#resources">Find your guide &darr;</a></div>
+</div>
 
 <section class="alt" id="impact">
   <div class="wrap">
-    <div class="eyebrow">Impact</div>
+    <div class="eyebrow">The results</div>
     <h2>What your support makes possible</h2>
-    <p class="lead">SLJ students &mdash; many entering high school below grade level, more than 75% the first in their families to attend college &mdash; have earned admission to institutions including Williams, Cornell, Georgetown, Howard, the University of Pennsylvania, the University of Chicago, and Yale.</p>
-    <div class="stats">
-      <div class="stat"><b>100%</b><span>of SLJ seniors apply to college</span></div>
-      <div class="stat"><b>94%</b><span>Class of 2025 graduation rate</span></div>
-      <div class="stat"><b>87%</b><span>of graduates still enrolled in college 18 months later</span></div>
-      <div class="stat"><b>75%</b><span>first-generation college students</span></div>
+    <p class="lead">More than 75% of SLJ students will be the first in their family to go to college. The outcomes speak in comparisons.</p>
+    <div class="vs">
+      <div class="vsrow"><div class="label">Getting in</div><div class="us">100%<small>of seniors apply to college and are accepted</small></div><div class="them">Nationally, 52% of graduates from low-income high schools enroll in college at all (National Student Clearinghouse, 2024)</div></div>
+      <div class="vsrow"><div class="label">Staying in college</div><div class="us">87%<small>of graduates still enrolled 18 months later</small></div><div class="them">At comparable high-poverty high schools nationally, about 38 of every 100 graduates are still enrolled a year later (National Student Clearinghouse)</div></div>
+      <div class="vsrow"><div class="label">Time and attention</div><div class="us">&#8776;65:1<small>students per college advisor at SLJ</small></div><div class="them">372:1 is the national counselor ratio, and only a third of US public high schools have any counselor dedicated to college at all (ASCA; NACAC)</div></div>
+      <div class="vsrow"><div class="label">The leverage</div><div class="us">&lt;$2,000<small>per student per year funds all of it</small></div><div class="them">New York City already invests roughly $36,000 per student per year. Your gift determines whether that far larger investment ends in a degree.</div></div>
     </div>
-    <p class="statnote">Figures from the published SLJ School Profile 2026.</p>
-    <p style="margin-top:18px"><a href="our-work/"><b>See what your support actually does &rarr;</b></a></p>
+    <p class="srcnote">SLJ figures from the published SLJ School Profile 2026; advisor caseload from the SLJ College &amp; Career Office. Comparison figures as cited.</p>
   </div>
 </section>
 
-<section class="benefit">
+<section id="the-work">
+  <div class="wrap">
+    <div class="eyebrow">Our work</div>
+    <h2>The part nobody sees</h2>
+    <div class="teaser">
+      <p>What ends a student&rsquo;s path to college is almost never a rejection letter. It is a password that won&rsquo;t reset. A tax transcript a family cannot obtain. A deposit deadline that passes quietly in July, when no adult was watching anymore.</p>
+      <p>Our advisors sit with every junior one on one, work the money side with every family from the start, stay on hold with financial aid offices so a seventeen-year-old doesn&rsquo;t fight a bureaucracy alone, and keep answering the phone for four years after graduation. Families with means pay private consultants $200 an hour for this kind of navigation. Your gift provides it free of charge, to the students the system was hardest on.</p>
+    </div>
+    <p style="margin-top:8px"><a href="our-work/"><b>Read what your gift actually does &rarr;</b></a></p>
+  </div>
+</section>
+
+<div class="recog">
+  <div class="inner">
+    <div class="item"><b>Restoring Opportunity</b> (Harvard Education Press) profiled SLJ as one of a handful of American schools demonstrably succeeding against inequality.</div>
+    <div class="item"><b>The Hechinger Report</b> featured our college office in 2026 as a national example of how schools keep advising deeply human.</div>
+  </div>
+</div>
+
+<section class="alt" id="resources">
+  <div class="wrap">
+    <div class="eyebrow">Free &amp; public</div>
+    <h2>Built for our families. Published for everyone.</h2>
+    <p class="lead">These are the actual guides our College &amp; Career Office hands to SLJ students and families, shared openly for any family navigating the college process. Follow them in order or jump to what you need this week.</p>
+    <div class="journey">
+      <a class="jcard" href="parents/">
+        <div class="thumb" style="background-image:url('assets/graduation-ceremony-2026.webp')"></div>
+        <div class="step">Start here</div>
+        <div class="body"><h3>Family Guide to the College Process</h3><p>The whole of senior year in plain language.</p>
+        <ul><li>Month-by-month timeline</li><li>Financial aid, step by step</li><li>Glossary of every term you&rsquo;ll hear</li></ul></div>
+        <div class="go">Read the guide &rarr;</div>
+      </a>
+      <a class="jcard" href="colleges/">
+        <div class="thumb" style="background-image:url('assets/college-visit.webp')"></div>
+        <div class="step">Research</div>
+        <div class="body"><h3>College Research Guide</h3><p>Profiles of the colleges our students consider most.</p>
+        <ul><li>What families really pay, by income</li><li>SEEK, EOP, HEOP explained</li><li>Deadlines &amp; how to apply</li></ul></div>
+        <div class="go">Start researching &rarr;</div>
+      </a>
+      <a class="jcard" href="fly-ins/">
+        <div class="thumb" style="background-image:url('assets/college-visit-syracuse.webp')"></div>
+        <div class="step">Visit for free</div>
+        <div class="body"><h3>Fly-In &amp; Diversity Programs</h3><p>All-expenses-paid campus visits, updated live.</p>
+        <ul><li>Deadlines &amp; live status</li><li>Eligibility at a glance</li><li>Essay prompts included</li></ul></div>
+        <div class="go">Browse programs &rarr;</div>
+      </a>
+      <a class="jcard" href="common-app/">
+        <div class="thumb" style="background-image:url('assets/un-visit-2026.webp')"></div>
+        <div class="step">Apply</div>
+        <div class="body"><h3>Common App Camp Deck</h3><p>Our summer bootcamp, section by section.</p>
+        <ul><li>Building your application</li><li>The 7 essay prompts</li><li>Fee waivers &amp; H/EOP questions</li></ul></div>
+        <div class="go">Open the deck &rarr;</div>
+      </a>
+    </div>
+    <p class="resnote"><b>For supporters:</b> the best way to understand what your gift funds is to read what we hand our own families.</p>
+  </div>
+</section>
+
+<section class="benefit" style="background:var(--paper);color:var(--ink)">
   <div class="wrap inner">
     <div>
-      <div class="eyebrow" style="color:#8fd4f3">Events</div>
-      <h2>The 2026 Benefit</h2>
-      <p>Join us as we honor Dan Gallagher, Chief Legal, Compliance and Corporate Affairs Officer of Robinhood Markets, hosted by George Carroll Whipple, III &mdash; Tuesday, October 20, 2026 at 230 Fifth in Manhattan. Every ticket and sponsorship directly funds college counseling, enrichment, and opportunity for SLJ students.</p>
+      <div class="eyebrow">Events</div>
+      <h2 style="color:var(--navy-deep)">The 2026 Benefit</h2>
+      <p style="color:var(--ink);max-width:40em">Join us as we honor Dan Gallagher, Chief Legal, Compliance and Corporate Affairs Officer of Robinhood Markets, hosted by George Carroll Whipple, III &mdash; Tuesday, October 20, 2026 at 230 Fifth in Manhattan. Every ticket and sponsorship directly funds college counseling, enrichment, and opportunity for SLJ students.</p>
       <div class="cta" style="margin-top:18px">
         <a class="btn primary" href="https://givebutter.com/asf-2026-benefit">Tickets &amp; Sponsorship</a>
-        <a class="btn ghost" href="https://www.sljhs.org/2026benefit">Event details</a>
+        <a class="btn navy" href="https://www.sljhs.org/2026benefit">Event details</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="resources">
-  <div class="wrap">
-    <div class="eyebrow">Free &amp; public</div>
-    <h2>Resources for students &amp; families</h2>
-    <p class="lead">Guides and tools built by SLJ&rsquo;s College &amp; Career Office for our own students and families &mdash; shared openly. Whether you&rsquo;re a student navigating this on your own or a parent supporting one, these are for you.</p>
-    <div class="cards">
-      <a class="card" href="parents/">
-        <div class="thumb" style="background-image:url('assets/graduation-ceremony-2026.webp')"></div>
-        <div class="body"><h3>Family Guide to the College Process</h3><p>A plain-language walkthrough of senior year: applications, financial aid, deadlines, and a glossary of every term you&rsquo;ll hear.</p></div>
-        <div class="go">Read the guide &rarr;</div>
-      </a>
-      <a class="card" href="colleges/">
-        <div class="thumb" style="background-image:url('assets/college-visit.webp')"></div>
-        <div class="body"><h3>College Research Guide</h3><p>Profiles of the colleges our students consider most &mdash; what families really pay, opportunity programs like SEEK, EOP, and HEOP, and what each campus is known for.</p></div>
-        <div class="go">Start researching &rarr;</div>
-      </a>
-      <a class="card" href="fly-ins/">
-        <div class="thumb" style="background-image:url('assets/college-visit-syracuse.webp')"></div>
-        <div class="body"><h3>College Fly-In &amp; Diversity Programs</h3><p>A live directory of all-expenses-paid campus visit programs &mdash; deadlines, eligibility, and essay prompts, updated as programs open.</p></div>
-        <div class="go">Browse programs &rarr;</div>
-      </a>
-      <a class="card" href="common-app/">
-        <div class="thumb" style="background-image:url('assets/un-visit-2026.webp')"></div>
-        <div class="body"><h3>Common App Camp Deck</h3><p>The complete slide deck from our summer Common App bootcamp &mdash; how to build your application, section by section.</p></div>
-        <div class="go">Open the deck &rarr;</div>
-      </a>
-    </div>
+<div class="quoteband">
+  <div class="inner">
+    <blockquote>&ldquo;I love my job because it is to help young people see the best in themselves, and help other people see that too.&rdquo;</blockquote>
+    <div class="attr">Diana Moldovan, Director of Programs</div>
   </div>
-</section>
+</div>
 
-<section class="alt" id="explore">
+<section id="about">
   <div class="wrap">
-    <div class="eyebrow">Learn more</div>
-    <h2>Explore ASF &amp; SLJ</h2>
-    <div class="tiles">
-      <a class="tile" href="http://www.sljhs.org/asf-mission-and-history/"><img src="assets/graduation-2.webp" alt="Graduates celebrating"><span class="label">ASF Mission &amp; History</span></a>
-      <a class="tile" href="http://www.sljhs.org/"><img src="assets/graduation-1.webp" alt="SLJ graduation"><span class="label">Urban Assembly School for Law &amp; Justice</span></a>
-      <a class="tile" href="https://www.sljhs.org/2026benefit"><img src="assets/students-group.webp" alt="SLJ students"><span class="label">Events</span></a>
-      <a class="tile" href="http://www.sljhs.org/partners-and-supporters/"><img src="assets/students-court.webp" alt="Students visiting a courtroom"><span class="label">Partners &amp; Supporters</span></a>
-      <a class="tile" href="http://www.sljhs.org/get-involved"><img src="assets/classroom-visit.webp" alt="Classroom visit"><span class="label">Get Involved</span></a>
-      <a class="tile" href="http://www.sljhs.org/board-of-directors/"><img src="assets/workshop.webp" alt="Student workshop"><span class="label">Board of Directors</span></a>
-      <a class="tile" href="http://www.sljhs.org/staff-directory#ASF-Staff"><img src="assets/college-visit.webp" alt="Students on a college visit"><span class="label">Staff Directory</span></a>
-      <a class="tile" href="http://www.sljhs.org/donate/"><img src="assets/event-panel.webp" alt="ASF event panel"><span class="label">Donate</span></a>
+    <div class="eyebrow">Who we are</div>
+    <h2>SLJ&rsquo;s nonprofit affiliate</h2>
+    <p class="lead">Founded in 2008, the Adams Street Foundation is the non-profit affiliate of the Urban Assembly School for Law &amp; Justice. ASF serves its students &mdash; the majority of whom live near or below the poverty line &mdash; by integrating <a href="http://www.sljhs.org/enrichment/">pre-college enrichment</a> and <a href="http://www.sljhs.org/college-and-career/">college and career preparation</a> into the school&rsquo;s curriculum: one-on-one advising, essay and application support, financial aid guidance, study abroad, paid internships, courthouse trips, and after-school clubs open to every student, regardless of GPA.</p>
+    <div class="explore-list">
+      <a href="http://www.sljhs.org/asf-mission-and-history/">Mission &amp; History &rarr;</a>
+      <a href="http://www.sljhs.org/">The School: SLJ &rarr;</a>
+      <a href="http://www.sljhs.org/board-of-directors/">Board of Directors &rarr;</a>
+      <a href="http://www.sljhs.org/staff-directory#ASF-Staff">Staff Directory &rarr;</a>
+      <a href="http://www.sljhs.org/partners-and-supporters/">Partners &amp; Supporters &rarr;</a>
+      <a href="http://www.sljhs.org/get-involved">Get Involved &rarr;</a>
+      <a href="https://www.sljhs.org/2026benefit">Events &rarr;</a>
+      <a href="http://www.sljhs.org/donate/">Donate &rarr;</a>
     </div>
   </div>
 </section>
