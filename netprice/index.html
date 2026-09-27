@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><!-- REMOVE at DNS flip / launch -->
+<title>What College Actually Costs · SLJ Family Guide</title>
+<meta name="description" content="How to use a net price calculator to find out what a college would actually cost your family, with a worked Brandeis example. SLJ College &amp; Career Office.">
+<style>
+  :root{
+    --navy:#1b2a4a; --navy-dark:#12203a; --gold:#c9971c; --gold-soft:#f7ecd2;
+    --ink:#232733; --muted:#5b6272; --paper:#fbfaf7; --card:#ffffff; --line:#e5e1d8;
+    --green:#2e6e4e; --green-soft:#e7f2ec; --red:#a63d2f; --red-soft:#f9e9e5;
+    --blue-soft:#e8eef8; --orange:#c96a1c; --orange-soft:#fbe9d8;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif; color:var(--ink); background:var(--paper); line-height:1.55; font-size:17px;}
+  .sans{font-family:'Helvetica Neue',Arial,sans-serif;}
+  a{color:var(--navy); text-decoration-color:var(--gold);}
+
+  header{background:var(--navy); color:#fff; padding:44px 16px 36px; text-align:center;}
+  header .kicker{font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:12px; color:var(--gold); margin-bottom:14px;}
+  header h1{font-size:34px; font-weight:normal; max-width:680px; margin:0 auto 14px; line-height:1.25;}
+  header .quote{color:#e8ecf4; font-size:19px; max-width:620px; margin:0 auto 10px; font-style:italic;}
+  header .sub{color:#c8d0e0; font-size:16px; max-width:560px; margin:0 auto;}
+
+  .statbar{background:var(--navy-dark); color:#fff; display:flex; flex-wrap:wrap; justify-content:center; padding:0 12px;}
+  .stat{padding:18px 28px; text-align:center;}
+  .stat b{display:block; font-size:26px; color:var(--gold); font-family:'Helvetica Neue',Arial,sans-serif;}
+  .stat span{font-size:12.5px; color:#b9c2d4; font-family:'Helvetica Neue',Arial,sans-serif; letter-spacing:.04em;}
+
+  nav.toc{position:sticky; top:0; z-index:50; background:var(--navy-dark); border-bottom:2px solid var(--gold); overflow-x:auto; white-space:nowrap; font-family:'Helvetica Neue',Arial,sans-serif; font-size:13.5px;}
+  nav.toc a{display:inline-block; color:#dfe4ee; text-decoration:none; padding:10px 14px;}
+  nav.toc a:hover{color:#fff; background:rgba(255,255,255,.06);}
+
+  main{max-width:820px; margin:0 auto; padding:12px 16px 60px;}
+  section{margin-top:46px; scroll-margin-top:58px;}
+  h2{font-size:25px; color:var(--navy); font-weight:normal; border-bottom:3px solid var(--gold); padding-bottom:8px; margin-bottom:8px;}
+  h2 .no{color:var(--gold); font-style:italic; margin-right:8px;}
+  .lede{color:var(--muted); font-size:16px; margin-bottom:18px;}
+  h3{font-family:'Helvetica Neue',Arial,sans-serif; font-size:15px; letter-spacing:.06em; text-transform:uppercase; color:var(--navy); margin:24px 0 8px;}
+  p{margin-bottom:12px;}
+  ul,ol{margin:0 0 12px 22px;}
+  li{margin-bottom:7px;}
+  b{font-family:'Helvetica Neue',Arial,sans-serif;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px 22px; margin-bottom:14px;}
+  .callout{background:var(--gold-soft); border-left:5px solid var(--gold); border-radius:0 8px 8px 0; padding:16px 20px; margin:16px 0;}
+  .callout.green{background:var(--green-soft); border-left-color:var(--green);}
+  .callout.red{background:var(--red-soft); border-left-color:var(--red);}
+  .callout.blue{background:var(--blue-soft); border-left-color:var(--navy);}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:640px){ .two{grid-template-columns:1fr;} }
+  .price{font-family:'Helvetica Neue',Arial,sans-serif; font-size:34px; color:var(--navy); line-height:1.1; margin:4px 0 6px;}
+  .price.gold{color:#8a6410;}
+  .tiny{font-size:13.5px; color:var(--muted); font-family:'Helvetica Neue',Arial,sans-serif;}
+
+  /* step-through chart */
+  .viz{display:grid; grid-template-columns:150px 1fr; gap:22px; align-items:stretch;}
+  @media (max-width:560px){ .viz{grid-template-columns:110px 1fr;} }
+  .barwrap{position:relative; height:340px; display:flex; flex-direction:column; justify-content:flex-end;}
+  .bar{position:relative; width:100%; height:100%; display:flex; flex-direction:column; border:1px solid var(--line); background:#eceae3; border-radius:6px; overflow:hidden;}
+  .seg{width:100%; transition:background .35s, opacity .35s; display:flex; align-items:center; justify-content:center; font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; color:#fff; font-weight:bold; opacity:.95;}
+  .seg.remain{background:#bdb7a8;}
+  .seg.self{background:#bdb7a8;}
+  .seg.grant{background:#bdb7a8;}
+  .seg.pell{background:#bdb7a8;}
+  .viz.s2 .seg.pell{background:var(--green);}
+  .viz.s3 .seg.pell, .viz.s4 .seg.pell, .viz.s5 .seg.pell{background:var(--green);}
+  .viz.s3 .seg.grant, .viz.s4 .seg.grant, .viz.s5 .seg.grant{background:#3f8a63;}
+  .viz.s4 .seg.self, .viz.s4 .seg.remain{background:var(--gold);}
+  .viz.s5 .seg.self{background:var(--orange);}
+  .viz.s5 .seg.remain{background:var(--red);}
+  .vizpanel .stepno{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:bold;}
+  .vizpanel h4{font-family:'Helvetica Neue',Arial,sans-serif; font-size:20px; color:var(--navy); margin:4px 0 8px;}
+  .vizpanel .big{font-family:'Helvetica Neue',Arial,sans-serif; font-size:40px; color:var(--navy); line-height:1; margin:6px 0 10px;}
+  .vizpanel p{font-size:16px;}
+  .vizbtns{margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;}
+  button.btn{font-family:'Helvetica Neue',Arial,sans-serif; font-size:15px; padding:9px 16px; border-radius:20px; border:2px solid var(--navy); background:var(--navy); color:#fff; cursor:pointer;}
+  button.btn.ghost{background:#fff; color:var(--navy);}
+  button.btn:disabled{opacity:.35; cursor:default;}
+  .dots{display:flex; gap:6px; margin-top:12px;}
+  .dots i{width:10px; height:10px; border-radius:50%; background:var(--line); display:inline-block;}
+  .dots i.on{background:var(--gold);}
+
+  /* form mock */
+  .screen{background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin:10px 0 4px;}
+  .screen .fl{font-family:'Helvetica Neue',Arial,sans-serif; font-size:13px; color:var(--muted); margin-top:8px;}
+  .screen .fv{display:inline-block; border:1px solid #cfd6e4; background:#f6f8fc; border-radius:6px; padding:5px 12px; font-family:'Helvetica Neue',Arial,sans-serif; font-size:15px; margin:3px 6px 0 0;}
+  .steps{list-style:none; margin-left:0; counter-reset:s;}
+  .steps>li{position:relative; padding-left:52px; margin-bottom:22px;}
+  .steps>li::before{counter-increment:s; content:counter(s); position:absolute; left:0; top:-2px; width:36px; height:36px; border-radius:50%; background:var(--navy); color:#fff; font-family:'Helvetica Neue',Arial,sans-serif; font-weight:bold; font-size:17px; display:flex; align-items:center; justify-content:center;}
+  .steps>li>b.t{display:block; font-size:17px; color:var(--navy); margin-bottom:4px;}
+
+  /* result mock */
+  .result{background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .result table{width:100%; border-collapse:collapse; font-family:'Helvetica Neue',Arial,sans-serif; font-size:15.5px;}
+  .result th{text-align:left; background:#f3f1ea; color:var(--navy); padding:10px 14px; font-size:13px; letter-spacing:.06em; text-transform:uppercase;}
+  .result td{padding:9px 14px; border-top:1px solid var(--line);}
+  .result td:last-child{text-align:right; white-space:nowrap;}
+  .result tr.total td{font-weight:bold;}
+  .result tr.net td{background:var(--gold-soft); font-weight:bold; font-size:18px; color:#5c410a;}
+  .result tr.remain td{background:var(--red-soft); color:var(--red);}
+  .note{font-size:14.5px; color:var(--muted); margin-top:8px;}
+  .tag{display:inline-block; font-family:'Helvetica Neue',Arial,sans-serif; font-size:11.5px; border-radius:10px; padding:1px 8px; margin-left:6px; vertical-align:middle;}
+  .tag.g{background:var(--green-soft); color:var(--green);}
+  .tag.o{background:var(--orange-soft); color:var(--orange);}
+  .tag.r{background:var(--red-soft); color:var(--red);}
+
+  /* four numbers card */
+  .four{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+  @media (max-width:560px){ .four{grid-template-columns:1fr;} }
+  .four .n{border:2px dashed #c9c3b4; border-radius:10px; padding:12px 14px; background:#fff; min-height:96px;}
+  .four .n b{display:block; font-size:14px; color:var(--navy);}
+  .four .n span{display:block; font-size:13px; color:var(--muted);}
+  .four .n .line{border-bottom:2px solid var(--ink); height:34px; margin-top:8px;}
+
+  /* reactions */
+  .react{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+  @media (max-width:700px){ .react{grid-template-columns:1fr;} }
+  .react .r{border-radius:10px; padding:16px 16px 12px; border:1px solid var(--line); background:#fff;}
+  .react .r q{display:block; font-style:italic; font-size:19px; color:var(--navy); margin-bottom:8px;}
+  .react .r p{font-size:15px; margin-bottom:6px;}
+
+  table.data{width:100%; border-collapse:collapse; font-size:15px; margin:10px 0 6px;}
+  table.data th{font-family:'Helvetica Neue',Arial,sans-serif; font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; text-align:right; color:var(--muted); border-bottom:2px solid var(--navy); padding:8px 8px;}
+  table.data th:first-child, table.data td:first-child{text-align:left;}
+  table.data td{border-bottom:1px solid var(--line); padding:9px 8px; text-align:right; font-family:'Helvetica Neue',Arial,sans-serif; white-space:nowrap;}
+  table.data td:first-child{font-family:Georgia,serif; white-space:normal;}
+  table.data .hi{background:var(--gold-soft); font-weight:bold;}
+  .tablewrap{overflow-x:auto;}
+
+  .contact{background:var(--navy); color:#fff; border-radius:12px; padding:26px 28px; margin-top:14px;}
+  .contact h3{color:var(--gold); margin-top:0;}
+  .contact p{color:#dfe4ee; font-size:15.5px;}
+  .contact a{color:#fff;}
+
+  .glossary dl{display:grid; grid-template-columns:1fr 1fr; gap:0 28px; font-size:15px;}
+  .glossary .entry{border-bottom:1px solid var(--line); padding:9px 0;}
+  .glossary dt{font-family:'Helvetica Neue',Arial,sans-serif; font-weight:bold; color:var(--navy);}
+  .glossary dd{margin:2px 0 0;}
+  @media (max-width:640px){ .glossary dl{grid-template-columns:1fr;} }
+
+  footer{text-align:center; color:var(--muted); font-size:13px; padding:26px 16px 46px; font-family:'Helvetica Neue',Arial,sans-serif; line-height:1.6;}
+  footer a{color:var(--muted);}
+
+  @media print{
+    nav.toc, .vizbtns, .noprint{display:none !important;}
+    body{background:#fff; font-size:13px;}
+    header{padding:20px;}
+    section{margin-top:22px;}
+    body.cardonly main > section:not(#four){display:none;}
+    body.cardonly header, body.cardonly .statbar, body.cardonly footer{display:none;}
+    body.cardonly #four{margin-top:0;}
+  }
+</style>
+</head>
+<body>
+<!-- site cross-nav (injected on publish; not in the outreach source) -->
+<div class="sans" style="background:#12203a;color:#fff;font-size:14px;padding:9px 20px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between">
+  <a href="../" style="color:#fff;text-decoration:none;font-weight:700">Adams Street Foundation</a>
+  <span style="display:flex;flex-wrap:wrap;gap:4px 18px">
+    <a href="../" style="color:#cfd8ea;text-decoration:none">Home</a>
+    <a href="../families/" style="color:#cfd8ea;text-decoration:none">Family Guide</a>
+    <a href="../colleges/" style="color:#cfd8ea;text-decoration:none">College Guide</a>
+    <a href="../fly-ins/" style="color:#cfd8ea;text-decoration:none">Fly-In Programs</a>
+    <a href="../common-app/" style="color:#cfd8ea;text-decoration:none">Common App Deck</a>
+  </span>
+</div>
+
+
+<header>
+  <div class="kicker">SLJ College &amp; Career Office · Family Guide</div>
+  <h1>What will college actually cost your family?</h1>
+  <p class="quote">"We can't predict whether a student will get into a college. We can predict what it will cost if they do."</p>
+  <p class="sub">Every college has a free tool on its website that tells you. This page shows you how to use it, with a real example.</p>
+</header>
+
+<div class="statbar">
+  <div class="stat"><b>$93,786</b><span>Brandeis sticker price, 2026-27</span></div>
+  <div class="stat"><b>$6,541</b><span>What our example family would pay</span></div>
+  <div class="stat"><b>5 min</b><span>The Brandeis tool. No account needed.</span></div>
+</div>
+
+<nav class="toc">
+  <a href="#two">Two prices</a>
+  <a href="#watch">Watch it happen</a>
+  <a href="#family">The example family</a>
+  <a href="#try">Try it yourself</a>
+  <a href="#read">Read the result</a>
+  <a href="#four">Your four numbers</a>
+  <a href="#reactions">Three reactions</a>
+  <a href="#compare">Compare colleges</a>
+  <a href="#limits">What it can't tell you</a>
+  <a href="#next">What happens next</a>
+  <a href="#glossary">Glossary</a>
+</nav>
+
+<main>
+
+<section id="two">
+  <h2><span class="no">1</span>Every college has two prices</h2>
+  <p class="lede">The one on the website, and the one your family would actually pay.</p>
+  <div class="two">
+    <div class="card">
+      <h3 style="margin-top:0">Sticker price</h3>
+      <div class="price">$93,786</div>
+      <p class="tiny">Brandeis University, one year, 2026-27, living on campus</p>
+      <p>The full published cost of attendance for one year: tuition and fees, housing and food, books, transportation, and personal expenses. Almost nobody pays this. At Brandeis, 72% of first-year students received grant aid in 2024-25.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Net price</h3>
+      <div class="price gold">$6,541</div>
+      <p class="tiny">The estimate for our example family (below)</p>
+      <p>The sticker price <b>minus grants and scholarships</b>, which is money you never pay back. This is the number to compare between colleges. The U.S. Department of Education defines it as "the amount that a student pays to attend an institution in a single academic year AFTER subtracting scholarships and grants the student receives."</p>
+    </div>
+  </div>
+  <div class="callout">
+    <b>Two rules.</b> Never rule a college out because of its sticker price. And never rule a college in because a calculator subtracted loans to make the last number look small. Loans are borrowed money.
+  </div>
+  <p>A <b>net price calculator</b> is the tool that turns the first number into the second one. Federal law says every college has to post one on its website. You answer questions about your household and income, and the college estimates the grants it would give you. Some take five minutes, some take fifteen, and the answers are different at every college, which is exactly why it is worth doing for every college on your list.</p>
+</section>
+
+<section id="watch">
+  <h2><span class="no">2</span>Watch the price change</h2>
+  <p class="lede">The real Brandeis result for our example family, one layer at a time. Press Next.</p>
+  <div class="card">
+    <div class="viz s1" id="viz">
+      <div class="barwrap">
+        <div class="bar" aria-hidden="true">
+          <div class="seg remain" id="segRemain" style="flex:0 0 4px"></div>
+          <div class="seg self" id="segSelf" style="flex:0 0 6.93%"></div>
+          <div class="seg pell" id="segPell" style="flex:0 0 7.88%">Pell</div>
+          <div class="seg grant" id="segGrant" style="flex:1 1 auto">Brandeis grant</div>
+        </div>
+      </div>
+      <div class="vizpanel">
+        <div class="stepno" id="vzStep">Step 1 of 5</div>
+        <h4 id="vzTitle">Start with the sticker price</h4>
+        <div class="big" id="vzBig">$93,786</div>
+        <p id="vzText">This is one year at Brandeis, living on campus: tuition and fees $70,532, housing and food $20,954, books $1,000, transportation $100, personal expenses $1,200. It is the number that scares families away. Keep going.</p>
+        <div class="vizbtns">
+          <button class="btn ghost" id="vzBack" disabled>Back</button>
+          <button class="btn" id="vzNext">Next</button>
+        </div>
+        <div class="dots" id="vzDots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="family">
+  <h2><span class="no">3</span>The example family</h2>
+  <p class="lede">We use the same made-up family everywhere on this page, so you can check your work against ours.</p>
+  <div class="card">
+    <div class="screen">
+      <div class="fl">Household</div>
+      <span class="fv">3 people: one parent, the student, a 12-year-old sibling</span>
+      <div class="fl">Total income (2025)</div>
+      <span class="fv">$40,000</span>
+      <div class="fl">Savings, home, business, investments</div>
+      <span class="fv">$0 / none</span>
+      <div class="fl">Lives in</div>
+      <span class="fv">New York</span>
+      <div class="fl">Housing in college</div>
+      <span class="fv">On campus</span>
+    </div>
+    <p style="margin-top:12px">Why so simple? Because in almost every calculator, <b>the only two answers that really move the number are household size and total income.</b> Everything else you can leave at zero or skip. If you don't know an answer, put 0 and keep going. You can always run it again.</p>
+  </div>
+</section>
+
+<section id="try">
+  <h2><span class="no">4</span>Try it yourself</h2>
+  <p class="lede">These steps follow the Brandeis calculator, which runs on the College Board's system and takes about five minutes. More than 150 colleges use the same one, so the screens will look familiar. <b>The dollar amounts below are our example family's. Use your own.</b></p>
+  <ol class="steps">
+    <li>
+      <b class="t">Find the calculator</b>
+      Google <b>"Brandeis net price calculator"</b>, or any college's name plus "net price calculator." Two directories list every college's link: <a href="https://collegecost.ed.gov/net-price" target="_blank" rel="noopener">collegecost.ed.gov/net-price</a> (U.S. Department of Education) and <a href="https://bigfuture.collegeboard.org/pay-for-college/get-started/net-price-calculator" target="_blank" rel="noopener">BigFuture's list</a> (College Board colleges). Brandeis's is at <a href="https://npc.collegeboard.org/app/brandeis" target="_blank" rel="noopener">npc.collegeboard.org/app/brandeis</a>.
+    </li>
+    <li>
+      <b class="t">Don't sign in. Click "Get My Estimate."</b>
+      There is a "Sign in with College Board" button in the corner. Skip it. The page itself says "No sign-in required. Your information stays private." Nothing you type is saved to any account.
+    </li>
+    <li>
+      <b class="t">About the student</b>
+      <div class="screen">
+        <div class="fl">Your housing status in college</div><span class="fv">On campus</span>
+        <div class="fl">Whose financial information will you enter?</div><span class="fv">Student and parents</span>
+      </div>
+    </li>
+    <li>
+      <b class="t">Parents' household</b>
+      <div class="screen">
+        <div class="fl">Parents' marital status</div><span class="fv">Whatever is true for your family</span>
+        <div class="fl">State of legal residence</div><span class="fv">New York</span>
+        <div class="fl">Siblings</div><span class="fv">+ Add sibling</span> <span class="fv">Age: 12 in our example</span> <span class="fv">Attendance: No College</span>
+      </div>
+      <p class="note">Add one line for each brother or sister who lives at home. Household size is parents + student + siblings. A sibling already in college changes the number, so mark that if it applies.</p>
+    </li>
+    <li>
+      <b class="t">Parent income: this is where you use your own family's numbers</b>
+      <div class="screen">
+        <div class="fl">Type of federal tax form</div><span class="fv">1040</span> <span class="fv" style="background:#fff">or "Will not file a tax return," whichever is true for your family</span>
+        <div class="fl">Parents' adjusted gross income (AGI)</div><span class="fv">$40,000 in our example</span> <span class="fv" style="background:#fff">your family's total yearly income</span>
+        <div class="fl">Parents' federal tax payment</div><span class="fv">$0</span> <span class="fv" style="background:#fff">$0 if income is under about $70,000; otherwise the tax line from your 1040</span>
+        <div class="fl">Work income from one parent</div><span class="fv">$40,000 in our example</span> <span class="fv" style="background:#fff">the same total again</span>
+        <div class="fl">Interest, business income, tax credits, untaxed income</div><span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span>
+        <div class="fl">Child support</div><span class="fv">No</span>
+      </div>
+      <p class="note">If you know your family's income only roughly, a round number is fine. Include a parent's wages, self-employment income, and any other money that came in during 2025. Households that do not file taxes choose "Will not file a tax return" and enter income from work and benefits.</p>
+    </li>
+    <li>
+      <b class="t">Parent assets: answer what is true, or zero and No</b>
+      <div class="screen">
+        <div class="fl">Cash, savings, checking</div><span class="fv">$0</span>
+        <div class="fl">Own a home? Investments? Business? Farm? Other real estate?</div><span class="fv">No</span> <span class="fv">$0</span> <span class="fv">No</span> <span class="fv">No</span> <span class="fv">No</span>
+      </div>
+    </li>
+    <li>
+      <b class="t">Student finances</b>
+      <div class="screen">
+        <div class="fl">Year of birth · State · Grade</div><span class="fv">your birth year</span> <span class="fv">New York</span> <span class="fv">12th grade</span>
+        <div class="fl">Wages, AGI, tax, interest, untaxed income, savings, trusts</div><span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span> <span class="fv">$0</span>
+      </div>
+    </li>
+    <li>
+      <b class="t">Calculate, then keep it</b>
+      Press <b>Calculate</b>. At the bottom of the results, <b>Print</b> and <b>Download PDF</b> work without signing in. Write your four numbers on the card below so you can compare colleges side by side.
+    </li>
+  </ol>
+  <div class="callout blue">
+    <b>Other colleges, other calculators.</b> Some colleges built their own. A few ask 60 or 70 questions; a few ask six. Some ask for your name and email before they start. You can leave those blank and click Start; Penn State's works that way. The rules don't change: household size and income matter, zero or skip the rest, and always find the line that says <b>net price</b> or <b>grants and scholarships</b>.
+  </div>
+</section>
+
+<section id="read">
+  <h2><span class="no">5</span>Read the result</h2>
+  <p class="lede">What Brandeis showed our example family on September 26, 2026, for the 2026-27 year. The colors are ours; the numbers are the calculator's.</p>
+  <div class="result">
+    <table>
+      <tr><th colspan="2">Estimated cost of attendance <span class="tag">the sticker price</span></th></tr>
+      <tr><td>Tuition &amp; fees</td><td>$70,532</td></tr>
+      <tr><td>Food &amp; housing</td><td>$20,954</td></tr>
+      <tr><td>Books, course materials, supplies</td><td>$1,000</td></tr>
+      <tr><td>Transportation</td><td>$100</td></tr>
+      <tr><td>Miscellaneous personal expenses</td><td>$1,200</td></tr>
+      <tr class="total"><td>Total</td><td>$93,786</td></tr>
+      <tr><th colspan="2">Estimated grant / gift aid <span class="tag g">free money, never repaid</span></th></tr>
+      <tr><td>Estimated Federal Pell Grant</td><td>$7,395</td></tr>
+      <tr><td>Brandeis Scholarship / Grant</td><td>$79,850</td></tr>
+      <tr class="total"><td>Total</td><td>$87,245</td></tr>
+      <tr class="net"><td>Estimated NET PRICE</td><td>$6,541</td></tr>
+      <tr><th colspan="2">Potential self-help opportunities <span class="tag o">borrowed or earned</span></th></tr>
+      <tr><td>Student loans</td><td>$3,500</td></tr>
+      <tr><td>Student work</td><td>$3,000</td></tr>
+      <tr class="total"><td>Total</td><td>$6,500</td></tr>
+      <tr class="remain"><td>Estimated REMAINING COST <span class="tag r">not the price</span></td><td>$41</td></tr>
+    </table>
+  </div>
+  <p class="note">Above the table the calculator also printed "Calculated Family Contribution: Parent Contribution $0 · Student Contribution $0." That is the college's estimate of what this family can afford from income and savings. It is a real number; the aid formula treats a $40,000 income for three people as having nothing to spare.</p>
+
+  <h3>What each block means</h3>
+  <ul>
+    <li><b>Cost of attendance</b> is the sticker price for one year. Colleges have to include living costs and books, not just tuition.</li>
+    <li><b>Grant / gift aid</b> is the money you never pay back. The <b>Pell Grant</b> comes from the federal government and depends only on income and family size; $7,395 is the maximum. The <b>Brandeis grant</b> comes from the college. Brandeis promises full tuition to families with income of $75,000 or less and typical assets, and covers 100% of demonstrated need for every admitted student in year one.</li>
+    <li><b>Net price</b> is cost of attendance minus grants. <b>This is the number.</b> It is what a family and student would need to cover, one way or another, for the year.</li>
+    <li><b>Self-help</b> is how the college suggests covering the net price: a federal student loan (borrowed, repaid after college) and a campus job (earned during the year, roughly 8 to 10 hours a week).</li>
+    <li><b>Remaining cost</b> is what is left after the loan and the job. $41 looks wonderful, and it is genuinely a great result, but it is not the price. The price is $6,541. The loan and the job are how this family would pay it.</li>
+  </ul>
+  <div class="callout red">
+    <b>The trap to avoid.</b> Some calculators subtract loans first and put the small number in big type, calling it "remaining cost" or "out of pocket." Always compare colleges by <b>net price</b> (after grants only). A college that gets you to $0 with $20,000 in loans is not cheaper than one that gets you to $6,000 with a $3,500 loan.
+  </div>
+</section>
+
+<section id="four">
+  <h2><span class="no">6</span>Your four numbers</h2>
+  <p class="lede">Write these down from every calculator you run. Four numbers per college is all you need to compare.</p>
+  <div class="card">
+    <p class="sans" style="font-size:15px; color:var(--muted); margin-bottom:10px">College: <span style="display:inline-block; border-bottom:2px solid var(--ink); width:240px"></span> &nbsp; Household size: <span style="display:inline-block; border-bottom:2px solid var(--ink); width:50px"></span> &nbsp; Income used: <span style="display:inline-block; border-bottom:2px solid var(--ink); width:100px"></span></p>
+    <div class="four">
+      <div class="n"><b>1 · Total cost of attendance</b><span>the sticker price for one year</span><div class="line"></div></div>
+      <div class="n"><b>2 · Grants &amp; scholarships</b><span>gift aid total, never repaid</span><div class="line"></div></div>
+      <div class="n"><b>3 · NET PRICE</b><span>number 1 minus number 2</span><div class="line"></div></div>
+      <div class="n"><b>4 · Loans + work-study offered</b><span>how the college suggests covering number 3</span><div class="line"></div></div>
+    </div>
+    <p class="sans" style="font-size:15px; margin-top:14px">My reaction to the net price: &nbsp; ☐ OK, we can do that &nbsp; ☐ Less than we thought &nbsp; ☐ More than we thought</p>
+    <p class="sans" style="font-size:14px; color:var(--muted)">Check: does number 1 minus number 2 equal number 3? If the calculator's "net price" is smaller than that, it subtracted loans. Use your own subtraction.</p>
+    <p class="noprint"><button class="btn ghost" onclick="document.body.classList.add('cardonly');window.print();setTimeout(function(){document.body.classList.remove('cardonly')},500)">Print just this card</button></p>
+  </div>
+</section>
+
+<section id="reactions">
+  <h2><span class="no">7</span>Three reactions, and what to do with each</h2>
+  <p class="lede">When we run a calculator with a family, the number at the end usually gets one of three reactions. All three are useful.</p>
+  <div class="react">
+    <div class="r">
+      <q>"OK, we can do that."</q>
+      <p>Keep the college on the list. Write down the four numbers. When the real aid offer arrives in the spring, compare it to this estimate line by line.</p>
+    </div>
+    <div class="r">
+      <q>"That's less than we thought."</q>
+      <p>This happens a lot at colleges that meet 100% of need, and it is the whole reason to run the calculator before crossing a college off. Look at the school seriously.</p>
+    </div>
+    <div class="r">
+      <q>"That's more than we thought."</q>
+      <p>Also good to know now, not in April. Run the calculator at two or three other colleges and compare. Ask your college advisor about opportunity programs (HEOP, EOP, SEEK), which are not in any calculator and can lower the price further.</p>
+    </div>
+  </div>
+  <p style="margin-top:14px">Whatever the reaction, the estimate gives your family a real number to talk about instead of a sticker price or an average. That conversation, at the kitchen table in October, is the point.</p>
+</section>
+
+<section id="compare">
+  <h2><span class="no">8</span>Same family, different incomes and different colleges</h2>
+  <p class="lede">Two ways to see how the number moves: change the family's income at one college, then change the college.</p>
+
+  <h3>First, the same family at four incomes</h3>
+  <p>We ran the Brandeis calculator four times and changed only the parent's income (and, above $70,000, the federal tax paid). Still a household of three, no assets, living on campus.</p>
+  <div class="tablewrap">
+    <table class="data">
+      <tr><th>Parent income</th><th>Pell Grant</th><th>Brandeis grant</th><th>Net price</th><th>Share of sticker</th></tr>
+      <tr><td>$40,000</td><td>$7,395</td><td>$79,850</td><td class="hi">$6,541</td><td>7%</td></tr>
+      <tr><td>$75,000</td><td>$2,065</td><td>$81,650</td><td class="hi">$10,071</td><td>11%</td></tr>
+      <tr><td>$120,000</td><td>$0</td><td>$74,350</td><td class="hi">$19,436</td><td>21%</td></tr>
+      <tr><td>$200,000</td><td>$0</td><td>$54,350</td><td class="hi">$39,436</td><td>42%</td></tr>
+    </table>
+  </div>
+  <div class="card" aria-hidden="true" style="padding:14px 18px">
+    <div class="sans" style="font-size:13px;color:var(--muted);margin-bottom:6px">Net price as a share of the $93,786 sticker price</div>
+    <div style="display:grid;grid-template-columns:90px 1fr;gap:6px 10px;align-items:center;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px">
+      <span>$40,000</span><div style="background:#eceae3;border-radius:4px;height:22px"><div style="width:7%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+      <span>$75,000</span><div style="background:#eceae3;border-radius:4px;height:22px"><div style="width:10.7%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+      <span>$120,000</span><div style="background:#eceae3;border-radius:4px;height:22px"><div style="width:20.7%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+      <span>$200,000</span><div style="background:#eceae3;border-radius:4px;height:22px"><div style="width:42%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+    </div>
+  </div>
+  <p class="note">Run September 26, 2026, for 2026-27. Federal tax entered: $0, $4,000, $14,000, $32,000. The suggested loan and campus job stayed at $3,500 + $3,000 at every income.</p>
+  <ul>
+    <li><b>The Brandeis grant went up when income went up</b> from $40,000 to $75,000. The Pell Grant shrank, and the college filled the gap. That is what "meets 100% of need" means in practice.</li>
+    <li><b>Even at $200,000, this family's price was less than half the sticker.</b> Middle-income families are the ones most likely to cross a college off by mistake.</li>
+    <li><b>The line is not straight.</b> Each extra dollar of income raised the price by about 10 cents at the low end and about 25 cents at the high end. Need-based aid is designed that way.</li>
+  </ul>
+
+  <h3>Then, the same family at Penn State</h3>
+  <p>Penn State is popular with SLJ students, and its sticker price is $28,000 below Brandeis's. We ran its calculator for the same family: household of three, $40,000, no assets, living on campus. Penn State does not promise to meet full need, and a New York family pays the out-of-state price.</p>
+  <div class="two">
+    <div class="card">
+      <h3 style="margin-top:0">Brandeis University</h3>
+      <p class="tiny">Waltham, MA · private · meets 100% of need</p>
+      <table class="data" style="margin-top:6px">
+        <tr><td>Sticker price</td><td>$93,786</td></tr>
+        <tr><td>Grants &amp; scholarships</td><td>$87,245</td></tr>
+        <tr class="hi"><td><b>Net price</b></td><td><b>$6,541</b></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Penn State, University Park</h3>
+      <p class="tiny">State College, PA · public · out-of-state for New Yorkers</p>
+      <table class="data" style="margin-top:6px">
+        <tr><td>Sticker price</td><td>$65,390</td></tr>
+        <tr><td>Grants &amp; scholarships</td><td>$9,395</td></tr>
+        <tr class="hi"><td><b>Net price</b></td><td><b>$55,995</b></td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="note">Penn State's calculator (app.meadowfi.com/pennstate), run September 26, 2026, for its 2025-26 aid year: tuition and fees $43,520, housing and food $15,346, books $1,200, transportation $2,142, personal $3,182. Aid: Pell Grant $7,395, Penn State grant $2,000, state grants $0. It asks for a name and email first; we left them blank and clicked Start your estimate.</p>
+  <div class="callout red">
+    <b>Same family, same year, a $49,000 difference.</b> The college with the lower sticker price would cost this family more than eight times as much. New York's TAP grant does not travel to Pennsylvania, and public universities outside your state rarely give large grants to out-of-state students. This is the single most common surprise when families run the numbers, and the reason to run them before the list is final.
+  </div>
+
+  <h3>Then, the same family at CUNY, living at home</h3>
+  <p>Most SLJ students who go to CUNY live at home, so we ran CUNY's calculator (npc.cuny.edu) for Hunter College with "live at home" set to Yes. CUNY's version asks for the Student Aid Index from the FAFSA instead of walking through income first; for a household like this one it is 0 or below, so we entered 0. It then asks the parent's income, household size, and how many are in college.</p>
+  <div class="card">
+    <table class="data" style="margin-top:0">
+      <tr><th>Hunter College, living at home</th><th>Per year</th></tr>
+      <tr><td>Tuition and fees</td><td>$7,382</td></tr>
+      <tr><td>Federal Pell Grant</td><td>$7,395</td></tr>
+      <tr><td>New York TAP grant</td><td>$3,123</td></tr>
+      <tr><td>NYC Vallone Scholarship + federal SEOG grant</td><td>$1,100</td></tr>
+      <tr class="hi"><td><b>Grants total</b></td><td><b>$11,618</b></td></tr>
+      <tr><td>Bill from the college</td><td>$0</td></tr>
+      <tr class="hi"><td><b>Left over for the student</b></td><td><b>about $4,200</b></td></tr>
+    </table>
+    <p class="note" style="margin-top:10px">CUNY's calculator, run September 26, 2026. Its cost line is tuition and fees only, because a student living at home has no housing bill. The $4,236 that grants exceed tuition comes to the student as a refund check each term, meant for books, transportation, and food. It is real money in the student's pocket. The calculator also listed $7,160 in loans the student could take but does not need.</p>
+  </div>
+  <div class="callout green">
+    <b>A negative net price.</b> For most SLJ families, a CUNY college with the student living at home costs less than nothing: the grants cover tuition and there is money left over. That is why every SLJ senior applies to CUNY, and why the CUNY application is worth doing even for students aiming elsewhere. It is the floor under every other choice.
+  </div>
+
+  <h3>Then, four colleges at the same income</h3>
+  <p>The calculator is personal. The federal government also publishes what families at each income level actually paid, on average, at every college. Here are four colleges SLJ students know, for 2023-24, the latest year published.</p>
+  <div class="tablewrap">
+    <table class="data">
+      <tr><th>Average net price paid, by family income</th><th>$0 to $30k</th><th>$30k to $48k</th><th>$48k to $75k</th><th>$75k to $110k</th><th>over $110k</th></tr>
+      <tr><td>Hunter College (CUNY)<br><span class="tiny">sticker $26,930 on campus, in state</span></td><td>$1,029</td><td class="hi">$1,935</td><td>$6,003</td><td>$8,810</td><td>$12,259</td></tr>
+      <tr><td>Binghamton University (SUNY)<br><span class="tiny">sticker $30,657, in state</span></td><td>$12,171</td><td class="hi">$15,281</td><td>$20,347</td><td>$23,533</td><td>$28,475</td></tr>
+      <tr><td>SUNY New Paltz<br><span class="tiny">sticker $29,360, in state</span></td><td>$10,541</td><td class="hi">$13,969</td><td>$20,178</td><td>$21,937</td><td>$26,256</td></tr>
+      <tr style="background:var(--green-soft)"><td><b>SUNY New Paltz with EOP</b><br><span class="tiny">one real 2024-25 package, below</span></td><td><b>about $8,200</b></td><td class="hi" style="background:var(--green-soft)"><b>about $8,200</b></td><td colspan="3" style="text-align:left;font-family:Georgia,serif;white-space:normal">EOP is for families under about $61,000 (household of 4); higher bands are not eligible</td></tr>
+      <tr><td>Brandeis University<br><span class="tiny">sticker $86,642 that year; meets 100% of need</span></td><td>$13,363</td><td class="hi">$15,135</td><td>$20,536</td><td>$26,784</td><td>$54,885</td></tr>
+      <tr><td>Penn State, University Park<br><span class="tiny">sticker $62,484 for out-of-state families; does not promise to meet full need</span></td><td>$19,845</td><td class="hi">$20,049</td><td>$25,667</td><td>$31,834</td><td>$37,831</td></tr>
+    </table>
+  </div>
+  <p class="note">Source: U.S. Department of Education, College Navigator, average net price for full-time first-year students who received grant aid, 2023-24. Sticker prices are the same source (2023-24 for Brandeis, 2024-25 for the others). Penn State's averages mostly reflect Pennsylvania residents, who pay a much lower sticker price; a New York family should expect its own estimate to come out higher.</p>
+  <h3>What EOP does to a SUNY price</h3>
+  <p>The Educational Opportunity Program, EOP, is the lever most families have never heard of. It is a SUNY program for New York students whose family income is under the state guideline (about $61,000 for a household of four) and whose grades are solid but not automatic admits. It comes with advising, tutoring, a summer start, and its own grant money. Here is a real EOP package a recent SLJ graduate received from SUNY New Paltz for 2024-25, living on campus.</p>
+  <div class="card">
+    <table class="data" style="margin-top:0">
+      <tr><th>SUNY New Paltz, on campus, 2024-25</th><th>Per year</th></tr>
+      <tr><td>Tuition $7,070 + fees $1,490 + housing and meals $16,480</td><td>$25,040</td></tr>
+      <tr><td>Federal Pell Grant</td><td>$7,395</td></tr>
+      <tr><td>New York TAP grant + SUNY tuition credit</td><td>$7,120</td></tr>
+      <tr><td>Federal SEOG grant</td><td>$500</td></tr>
+      <tr style="background:var(--green-soft)"><td><b>NYS EOP grant + New Paltz EOP Bridge scholarship</b></td><td><b>$6,400</b></td></tr>
+      <tr class="hi"><td><b>Grants total</b></td><td><b>$21,415</b></td></tr>
+      <tr><td>Left on the bill after grants</td><td>$3,625</td></tr>
+      <tr><td>Covered by: campus job $2,000 + federal student loans $5,500</td><td>$7,500</td></tr>
+      <tr class="hi"><td><b>Due at registration</b></td><td><b>$0</b></td></tr>
+    </table>
+    <p class="note" style="margin-top:10px">Books, personal expenses and transportation (about $4,600 that year) are on top of the bill at every college; the loan and job in this package covered them too. Without EOP, the same family's grants would have been $6,400 smaller and the bill after grants about $10,000. Counted the way the federal table above counts, this package is a net price of about $8,200 a year, against a college average of $10,541 to $13,969 for these income bands.</p>
+  </div>
+  <div class="callout green">
+    <b>The takeaway for SLJ families.</b> A residential SUNY, four years away from home, can cost a low-income family nothing up front thanks to EOP, TAP and Pell together. EOP packages across SUNY campuses look roughly like this one. Two rules: check the EOP box on the SUNY application, and know that EOP applicants apply by the regular deadline, not Early Action. Your college advisor screens every student for EOP, HEOP and SEEK eligibility from the financial documents families share in the fall.
+  </div>
+
+  <h3>What the table is saying</h3>
+  <ul>
+    <li><b>A high sticker price can hide a low real price.</b> For a family earning under $48,000, Brandeis (sticker $86,642) cost about the same as Binghamton (sticker $30,657). That is what "meets 100% of need" does.</li>
+    <li><b>SUNY with EOP is the quiet bargain.</b> New Paltz's average net price for these bands is $10,500 to $14,000; the EOP package above brought it to about $8,200, with nothing due up front. Every residential SUNY has EOP.</li>
+    <li><b>A popular out-of-state public can be the most expensive option on the list.</b> Penn State's sticker is $24,000 below Brandeis's, and its real price for lower-income families is $5,000 to $7,000 higher. Public universities outside New York rarely give large grants to out-of-state students.</li>
+    <li><b>CUNY is the floor.</b> For New York City residents, TAP and Pell cover CUNY tuition at most incomes. Every SLJ senior applies to CUNY for exactly this reason.</li>
+    <li><b>Your estimate can beat the average.</b> Our example family's Brandeis estimate ($6,541) was well below the $15,135 average for its income band. Averages mix in families with savings, a home, or two incomes. The calculator is about you.</li>
+  </ul>
+</section>
+
+<section id="limits">
+  <h2><span class="no">9</span>What the calculator can't tell you</h2>
+  <p class="lede">It is a very good estimate, not a promise. Researchers who study these tools point to the same handful of limits.</p>
+  <ul>
+    <li><b>It is an estimate for the first year.</b> The real number arrives in the spring, in the financial aid offer, after the FAFSA and any college forms are in. The result page says so at the top.</li>
+    <li><b>The numbers can be a year behind.</b> Colleges update their calculators on their own schedule. Brandeis's calculator used a sticker price about $3,000 below the university's own 2026-27 bulletin, and its "next steps" text still mentioned the 2024 FAFSA. Treat every number as approximate.</li>
+    <li><b>Merit scholarships are usually left out.</b> Most calculators estimate need-based grants only. Brandeis says its calculator does not include merit awards. Your offer can be better than the estimate.</li>
+    <li><b>Opportunity programs are left out too.</b> HEOP at New York private colleges, EOP at SUNY, and SEEK or College Discovery at CUNY are not in any calculator, and they can be worth thousands of dollars a year on top of what the calculator shows (the real EOP package in section 8 added $6,400). Ask your college advisor whether you qualify.</li>
+    <li><b>Special situations need a phone call.</b> A parent who lost a job this year, large medical bills, a family business, or income from outside the U.S. can all make the estimate wrong. Every college has a financial aid office that will talk to you before you apply.</li>
+    <li><b>Housing choice changes everything.</b> Living at home instead of on campus lowers the sticker price by about $20,000 at most colleges, and often lowers the grant too. Run it both ways if you are deciding.</li>
+    <li><b>Results are only as good as the inputs.</b> Household size and total income are the two answers to get right. If the result looks strange, check those two first.</li>
+  </ul>
+</section>
+
+<section id="next">
+  <h2><span class="no">10</span>What happens next</h2>
+  <p class="lede">The estimate becomes a real offer through the financial aid applications, and SLJ families do those together with a college advisor.</p>
+  <div class="card">
+    <p><b>FAFSA</b>, the federal aid application, opens October 1. SLJ's target is to have every family's submitted by <b>November 26</b>. It takes about an hour when the tax documents are on hand, and it is what unlocks the Pell Grant, New York's TAP grant, federal loans and work-study, and most college grants.</p>
+    <p><b>CSS Profile</b> is an additional form that many private colleges, including Brandeis, use for their own grants. Advisors sit with families for this one too, usually in December.</p>
+    <p>If you would like help with these applications (including FAFSA, TAP, CSS Profile, and HEOP applications), share your 2025 financial documents with the college office: tax returns, or benefit statements for families who do not file taxes, plus W-2s or 1099s. We use them to screen for opportunity programs and to prepare accurate applications, and for nothing else.</p>
+    <p>And bring your four-number cards. Comparing them with an advisor is the fastest way to build a college list that fits academically, socially, <b>and</b> financially.</p>
+  </div>
+  <div class="contact">
+    <h3>SLJ College &amp; Career Office</h3>
+    <p>Ms. Moldovan · <a href="mailto:DMoldovan@schools.nyc.gov">DMoldovan@schools.nyc.gov</a><br>Ms. Torres · <a href="mailto:JTorres354@schools.nyc.gov">JTorres354@schools.nyc.gov</a><br>283 Adams Street, Brooklyn · 718-858-1160</p>
+    <p>Appointments in person, by phone, or on Zoom. Families are always welcome to sit down with us and run a calculator together.</p>
+  </div>
+</section>
+
+<section id="glossary" class="glossary">
+  <h2><span class="no">11</span>Glossary</h2>
+  <dl>
+    <div class="entry"><dt>Cost of attendance</dt><dd>The college's full estimated cost for one year: tuition and fees, housing and food, books, transportation, personal expenses. Also called the sticker price.</dd></div>
+    <div class="entry"><dt>Net price</dt><dd>Cost of attendance minus grants and scholarships. What a family would need to cover for the year.</dd></div>
+    <div class="entry"><dt>Grant / scholarship</dt><dd>Gift aid. Money for college that is never repaid. Grants are usually based on need; scholarships are often based on grades, talent, or both.</dd></div>
+    <div class="entry"><dt>Pell Grant</dt><dd>The main federal grant, based on income and household size. Up to $7,395 a year. Comes through the FAFSA.</dd></div>
+    <div class="entry"><dt>TAP</dt><dd>New York State's Tuition Assistance Program grant, for New York residents at New York colleges. Comes through a short state form after the FAFSA.</dd></div>
+    <div class="entry"><dt>Federal student loan</dt><dd>Money borrowed in the student's name and repaid after college. First-year students can borrow up to $5,500; colleges often package $3,500 of it.</dd></div>
+    <div class="entry"><dt>Work-study</dt><dd>A part-time campus job, paid with federal money, offered as part of an aid package. It is earned during the year, not taken off the bill in advance.</dd></div>
+    <div class="entry"><dt>Demonstrated need</dt><dd>Cost of attendance minus what the aid formula says a family can contribute. The gap the college is being asked to fill.</dd></div>
+    <div class="entry"><dt>Meets 100% of need</dt><dd>A college's promise to fill that whole gap with aid, usually mostly grants. Around 90 colleges in the country make this promise; many are highly selective.</dd></div>
+    <div class="entry"><dt>Student Aid Index (SAI)</dt><dd>The number the FAFSA produces to measure what a family can contribute. Replaced the old "EFC" in 2024. It can be as low as negative $1,500.</dd></div>
+    <div class="entry"><dt>FAFSA</dt><dd>Free Application for Federal Student Aid, at studentaid.gov. Opens October 1 for the following school year. The student and one parent each need their own account.</dd></div>
+    <div class="entry"><dt>CSS Profile</dt><dd>The College Board's aid form, used by many private colleges for their own grants, in addition to the FAFSA.</dd></div>
+    <div class="entry"><dt>Opportunity programs</dt><dd>HEOP (New York private colleges), EOP (SUNY), SEEK and College Discovery (CUNY): extra aid plus support for students who qualify by income and academic history.</dd></div>
+    <div class="entry"><dt>Self-help</dt><dd>The loan and work-study portion of an aid package. The part the student and family provide, as opposed to gift aid.</dd></div>
+  </dl>
+</section>
+
+</main>
+
+<footer>
+  SLJ College &amp; Career Office · The Urban Assembly School for Law and Justice · Prepared September 26, 2026.<br>
+  Brandeis example run live on the Brandeis net price calculator (npc.collegeboard.org/app/brandeis) on 9/26/26 for academic year 2026-27; Brandeis Commitment terms from brandeis.edu/student-financial-services/commitment; sticker prices from the Brandeis 2026-27 University Bulletin. Average net prices by income from NCES College Navigator (2023-24). Net price definition from collegecost.ed.gov. Calculator limits drawn from research by The Institute for College Access &amp; Success, uAspire, and the College Board's guidance for counselors.
+</footer>
+
+<script>
+(function(){
+  var steps=[
+    {t:'Start with the sticker price', b:'$93,786', p:'This is one year at Brandeis, living on campus: tuition and fees $70,532, housing and food $20,954, books $1,000, transportation $100, personal expenses $1,200. It is the number that scares families away. Keep going.'},
+    {t:'Subtract the federal Pell Grant', b:'− $7,395', p:'The Pell Grant comes from the U.S. government through the FAFSA. It depends only on income and household size. A family of three earning $40,000 gets the maximum. Never repaid.'},
+    {t:'Subtract the Brandeis grant', b:'− $79,850', p:'This is the college’s own money. Brandeis promises full tuition to families earning $75,000 or less with typical assets, and meets 100% of demonstrated need for every admitted student in the first year. Never repaid.'},
+    {t:'What is left is the net price', b:'$6,541', p:'Sticker price minus all grants and scholarships. This is the number to compare between colleges, and the number to react to: OK we can do that, less than we thought, or more than we thought.'},
+    {t:'How the college suggests covering it', b:'$3,500 loan + $3,000 job', p:'A federal student loan and a campus job of about 8 to 10 hours a week would leave $41. That $41 is not the price. The price is $6,541; the loan is borrowed and the job is worked. Some calculators put the small number in big type. Don’t be fooled either way: this is a very good result.'}
+  ];
+  var i=0, viz=document.getElementById('viz');
+  var el={s:document.getElementById('vzStep'),t:document.getElementById('vzTitle'),b:document.getElementById('vzBig'),p:document.getElementById('vzText'),back:document.getElementById('vzBack'),next:document.getElementById('vzNext'),dots:document.getElementById('vzDots').children};
+  function render(){
+    viz.className='viz s'+(i+1);
+    el.s.textContent='Step '+(i+1)+' of 5'; el.t.textContent=steps[i].t; el.b.textContent=steps[i].b; el.p.textContent=steps[i].p;
+    el.back.disabled=(i===0); el.next.textContent=(i===steps.length-1)?'Start over':'Next';
+    for(var k=0;k<el.dots.length;k++){el.dots[k].className=(k===i)?'on':'';}
+  }
+  el.next.onclick=function(){ i=(i+1)%steps.length; render(); };
+  el.back.onclick=function(){ if(i>0){i--; render();} };
+  render();
+})();
+</script>
+</body>
+</html>

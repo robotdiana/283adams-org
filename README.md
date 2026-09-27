@@ -8,6 +8,7 @@ Static site for the Adams Street Foundation, served by GitHub Pages.
 - `families/` — Family Guide to the College Process (source: Helper `outreach/parent-guide-class-of-2027.html`). Moved from `/parents` on 9/23 (more inclusive name).
 - `parents/` — PERMANENT REDIRECT to `/families/`. 283adams.org/parents was already given to families (Back to School Night 9/24), so never delete it.
 - `fly-ins/` — Fly-in programs directory (GENERATED: edit `reference/fly-in-programs.csv` in Helper, run `scripts/build_flyins.py`, copy the output here)
+- `netprice/` — What College Actually Costs: the net price calculator walkthrough for families (source: Helper `outreach/net-price.html`; copied by `publish_site.py`). Added 9/27/26 at Diana's request; share as 283adams.org/netprice
 - `colleges/` — College Research Guide (GENERATED: profiles live in Helper `reference/colleges/`, joined to the fly-in CSV and need-met CSV by `scripts/build_colleges.py` → `outreach/college-guide.html`; copied here by `publish_site.py`)
 - `common-app/` — Common App Camp deck page + PDF (source pptx in Helper `curriculum/common-app-camp-2026/`)
 - `drafts/` — TEMPORARY (8/31): homepage design concepts B and C for internal review (Diana → principal). noindex, banner-labeled, linked from nothing. DELETE this folder once the homepage decision is settled; source variants live on in Helper `ops/site-redesign/`.
