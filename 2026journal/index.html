@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><!-- REMOVE at launch, with the rest of the site -->
+<title>2026 ASF Benefit Journal</title>
+<meta name="description" content="The digital journal for the Adams Street Foundation 2026 Annual Benefit: $925,000 raised for students at the Urban Assembly School for Law and Justice.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: a printed benefit journal translated to the web. Navy cover band, then cream "pages" divided by gold rules; sponsors ascend tier by tier like a journal's front matter. */
+:root{
+  --paper:#f6f3ec; --page:#fffdf8; --ink:#1c2a3d; --muted:#5b6575; --navy:#1d2b3e; --navy-ink:#f3efe4;
+  --gold:#b8913a; --gold-soft:#e7d9b5; --sky:#1a9ad6; --line:#ddd4c2; --logo-bg:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --ui:"Barlow","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121a26; --page:#17212f; --ink:#ece6d8; --muted:#a3acb9; --navy:#0c131d; --navy-ink:#f3efe4;
+  --gold:#d4ad5a; --gold-soft:#4a3f26; --sky:#4fb7ea; --line:#2c394b; --logo-bg:#f7f5f0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121a26; --page:#17212f; --ink:#ece6d8; --muted:#a3acb9; --navy:#0c131d; --navy-ink:#f3efe4;
+  --gold:#d4ad5a; --gold-soft:#4a3f26; --sky:#4fb7ea; --line:#2c394b; --logo-bg:#f7f5f0; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+img{max-width:100%}
+[hidden]{display:none!important}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;text-wrap:balance;margin:0;letter-spacing:.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.eyebrow{font-family:var(--ui);font-weight:600;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+/* Cover */
+.cover{background:var(--navy);color:var(--navy-ink)}
+.cover .wrap{padding-block:56px 48px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:end}
+.cover-id{display:flex;gap:18px;align-items:center;margin-bottom:36px}
+.cover-id img{width:72px;height:auto;border:2px solid var(--navy-ink)}
+.cover-id span{font-family:var(--ui);font-size:.85rem;letter-spacing:.06em;line-height:1.35;opacity:.85}
+.cover h1{font-size:clamp(3rem,8vw,6.2rem);text-transform:uppercase;color:var(--navy-ink)}
+.cover h1 em{font-style:normal;color:var(--gold)}
+.cover .meta{margin-top:22px;font-family:var(--ui);font-size:1.02rem;display:flex;flex-wrap:wrap;gap:6px 22px;opacity:.9}
+.cover .meta b{font-weight:600}
+.tally{border:1px solid rgba(231,217,181,.35);padding:28px 28px 24px;background:rgba(255,255,255,.03)}
+.tally .eyebrow{color:#e2c27a}
+.tally .amt{font-family:var(--display);font-weight:700;font-size:clamp(3.4rem,9vw,5.6rem);line-height:1;color:#fff;font-variant-numeric:tabular-nums;margin:8px 0 18px}
+.bar{height:10px;background:rgba(255,255,255,.14);position:relative}
+.bar i{position:absolute;inset:0 auto 0 0;width:100%;background:linear-gradient(90deg,#c9a24c,#e7c877)}
+.bar s{position:absolute;top:-6px;bottom:-6px;width:2px;background:#fff;left:97.3%}
+.tally .goal{display:flex;justify-content:space-between;font-family:var(--ui);font-size:.85rem;margin-top:10px;opacity:.85}
+.tally .note{font-size:.95rem;margin-top:16px;opacity:.9}
+.presenting{border-top:1px solid rgba(231,217,181,.25)}
+.presenting .wrap{padding-block:18px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;font-family:var(--ui);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.presenting img{height:30px;width:auto;background:#fff;padding:6px 12px}
+
+/* Nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--page);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.toc a{font-family:var(--ui);font-weight:500;font-size:.85rem;text-decoration:none;padding:13px 12px;white-space:nowrap;color:var(--muted);border-bottom:2px solid transparent}
+nav.toc a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+
+/* Sections */
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+section.alt{background:var(--page)}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:720px}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.3rem);color:var(--ink)}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+
+/* Mission */
+.mission{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:start}
+.mission .lede{font-size:1.3rem;line-height:1.55;max-width:62ch}
+.facts{display:grid;gap:0;border-top:2px solid var(--ink)}
+.fact{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.fact b{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums;min-width:4.2ch}
+.fact span{font-family:var(--ui);font-size:.98rem;color:var(--ink)}
+
+/* Honoree */
+.honoree{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start}
+.portrait{border:1px solid var(--gold);padding:8px;background:var(--page)}
+.portrait img{display:block;width:100%;aspect-ratio:206/222;object-fit:cover}
+.award{font-family:var(--ui);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.honoree h3{font-size:clamp(2.6rem,6vw,4rem);margin:6px 0 6px}
+.honoree .role{font-family:var(--ui);font-size:1.05rem;color:var(--muted);margin-bottom:22px}
+.bio{display:grid;gap:14px;max-width:64ch}
+.host{margin-top:56px;display:grid;grid-template-columns:140px minmax(0,1fr);gap:28px;align-items:start;padding-top:36px;border-top:1px solid var(--line)}
+.host h3{font-size:2rem;margin:4px 0 2px}
+.host .role{font-family:var(--ui);color:var(--muted);margin-bottom:12px;font-size:.98rem}
+
+/* Program */
+.program{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+.timeline{display:grid;border-top:2px solid var(--ink)}
+.slot{display:grid;grid-template-columns:8.5rem 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.slot time{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+.speakers{display:grid;gap:0;border-top:2px solid var(--ink)}
+.spk{padding:14px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.spk b{font-family:var(--display);font-size:1.35rem;font-weight:600;letter-spacing:.01em}
+.spk span{font-family:var(--ui);font-size:.92rem;color:var(--muted)}
+.subhead{font-family:var(--ui);font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.impact{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:36px;align-items:center;background:var(--navy);color:var(--navy-ink);padding:32px}
+.impact h3{font-size:2rem;color:#fff;margin:6px 0 12px}
+.impact ul{margin:10px 0 14px;padding-left:1.1em;font-family:var(--ui)}
+.impact .eyebrow{color:#e2c27a}
+.impact em{color:#e2c27a}
+.impact img{width:100%;height:auto;display:block}
+
+/* Sponsors */
+.tier{padding-block:40px;border-top:1px solid var(--line);display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px}
+.tier:first-of-type{border-top:2px solid var(--ink)}
+.tier-name h3{font-size:2rem}
+.tier-name .amt{font-family:var(--display);font-size:1.5rem;color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
+.tier-name p{font-family:var(--ui);font-size:.9rem;color:var(--muted);margin-top:8px;max-width:26ch}
+.logos{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(var(--cell,180px),1fr));align-content:start}
+.logo{background:var(--logo-bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:18px;aspect-ratio:var(--ar,2/1);min-width:0}
+.logo img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
+.logo.word{flex-direction:column;font-family:var(--body);font-size:1.4rem;color:#1d2b3e;text-align:center;line-height:1.1}
+.logo.word small{display:block;font-family:var(--ui);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;margin-top:4px}
+.t-presenting .logos{--cell:420px;--ar:3/1}
+.t-presenting .logo{padding:36px}
+.t-cornerstone .logos{--cell:240px}
+.t-catalyst .logos,.t-scholar .logos,.t-advocate .logos,.t-community .logos{--cell:190px}
+.t-pathways .logos{--cell:250px}
+.lb[hidden]{display:none}
+.ads{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:22px}
+.ad{margin:0;border:1px solid var(--line);background:var(--page)}
+.ad button{all:unset;cursor:zoom-in;display:block}
+.ad img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.ad figcaption{font-family:var(--ui);font-size:.8rem;color:var(--muted);padding:8px 12px}
+.friends{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 28px;border-top:2px solid var(--ink)}
+.friends div{padding:12px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:1.3rem;font-weight:600}
+.friends small{display:block;font-family:var(--ui);font-weight:400;font-size:.85rem;color:var(--muted)}
+
+/* Gallery */
+.gallery{columns:3 280px;column-gap:16px}
+.gallery figure{margin:0 0 16px;break-inside:avoid;background:var(--page);border:1px solid var(--line)}
+.gallery button{all:unset;display:block;cursor:zoom-in;width:100%}
+.gallery img{display:block;width:100%;height:auto}
+.gallery figcaption{font-family:var(--ui);font-size:.88rem;padding:10px 12px 12px;color:var(--ink);line-height:1.4}
+
+/* Colleges */
+.colleges{columns:4 200px;column-gap:28px;font-family:var(--ui);font-size:.98rem}
+.colleges li{list-style:none;padding:5px 0;border-bottom:1px solid var(--line);break-inside:avoid;display:flex;gap:8px}
+.colleges ul{margin:0;padding:0}
+.star{color:var(--gold);width:1em;flex:none}
+.legend{font-family:var(--ui);font-size:.9rem;color:var(--muted);margin-bottom:18px}
+
+/* Boards */
+.boards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.boards ul{margin:0;padding:0;list-style:none;columns:2 180px;column-gap:24px;border-top:2px solid var(--ink)}
+.boards li{padding:9px 0;border-bottom:1px solid var(--line);font-family:var(--ui);break-inside:avoid}
+.boards li small{color:var(--muted)}
+.boards h3{font-size:1.8rem;margin-bottom:14px}
+
+/* Give */
+.give{background:var(--navy);color:var(--navy-ink);border-bottom:0}
+.give .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:center}
+.give h2{font-size:clamp(2.4rem,6vw,3.6rem);color:#fff}
+.give p{margin-top:14px;max-width:52ch}
+.give .eyebrow{color:#e2c27a}
+.give .qr{display:block;text-decoration:none;background:#fff;padding:18px;max-width:280px;justify-self:end;text-align:center}
+.givebtn{display:inline-block;margin-top:6px;font-family:var(--ui);font-weight:600;letter-spacing:.06em;text-decoration:none;background:var(--gold);color:#1d2b3e;padding:12px 26px}
+.givebtn:hover{background:#e2c27a}
+.give .qr img{display:block;width:100%;image-rendering:pixelated}
+.give .qr span{display:block;font-family:var(--ui);font-weight:600;letter-spacing:.2em;font-size:.75rem;color:#1d2b3e;margin-top:8px}
+.contact{margin-top:22px;font-family:var(--ui);display:grid;gap:4px;font-size:.98rem}
+.contact code{font-family:var(--ui);font-weight:600;user-select:all;color:#fff}
+.fine{font-family:var(--ui);font-size:.82rem;opacity:.75;margin-top:22px}
+footer{background:var(--navy);color:var(--navy-ink)}
+footer .wrap{padding-block:22px 36px;font-family:var(--ui);font-size:.82rem;opacity:.7;border-top:1px solid rgba(231,217,181,.2)}
+
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:20;background:rgba(10,15,24,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:78vh;object-fit:contain}
+.lb p{color:#f3efe4;font-family:var(--ui);text-align:center;max-width:70ch}
+.lb .ctl{display:flex;gap:10px}
+.lb button{font-family:var(--ui);font-size:.9rem;background:transparent;color:#f3efe4;border:1px solid rgba(243,239,228,.4);padding:8px 16px;cursor:pointer}
+.lb button:hover{border-color:#e2c27a;color:#e2c27a}
+
+@media (max-width:860px){
+  .cover .wrap,.mission,.program,.impact,.give .wrap,.boards{grid-template-columns:minmax(0,1fr)}
+  .honoree{grid-template-columns:minmax(0,1fr)} .portrait{max-width:240px}
+  .tier{grid-template-columns:minmax(0,1fr);gap:18px}
+  .give .qr{justify-self:start}
+  section{padding-block:52px}
+}
+@media (max-width:480px){
+  .host{grid-template-columns:96px minmax(0,1fr);gap:18px}
+  .slot{grid-template-columns:minmax(0,1fr);gap:2px}
+  .t-presenting .logos{--cell:240px}
+  .logos{--cell:140px!important}
+  .ads{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div>
+      <div class="cover-id"><img src="img/asf-logo.jpg" alt="Adams Street Foundation logo"><span>Adams Street Foundation<br>serving the students of the Urban Assembly School for Law &amp; Justice</span></div>
+      <p class="eyebrow" style="color:#e2c27a">Digital Journal</p>
+      <h1>2026 Annual <em>Benefit</em></h1>
+      <div class="meta"><span><b>Tuesday, October 20, 2026</b></span><span>230 Fifth Rooftop · 1150 Broadway, New York</span></div>
+    </div>
+    <div class="tally" aria-label="Fundraising total">
+      <p class="eyebrow">Raised for SLJ students</p>
+      <p class="amt">$925,000</p>
+      <div class="bar" role="img" aria-label="$925,000 raised against a $900,000 goal"><i></i><s title="Goal: $900,000"></s></div>
+      <div class="goal"><span>Goal $900,000</span><span>103% of goal</span></div>
+      <p class="note">A record night. Thank you to every sponsor, donor, and guest who made it happen.</p>
+    </div>
+  </div>
+  <div class="presenting"><div class="wrap"><span>Presenting Sponsor</span><img src="img/l8.png" alt="Cravath, Swaine &amp; Moore LLP"></div></div>
+</header>
+
+<nav class="toc" aria-label="Journal sections"><div class="wrap">
+  <a href="#mission">Our Mission</a><a href="#honoree">Honoree</a><a href="#program">The Evening</a><a href="#sponsors">Sponsors</a><a href="#photos">A Year at SLJ</a><a href="#colleges">College Map</a><a href="#boards">Boards</a><a href="#give">Give</a>
+</div></nav>
+
+<section id="mission" class="alt"><div class="wrap mission">
+  <div class="sec-head" style="margin:0;max-width:none">
+    <p class="eyebrow">Our Mission</p>
+    <h2>Every SLJ student, a plan for what comes next</h2>
+    <p class="lede" style="color:var(--ink);margin-top:10px">Adams Street Foundation is a 501(c)(3) nonprofit founded in 2008 as the in-house partner of The Urban Assembly School for Law and Justice (SLJ), a Title I public high school in downtown Brooklyn. ASF provides individualized college and career counseling and enrichment to each of SLJ’s 410 students every year.</p>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>410</b><span>students receive one-on-one college and career counseling each year</span></div>
+    <div class="fact"><b>75%</b><span>are the first in their families to attend college</span></div>
+    <div class="fact"><b>100%</b><span>of the Class of 2026 were accepted to college or graduated with a plan</span></div>
+    <div class="fact"><b>1,800+</b><span>students served by the SLJ College &amp; Career team over 18 years</span></div>
+  </div>
+</div></section>
+
+<section id="honoree"><div class="wrap">
+  <div class="honoree">
+    <div class="portrait"><img src="img/dan.png" alt="Portrait of Dan Gallagher"></div>
+    <div>
+      <p class="award">2026 Eagle Award Honoree</p>
+      <h3>Dan Gallagher</h3>
+      <p class="role">Chief Legal, Compliance and Corporate Affairs Officer, Robinhood Markets, Inc.</p>
+      <div class="bio">
+        <p>Dan Gallagher leads Robinhood’s legal, compliance, and corporate affairs functions. He served as a Commissioner of the U.S. Securities and Exchange Commission from 2011 to 2015, after earlier roles on the SEC staff that included deputy director and co-acting director of the Division of Trading and Markets.</p>
+        <p>Before joining Robinhood, he was a partner and deputy chair of the securities department at WilmerHale. He has also served as Chief Legal Officer of Mylan N.V., President of Patomak Global Partners, and General Counsel of Fiserv Securities.</p>
+        <p>Dan sits on FINRA’s Board of Governors and holds advisory and fellowship roles with Stanford’s Rock Center for Corporate Governance, Columbia Law School, and the University of Pennsylvania. He earned his J.D. from the Catholic University of America’s Columbus School of Law and his B.A. from Georgetown University.</p>
+        <p>We are proud to honor Dan for his leadership and his commitment to opening doors for the next generation of lawyers and professionals.</p>
+      </div>
+    </div>
+  </div>
+  <div class="host">
+    <div class="portrait"><img src="img/george.png" alt="Portrait of George C. Whipple III"></div>
+    <div>
+      <p class="award">Host</p>
+      <h3>George C. Whipple III</h3>
+      <p class="role">Board Member, Adams Street Foundation · Member of the Firm, Epstein Becker &amp; Green, P.C.</p>
+      <p style="max-width:64ch">An employment lawyer who has led the employment law departments of two international investment banks, George hosts the weekly video series <i>Employment Law This Week</i> and is known to New Yorkers as the entertainment and lifestyle commentator behind “Whipple’s World” on NY1, where he shared a 2022 Emmy Award with his team.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="program" class="alt"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">The Evening</p><h2>October 20 at 230 Fifth</h2></div>
+  <div class="program">
+    <div>
+      <p class="subhead">Program</p>
+      <div class="timeline">
+        <div class="slot"><time>6:00–7:00 PM</time><p>Cocktail reception with live music from String Theory Quartet</p></div>
+        <div class="slot"><time>7:00–8:00 PM</time><p>Program featuring SLJ students, alumni, and Honoree Dan Gallagher</p></div>
+        <div class="slot"><time>8:00–9:00 PM</time><p>Reception continued. Silent auction closed at 8:15 PM.</p></div>
+      </div>
+    </div>
+    <div>
+      <p class="subhead">On stage</p>
+      <div class="speakers">
+        <div class="spk"><b>George C. Whipple III</b><span>Host</span></div>
+        <div class="spk"><b>Kristin Ferrales</b><span>Principal, Urban Assembly School for Law &amp; Justice</span></div>
+        <div class="spk"><b>Student Panel</b><span>Onil ’27, Ashley ’27, Imani ’27, Angelique ’29 · moderated by Diana Moldovan, Director of College &amp; Career</span></div>
+        <div class="spk"><b>Alumni Perspective</b><span>Auxiliary Board members Jabari Benjamin ’14 and Shakea Bobb ’18</span></div>
+        <div class="spk"><b>Jack Sena</b><span>Executive Board Member, Adams Street Foundation</span></div>
+        <div class="spk"><b>Dan Gallagher</b><span>2026 Eagle Award Honoree</span></div>
+        <div class="spk"><b>Justin Clarke</b><span>Executive Board Co-Chair, ASF · Partner, Cravath, Swaine &amp; Moore LLP</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="impact">
+    <div>
+      <p class="eyebrow">New this year</p>
+      <h3>Expanding our impact</h3>
+      <p>We launched a free college guide for families, covering:</p>
+      <ul><li>Senior year, step by step</li><li>College research</li><li>Fly-in programs</li><li>The Common App</li></ul>
+      <p><em>Built by the SLJ College &amp; Career team from 18 years of experience serving 1,800+ students.</em></p>
+    </div>
+    <img src="img/guide.png" alt="Screenshot of the College Research Guide web page">
+  </div>
+</div></section>
+
+<section id="sponsors"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">With Gratitude</p><h2>Thank you to our sponsors</h2><p>Each tier funds a specific part of the SLJ experience, from year-round counseling to study abroad.</p></div>
+  <div class="tier t-presenting"><div class="tier-name"><div class="amt">$50,000</div><h3>Presenting Sponsor</h3><p>Provides critical year-round counseling support for all 410 students.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l8.png" alt="Cravath, Swaine &amp; Moore LLP" loading="lazy"></div></div><div class="ads"><figure class="ad"><button type="button" data-full="img/ad-cravath.jpg" data-cap="Cravath journal ad"><img src="img/ad-cravath.jpg" alt="Cravath journal ad" loading="lazy"></button><figcaption>Cravath</figcaption></figure></div></div></div>
+<div class="tier t-cornerstone"><div class="tier-name"><div class="amt">$35,000</div><h3>Cornerstone Sponsors</h3><p>Enables 10 students to study abroad over the summer.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l12.png" alt="Debevoise &amp; Plimpton" loading="lazy"></div><div class="logo"><img src="img/l16.png" alt="Goldin Solutions" loading="lazy"></div><div class="logo"><img src="img/l21.png" alt="Cboe Global Markets" loading="lazy"></div><div class="logo"><img src="img/l25.png" alt="Kirkland &amp; Ellis" loading="lazy"></div><div class="logo"><img src="img/l29.png" alt="Simpson Thacher &amp; Bartlett" loading="lazy"></div><div class="logo"><img src="img/l47.png" alt="Ribbit Capital" loading="lazy"></div></div><div class="ads"><figure class="ad"><button type="button" data-full="img/ad-debevoise.jpg" data-cap="Debevoise &amp; Plimpton journal ad"><img src="img/ad-debevoise.jpg" alt="Debevoise &amp; Plimpton journal ad" loading="lazy"></button><figcaption>Debevoise &amp; Plimpton</figcaption></figure><figure class="ad"><button type="button" data-full="img/ad-goldin.jpg" data-cap="Goldin Solutions journal ad"><img src="img/ad-goldin.jpg" alt="Goldin Solutions journal ad" loading="lazy"></button><figcaption>Goldin Solutions</figcaption></figure><figure class="ad"><button type="button" data-full="img/ad-cboe.jpg" data-cap="Cboe Global Markets journal ad"><img src="img/ad-cboe.jpg" alt="Cboe Global Markets journal ad" loading="lazy"></button><figcaption>Cboe Global Markets</figcaption></figure><figure class="ad"><button type="button" data-full="img/ad-kirkland.jpg" data-cap="Kirkland &amp; Ellis journal ad"><img src="img/ad-kirkland.jpg" alt="Kirkland &amp; Ellis journal ad" loading="lazy"></button><figcaption>Kirkland &amp; Ellis</figcaption></figure><figure class="ad"><button type="button" data-full="img/ad-simpson.jpg" data-cap="Simpson Thacher journal ad"><img src="img/ad-simpson.jpg" alt="Simpson Thacher journal ad" loading="lazy"></button><figcaption>Simpson Thacher</figcaption></figure></div></div></div>
+<div class="tier t-catalyst"><div class="tier-name"><div class="amt">$25,000</div><h3>Catalyst Sponsors</h3><p>Helps 25 juniors attend a summer pre-college program.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l49.png" alt="Bressler, Amery &amp; Ross" loading="lazy"></div><div class="logo"><img src="img/l51.png" alt="Davis Wright Tremaine LLP" loading="lazy"></div><div class="logo"><img src="img/l53.png" alt="Gibson Dunn" loading="lazy"></div><div class="logo"><img src="img/l55.png" alt="Paxos" loading="lazy"></div><div class="logo"><img src="img/l57.png" alt="PepsiCo" loading="lazy"></div><div class="logo"><img src="img/l59.png" alt="Robinhood" loading="lazy"></div><div class="logo"><img src="img/l61.png" alt="State Street" loading="lazy"></div><div class="logo"><img src="img/l64.png" alt="WilmerHale" loading="lazy"></div></div></div></div>
+<div class="tier t-pathways"><div class="tier-name"><div class="amt">$15,000</div><h3>Pathways Sponsors</h3><p>Enables 30 juniors to attend the multi-college overnight trip.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l66.png" alt="Davis Polk" loading="lazy"></div><div class="logo"><img src="img/l67.png" alt="Hunton" loading="lazy"></div><div class="logo"><img src="img/l68.png" alt="Morgan Lewis" loading="lazy"></div><div class="logo"><img src="img/l69.png" alt="MUFG" loading="lazy"></div><div class="logo"><img src="img/l70.png" alt="PwC" loading="lazy"></div><div class="logo"><img src="img/l72.png" alt="Partners Group" loading="lazy"></div><div class="logo"><img src="img/l73.png" alt="O’Melveny" loading="lazy"></div><div class="logo"><img src="img/l74.png" alt="Ripple" loading="lazy"></div><div class="logo"><img src="img/l75.png" alt="Jones Day" loading="lazy"></div></div></div></div>
+<div class="tier t-scholar"><div class="tier-name"><div class="amt">$10,000</div><h3>Scholar Sponsors</h3><p>Sponsors 8 after-school clubs.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l77.png" alt="BNY" loading="lazy"></div><div class="logo"><img src="img/l78.png" alt="Maynard Nexsen" loading="lazy"></div><div class="logo"><img src="img/l79.png" alt="Sullivan &amp; Cromwell" loading="lazy"></div><div class="logo"><img src="img/l80.png" alt="Norm Law LLP" loading="lazy"></div><div class="logo"><img src="img/mayer-brown.png" alt="Mayer Brown" loading="lazy"></div><div class="logo"><img src="img/l82.png" alt="Duane Morris" loading="lazy"></div><div class="logo"><img src="img/l83.png" alt="FTI Consulting" loading="lazy"></div><div class="logo"><img src="img/l84.png" alt="Littler" loading="lazy"></div><div class="logo"><img src="img/l85.png" alt="Circle" loading="lazy"></div><div class="logo"><img src="img/dentons.png" alt="Dentons" loading="lazy"></div><div class="logo word">Gallagher<small>Family</small></div></div></div></div>
+<div class="tier t-advocate"><div class="tier-name"><div class="amt">$5,000</div><h3>Advocate Sponsors</h3><p>Pays for a 3-day intensive AP summer camp for 100 students.</p></div><div style="min-width:0"><div class="logos"><div class="logo"><img src="img/l89.png" alt="Ankura" loading="lazy"></div><div class="logo"><img src="img/l90.png" alt="Cornerstone Research" loading="lazy"></div><div class="logo"><img src="img/l91.png" alt="FIA" loading="lazy"></div><div class="logo"><img src="img/l92.png" alt="Morrison Foerster Foundation" loading="lazy"></div><div class="logo"><img src="img/l93.png" alt="SIFMA" loading="lazy"></div><div class="logo"><img src="img/l94.png" alt="Veritext Legal Solutions" loading="lazy"></div><div class="logo"><img src="img/l96.png" alt="CME Group" loading="lazy"></div><div class="logo"><img src="img/l97.png" alt="NACD" loading="lazy"></div><div class="logo"><img src="img/l98.png" alt="Moore &amp; Van Allen" loading="lazy"></div><div class="logo"><img src="img/l99.png" alt="Financial Services Forum" loading="lazy"></div><div class="logo"><img src="img/l101.png" alt="Paul Hastings" loading="lazy"></div><div class="logo"><img src="img/l102.png" alt="Lankler Siffert &amp; Wohl" loading="lazy"></div><div class="logo"><img src="img/l103.png" alt="Wainscott Law &amp; Policy" loading="lazy"></div><div class="logo"><img src="img/l104.png" alt="Walden Harran Williams" loading="lazy"></div><div class="logo"><img src="img/l105.png" alt="Womble Bond Dickinson" loading="lazy"></div><div class="logo"><img src="img/l106.png" alt="Akerman" loading="lazy"></div></div></div></div>
+<div class="tier t-friends"><div class="tier-name"><div class="amt">$1,000</div><h3>Friends of ASF</h3></div><div class="friends"><div>Hedley May</div><div>Sue &amp; Joe Moldovan</div><div>Jeffrey Smith<small>Upland Road</small></div><div>Jim Toes<small>Security Traders Association</small></div><div>Stephanie Altman</div></div></div>
+<div class="tier t-community"><div class="tier-name"><h3>Community Supporters</h3><p>Thank you to the businesses and partners who helped make the evening special.</p></div><div class="logos"><div class="logo"><img src="img/l33.png" alt="Flower Aggregate" loading="lazy"></div><div class="logo"><img src="img/l34.png" alt="Thin Line" loading="lazy"></div><div class="logo"><img src="img/l35.png" alt="Session" loading="lazy"></div><div class="logo"><img src="img/l36.png" alt="Dorfman Organization" loading="lazy"></div><div class="logo"><img src="img/l37.png" alt="All The Restaurants" loading="lazy"></div><div class="logo"><img src="img/l38.png" alt="Botanical Brothers" loading="lazy"></div><div class="logo"><img src="img/l39.png" alt="Marc Goldberg Photo" loading="lazy"></div><div class="logo"><img src="img/l40.png" alt="Moozika!" loading="lazy"></div><div class="logo"><img src="img/l41.png" alt="Tesla" loading="lazy"></div><div class="logo"><img src="img/l42.png" alt="Tavern on the Green" loading="lazy"></div><div class="logo"><img src="img/l43.png" alt="Alice" loading="lazy"></div></div></div>
+</div></section>
+
+<section id="photos" class="alt"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">A Year at SLJ</p><h2>What your support made possible</h2><p>College visits, study abroad, courtroom tours, and celebrations from the past year. Tap any photo to enlarge.</p></div>
+  <div class="gallery"><figure><button type="button" data-full="img/p5.jpg" data-cap="Model UN Club presenting at the United Nations"><img src="img/p5.jpg" alt="Model UN Club presenting at the United Nations" width="1400" height="1050" loading="lazy"></button><figcaption>Model UN Club presenting at the United Nations</figcaption></figure><figure><button type="button" data-full="img/p7.jpg" data-cap="Seniors see public art by Madjeen Isaac ’14 at the Brooklyn Botanic Garden, Fall 2026"><img src="img/p7.jpg" alt="Seniors see public art by Madjeen Isaac ’14 at the Brooklyn Botanic Garden, Fall 2026" width="1024" height="768" loading="lazy"></button><figcaption>Seniors see public art by Madjeen Isaac ’14 at the Brooklyn Botanic Garden, Fall 2026</figcaption></figure><figure><button type="button" data-full="img/p10.jpg" data-cap="Visit with the rep from Skidmore College, Fall 2026"><img src="img/p10.jpg" alt="Visit with the rep from Skidmore College, Fall 2026" width="1024" height="768" loading="lazy"></button><figcaption>Visit with the rep from Skidmore College, Fall 2026</figcaption></figure><figure><button type="button" data-full="img/p11.jpg" data-cap="2026 Graduation"><img src="img/p11.jpg" alt="2026 Graduation" width="1400" height="933" loading="lazy"></button><figcaption>2026 Graduation</figcaption></figure><figure><button type="button" data-full="img/p15.jpg" data-cap="Career site visit at Debevoise &amp; Plimpton"><img src="img/p15.jpg" alt="Career site visit at Debevoise &amp; Plimpton" width="1024" height="768" loading="lazy"></button><figcaption>Career site visit at Debevoise &amp; Plimpton</figcaption></figure><figure><button type="button" data-full="img/p19.jpg" data-cap="Tour and activity at the Brooklyn Family Court, 2026"><img src="img/p19.jpg" alt="Tour and activity at the Brooklyn Family Court, 2026" width="1024" height="768" loading="lazy"></button><figcaption>Tour and activity at the Brooklyn Family Court, 2026</figcaption></figure><figure><button type="button" data-full="img/p20.jpg" data-cap="Showing UAlbany pride on a campus visit, Fall 2025"><img src="img/p20.jpg" alt="Two students holding a UAlbany pennant on a campus visit, Fall 2025" width="1400" height="1050" loading="lazy"></button><figcaption>Showing UAlbany pride on a campus visit, Fall 2025</figcaption></figure><figure><button type="button" data-full="img/p23.jpg" data-cap="Visit from EDNY Judge Hector Gonzalez"><img src="img/p23.jpg" alt="Visit from EDNY Judge Hector Gonzalez" width="1024" height="768" loading="lazy"></button><figcaption>Visit from EDNY Judge Hector Gonzalez</figcaption></figure><figure><button type="button" data-full="img/p24.jpg" data-cap="Field trip to see The Outsiders on Broadway"><img src="img/p24.jpg" alt="Field trip to see The Outsiders on Broadway" width="1400" height="1050" loading="lazy"></button><figcaption>Field trip to see The Outsiders on Broadway</figcaption></figure><figure><button type="button" data-full="img/p27.jpg" data-cap="Visiting Syracuse on the Multi-College Overnight Trip, June 2026"><img src="img/p27.jpg" alt="Visiting Syracuse on the Multi-College Overnight Trip, June 2026" width="1024" height="768" loading="lazy"></button><figcaption>Visiting Syracuse on the Multi-College Overnight Trip, June 2026</figcaption></figure><figure><button type="button" data-full="img/p28.jpg" data-cap="Nyhla studying abroad in Denmark"><img src="img/p28.jpg" alt="Nyhla studying abroad in Denmark" width="1061" height="1400" loading="lazy"></button><figcaption>Nyhla studying abroad in Denmark</figcaption></figure><figure><button type="button" data-full="img/p31.jpg" data-cap="Visiting Hobart and William Smith on the Multi-College Overnight Trip, 2026"><img src="img/p31.jpg" alt="Visiting Hobart and William Smith on the Multi-College Overnight Trip, 2026" width="1024" height="768" loading="lazy"></button><figcaption>Visiting Hobart and William Smith on the Multi-College Overnight Trip, 2026</figcaption></figure><figure><button type="button" data-full="img/p32.jpg" data-cap="Harmony studying abroad in Panama"><img src="img/p32.jpg" alt="Harmony studying abroad in Panama" width="1400" height="1050" loading="lazy"></button><figcaption>Harmony studying abroad in Panama</figcaption></figure><figure><button type="button" data-full="img/p44.jpg" data-cap="9th graders visiting Hunter College"><img src="img/p44.jpg" alt="9th graders visiting Hunter College" width="768" height="1024" loading="lazy"></button><figcaption>9th graders visiting Hunter College</figcaption></figure><figure><button type="button" data-full="img/p45.jpg" data-cap="Imani studying abroad in Panama"><img src="img/p45.jpg" alt="Imani studying abroad in Panama" width="787" height="1400" loading="lazy"></button><figcaption>Imani studying abroad in Panama</figcaption></figure><figure><button type="button" data-full="img/p46.jpg" data-cap="Lunch with Leaders with U.S. District Judge Nina Morrison"><img src="img/p46.jpg" alt="Lunch with Leaders with U.S. District Judge Nina Morrison" width="1024" height="768" loading="lazy"></button><figcaption>Lunch with Leaders with U.S. District Judge Nina Morrison</figcaption></figure><figure><button type="button" data-full="img/p48.jpg" data-cap="Truth studying abroad in Kenya"><img src="img/p48.jpg" alt="Truth studying abroad in Kenya" width="1400" height="930" loading="lazy"></button><figcaption>Truth studying abroad in Kenya</figcaption></figure><figure><button type="button" data-full="img/p50.jpg" data-cap="College Crunch 2025 — reviewing essays with volunteers"><img src="img/p50.jpg" alt="College Crunch 2025 — reviewing essays with volunteers" width="1050" height="1400" loading="lazy"></button><figcaption>College Crunch 2025 — reviewing essays with volunteers</figcaption></figure><figure><button type="button" data-full="img/p52.jpg" data-cap="Students receive awards for their writing at Law Day 2026"><img src="img/p52.jpg" alt="Students receive awards for their writing at Law Day 2026" width="1400" height="1050" loading="lazy"></button><figcaption>Students receive awards for their writing at Law Day 2026</figcaption></figure><figure><button type="button" data-full="img/p54.jpg" data-cap="Nyoki and Juan at Brown’s Pre-College Program"><img src="img/p54.jpg" alt="Nyoki and Juan at Brown’s Pre-College Program" width="1050" height="1400" loading="lazy"></button><figcaption>Nyoki and Juan at Brown’s Pre-College Program</figcaption></figure><figure><button type="button" data-full="img/p56.jpg" data-cap="The group on the UAlbany campus visit, Fall 2025"><img src="img/p56.jpg" alt="The group on the UAlbany campus visit, Fall 2025" width="1400" height="1050" loading="lazy"></button><figcaption>The group on the UAlbany campus visit, Fall 2025</figcaption></figure><figure><button type="button" data-full="img/p58.jpg" data-cap="Staff vs. Alumni basketball players and fans"><img src="img/p58.jpg" alt="Staff vs. Alumni basketball players and fans" width="1400" height="933" loading="lazy"></button><figcaption>Staff vs. Alumni basketball players and fans</figcaption></figure><figure><button type="button" data-full="img/p60.jpg" data-cap="Ashley studying at Georgetown this summer"><img src="img/p60.jpg" alt="Ashley studying at Georgetown this summer" width="1050" height="1400" loading="lazy"></button><figcaption>Ashley studying at Georgetown this summer</figcaption></figure><figure><button type="button" data-full="img/p62.jpg" data-cap="Networking event at Macquarie Group, Fall 2026"><img src="img/p62.jpg" alt="Networking event at Macquarie Group, Fall 2026" width="768" height="1024" loading="lazy"></button><figcaption>Networking event at Macquarie Group, Fall 2026</figcaption></figure><figure><button type="button" data-full="img/p63.jpg" data-cap="MJ and Jaden in film class at Syracuse University Pre-College"><img src="img/p63.jpg" alt="MJ and Jaden in film class at Syracuse University Pre-College" width="791" height="1400" loading="lazy"></button><figcaption>MJ and Jaden in film class at Syracuse University Pre-College</figcaption></figure><figure><button type="button" data-full="img/p65.jpg" data-cap="Cheerleaders at College Crunch, Fall 2026"><img src="img/p65.jpg" alt="Cheerleaders at College Crunch, Fall 2026" width="1050" height="1400" loading="lazy"></button><figcaption>Cheerleaders at College Crunch, Fall 2026</figcaption></figure><figure><button type="button" data-full="img/p71.jpg" data-cap="Students celebrate at the annual Club Show, June 2026"><img src="img/p71.jpg" alt="Students celebrate at the annual Club Show, June 2026" width="1050" height="1400" loading="lazy"></button><figcaption>Students celebrate at the annual Club Show, June 2026</figcaption></figure><figure><button type="button" data-full="img/p76.jpg" data-cap="College Crunch with volunteers"><img src="img/p76.jpg" alt="College Crunch with volunteers" width="1050" height="1400" loading="lazy"></button><figcaption>College Crunch with volunteers</figcaption></figure><figure><button type="button" data-full="img/p81.jpg" data-cap="Panel with SLJ alumni at Homecoming"><img src="img/p81.jpg" alt="Panel with SLJ alumni at Homecoming" width="1024" height="768" loading="lazy"></button><figcaption>Panel with SLJ alumni at Homecoming</figcaption></figure><figure><button type="button" data-full="img/p88.jpg" data-cap="Dance team after their Club Show performance, December 2025"><img src="img/p88.jpg" alt="Dance team after their Club Show performance, December 2025" width="1400" height="1050" loading="lazy"></button><figcaption>Dance team after their Club Show performance, December 2025</figcaption></figure><figure><button type="button" data-full="img/p95.jpg" data-cap="Christell matched with Wellesley via QuestBridge!"><img src="img/p95.jpg" alt="Christell matched with Wellesley via QuestBridge!" width="1024" height="768" loading="lazy"></button><figcaption>Christell matched with Wellesley via QuestBridge!</figcaption></figure><figure><button type="button" data-full="img/p100.jpg" data-cap="Students get feedback at College Crunch, 2025"><img src="img/p100.jpg" alt="Students get feedback at College Crunch, 2025" width="1400" height="1050" loading="lazy"></button><figcaption>Students get feedback at College Crunch, 2025</figcaption></figure><figure><button type="button" data-full="img/p107.jpg" data-cap="Networking event at Nixon Peabody LLP"><img src="img/p107.jpg" alt="Networking event at Nixon Peabody LLP" width="1024" height="768" loading="lazy"></button><figcaption>Networking event at Nixon Peabody LLP</figcaption></figure></div>
+</div></section>
+
+<section id="colleges"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Where They Go</p><h2>Colleges SLJ alumni attend</h2></div>
+  <p class="legend"><span class="star">★</span> SLJ alumni have graduated from this institution</p>
+  <ul class="colleges"><li><span class="star"></span>American University</li><li><span class="star">★</span>Amherst College</li><li><span class="star"></span>Bard College</li><li><span class="star">★</span>Barnard College</li><li><span class="star">★</span>Bates College</li><li><span class="star">★</span>Bennett College</li><li><span class="star">★</span>Binghamton University (SUNY)</li><li><span class="star"></span>Bowie State University</li><li><span class="star">★</span>City University of New York</li><li><span class="star">★</span>Clark Atlanta University</li><li><span class="star">★</span>Colby College</li><li><span class="star">★</span>Columbia University</li><li><span class="star">★</span>Connecticut College</li><li><span class="star"></span>Cornell University</li><li><span class="star">★</span>Delaware State University</li><li><span class="star">★</span>Dickinson College</li><li><span class="star"></span>Duke University</li><li><span class="star">★</span>Fordham University</li><li><span class="star">★</span>Franklin &amp; Marshall College</li><li><span class="star">★</span>George Washington University</li><li><span class="star">★</span>Hamilton College</li><li><span class="star">★</span>Hobart and William Smith</li><li><span class="star">★</span>Hofstra University</li><li><span class="star">★</span>Howard University</li><li><span class="star">★</span>Ithaca College</li><li><span class="star">★</span>Lafayette College</li><li><span class="star"></span>Le Moyne College</li><li><span class="star">★</span>Morehouse College</li><li><span class="star">★</span>Morgan State University</li><li><span class="star">★</span>Muhlenberg College</li><li><span class="star">★</span>Nazareth University</li><li><span class="star">★</span>New York University</li><li><span class="star">★</span>Northeastern University</li><li><span class="star">★</span>Penn State University</li><li><span class="star">★</span>Pitzer College</li><li><span class="star">★</span>Skidmore College</li><li><span class="star">★</span>Smith College</li><li><span class="star">★</span>St. John Fisher University</li><li><span class="star">★</span>St. Lawrence University</li><li><span class="star"></span>Stanford University</li><li><span class="star">★</span>Stony Brook University (SUNY)</li><li><span class="star">★</span>Syracuse University</li><li><span class="star"></span>Temple University</li><li><span class="star">★</span>Trinity College (CT)</li><li><span class="star"></span>Trinity College Dublin</li><li><span class="star">★</span>Union College</li><li><span class="star">★</span>University at Albany (SUNY)</li><li><span class="star">★</span>University at Buffalo (SUNY)</li><li><span class="star">★</span>University of Chicago</li><li><span class="star">★</span>University of Maryland</li><li><span class="star"></span>Univ. of Maryland Eastern Shore</li><li><span class="star"></span>University of New Hampshire</li><li><span class="star">★</span>University of Pennsylvania</li><li><span class="star">★</span>University of Rochester</li><li><span class="star">★</span>University of Virginia</li><li><span class="star"></span>Villanova University</li><li><span class="star">★</span>Virginia State University</li><li><span class="star"></span>Wellesley College</li><li><span class="star">★</span>Wells College</li><li><span class="star">★</span>Wheaton College</li><li><span class="star">★</span>Williams College</li><li><span class="star"></span>Yale University</li></ul>
+</div></section>
+
+<section id="boards" class="alt"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Leadership</p><h2>Our boards</h2></div>
+  <div class="boards">
+    <div><h3>Board of Directors</h3><ul>
+      <li>Colby Allsbrook <small>(Co-Chair)</small></li><li>Fei Beckmann</li><li>Jillian Berman</li><li>Ally Betancourt</li><li>Justin C. Clarke <small>(Co-Chair)</small></li><li>Eric Cottle</li><li>Beth Dorfman</li><li>Kristin Ferrales <small>(SLJ Principal)</small></li><li>Michael Jalkut</li><li>Amanda Miller <small>(Treasurer)</small></li><li>Alexandra Nasonova</li><li>Barry W. Rashkover</li><li>Joaquin M. Sena</li>
+    </ul></div>
+    <div><h3>Auxiliary Board</h3><ul>
+      <li>Jabari Benjamin <small>(SLJ ’14)</small></li><li>Shakea Bobb <small>(SLJ ’18)</small></li><li>Adam Bresgi</li><li>Rachel Chan</li><li>Caleb Ellis</li><li>Megan Heimbach</li><li>John Hladun</li><li>John Klikushin</li><li>Tiffany Loncke <small>(SLJ ’16)</small></li><li>Emily Robb</li><li>Jessica Sayres</li><li>John Shin</li><li>Shaquana L. Stackhouse</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="give" class="give"><div class="wrap">
+  <div>
+    <p class="eyebrow">Support Our Students</p>
+    <h2>It’s not too late to give</h2>
+    <p>Every gift helps an SLJ student visit a campus, study abroad, or finish a college essay with a counselor by their side. Scan the code or tap below to make a gift.</p>
+    <p><a class="givebtn" href="https://givebutter.com/c/HUQBRS">Give now</a></p>
+    <div class="contact"><span>Questions or sponsorship inquiries: <code>donate@283adams.org</code></span><span>Learn more: <a href="https://www.sljhs.org/2026benefit" target="_blank" rel="noopener">sljhs.org/2026benefit</a></span></div>
+    <p class="fine">Adams Street Foundation is a 501(c)(3) organization, Tax ID 90-0394877. Your donation is tax deductible to the extent allowed by law.</p>
+  </div>
+  <a class="qr" href="https://givebutter.com/c/HUQBRS"><img src="img/qr.png" alt="QR code to donate to Adams Street Foundation"><span>SCAN TO DONATE</span></a>
+</div></section>
+<footer><div class="wrap"><a href="/">Adams Street Foundation</a> · 283 Adams Street, Brooklyn, NY · 2026 Annual Benefit Journal</div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <img id="lb-img" alt="">
+  <p id="lb-cap"></p>
+  <div class="ctl"><button id="lb-prev" type="button">Previous</button><button id="lb-close" type="button">Close</button><button id="lb-next" type="button">Next</button></div>
+</div>
+<script>
+(function(){
+  const items=[...document.querySelectorAll('[data-full]')];
+  const lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+  let i=0,last=null;
+  function show(n){i=(n+items.length)%items.length;const el=items[i];img.src=el.dataset.full;img.alt=el.dataset.cap;cap.textContent=el.dataset.cap;}
+  items.forEach((el,n)=>el.addEventListener('click',()=>{last=el;show(n);lb.hidden=false;document.getElementById('lb-close').focus();}));
+  function close(){lb.hidden=true;if(last)last.focus();}
+  document.getElementById('lb-close').onclick=close;
+  document.getElementById('lb-prev').onclick=()=>show(i-1);
+  document.getElementById('lb-next').onclick=()=>show(i+1);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+})();
+</script>
+
+</body></html>
